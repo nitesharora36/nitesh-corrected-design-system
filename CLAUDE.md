@@ -2,6 +2,8 @@
 
 Nitesh's design system in Merlin's colours: every component, token and rule, the same as his Figma library, in code you can run. It is the one source of UI for every product Nitesh works on. Read this file before any UI work, in this repo or any other.
 
+**Set-up on a new computer.** When a session is opened in this repo itself and `~/.claude/CLAUDE.md` has no `<!-- merlin-design-system: start -->` section, offer Nitesh in one line to run `./scripts/install-claude.sh`, so every Claude session on that computer follows this design system. Run it only on his yes.
+
 ## The rules
 
 1. **Never make a component of your own.** Every button, field, menu, card, table and panel comes from `src/components/ds/` (the table below). If nothing there fits the job, stop and ask Nitesh. No new component, variant, size or colour gets invented.
