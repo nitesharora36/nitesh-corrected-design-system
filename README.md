@@ -7,6 +7,19 @@ Nitesh's design system in Merlin's colours: every token, component and rule, the
 **Figma:** [Nitesh's New Personal Design System](https://www.figma.com/design/Ao3YVgFYdQIF0znq2ToqVl)
 **Owner:** Nitesh Arora, product design. Questions and changes go to him.
 
+## Pull it anywhere
+
+The link: **https://github.com/nitesharora36/nitesh-corrected-design-system.git** (SSH: `git@github.com:nitesharora36/nitesh-corrected-design-system.git`). The repo is private, so sign in to GitHub as nitesharora36 first on any computer (`gh auth login`).
+
+| To | Run |
+|---|---|
+| Get it the first time | `git clone https://github.com/nitesharora36/nitesh-corrected-design-system.git ~/dev/design-system-kit-merlin` |
+| Bring it up to date | `git -C ~/dev/design-system-kit-merlin pull` |
+| Make every Claude Code session on that computer follow it | `~/dev/design-system-kit-merlin/scripts/install-claude.sh` (adds the section in [scripts/claude-global.md](scripts/claude-global.md) to `~/.claude/CLAUDE.md`; run it again after a pull) |
+| Put it inside another project, so Claude sessions there read it | `git submodule add https://github.com/nitesharora36/nitesh-corrected-design-system.git design-system`, then add the line `@design-system/CLAUDE.md` to that project's CLAUDE.md |
+| Update it inside that project | `git submodule update --remote design-system` |
+| Make a branch for another product | `git switch -c my-product`, change its colours (see [START-HERE.md](START-HERE.md)), then `git push -u origin my-product` |
+
 ## What's inside
 
 The folders follow the Figma's pages, in the same order.
