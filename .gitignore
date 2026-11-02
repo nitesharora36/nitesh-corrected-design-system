@@ -1,0 +1,19 @@
+# Dependencies and builds
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# The browser profile the screen pictures sign in with (never commit a session)
+.auth/
+
+# Local files
+.DS_Store
+.env*
+*.pem
+*.log
+
+# The Tiempos test font is licensed for the playground only: never in git
+**/playground-fonts/
+**/*iempos*

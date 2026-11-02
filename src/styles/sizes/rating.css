@@ -1,0 +1,53 @@
+/* Size tokens for Rating (design-system/components/rating.md, the Figma's
+ * "Rating Items [1.0]" 532:4137, "Rating & Review [1.0]" 532:4340, "Rating
+ * Cell [1.1]" 532:4160, "Rating Bar [1.1]" 535:4658 and "Rating Bar Area
+ * [1.1]" 535:4994). Read by components/ds/rating.tsx. */
+
+@theme {
+  /* ---- Rating Item: a 20 x 20 box (32 x 32 in the Rating Cell) ----
+     The star and heart are Hugeicons' shapes; each glyph's own size is set
+     so the shape comes out near the Figma's: the star 17.5 x 16.9 (Hugeicons
+     draws about 17.6 x 16.8 in a 20 glyph), the heart 15 x 13.8 (about
+     15 x 12.8 in an 18 glyph). In the cell: star 28 x 27, heart 24 x 22. */
+  --spacing-rating-item: var(--space-20);
+  --spacing-rating-item-star: var(--space-20);
+  --spacing-rating-item-heart: 1.125rem; /* 18 */
+  --spacing-rating-item-lg: var(--space-32);
+  --spacing-rating-item-lg-star: var(--space-32);
+  --spacing-rating-item-lg-heart: 1.8rem; /* 28.8, draws the heart 24 wide */
+
+  /* ---- Rating & Review ---- */
+  --spacing-rating-review-items-gap: var(--space-2); /* five items, 108 x 20 */
+  --spacing-rating-review-words: var(--space-20); /* the words and link row, 20 tall */
+  --spacing-rating-review-words-gap: var(--space-4);
+  --spacing-rating-review-gap: var(--space-8); /* the items to the words, either way */
+
+  /* ---- Rating Cell ---- */
+  --spacing-rating-cell: 3.5rem; /* 56 */
+  --spacing-rating-cell-pad: var(--space-12);
+  --radius-rating-cell: var(--corner-10);
+
+  /* ---- Rating Bar: five equal cells, no gap; 320 x 36 in the Figma ---- */
+  --spacing-rating-bar: 2.25rem; /* 36 tall */
+  --spacing-rating-bar-y: var(--space-8);
+  --spacing-rating-bar-x: var(--space-4);
+  --spacing-rating-bar-emoji: var(--space-20);
+  --spacing-rating-figma: 20rem; /* 320, the width the Figma draws the bar and the area */
+
+  /* ---- Rating Bar Area: 320 x 132, the bar (36) on the writing box (96) ---- */
+  --radius-rating-area: var(--corner-12);
+  --spacing-rating-area-pad: var(--space-12);
+  --spacing-rating-area-writing: 4.5rem; /* 72, three lines */
+  /* The counter row, only with a limit (page, Open): the Text Area's, 8
+     under the writing area and 12 tall, so the box grows by 20. */
+  --spacing-rating-area-counter-gap: var(--space-8);
+  --spacing-rating-area-counter: var(--space-12);
+}
+
+:root {
+  /* The line between two cells of the bar: 1px inside the left side of
+     every cell but the first, so it takes no room. Same in both themes. */
+  --shadow-rating-bar-divider: inset 1px 0 0 0 var(--stroke-soft-200);
+  /* The line between the bar and the writing box in the Rating Bar Area. */
+  --shadow-rating-area-line: inset 0 1px 0 0 var(--stroke-soft-200);
+}

@@ -1,0 +1,32 @@
+/* Size tokens for Banner (design-system/components/banner.md, Figma "Banner
+   [1.1]", node 224:2249). Read by components/ds/banner.tsx.
+
+   One size: the full width of the screen, 44 tall, no corner. The icon, the
+   words and the link sit in one row in the middle; the close icon sits 12
+   from the right edge, outside that row. */
+
+@theme {
+  --spacing-banner: 2.75rem; /* 44 tall */
+  --spacing-banner-y: var(--space-12); /* top and bottom */
+  --spacing-banner-x: var(--space-48); /* sides */
+  --spacing-banner-gap: var(--space-12); /* icon, words, link */
+  --spacing-banner-text-gap: var(--space-8); /* title, dot, description */
+  --spacing-banner-icon: var(--space-20); /* status and close icons */
+  --spacing-banner-close-right: var(--space-12); /* the close icon, from the right edge */
+  --radius-banner: var(--corner-0); /* no corner */
+
+  /* Not on the page: the corner of the close icon's focus ring (page, Open:
+     the close icon is its own button). */
+  --radius-banner-close: var(--corner-4);
+}
+
+:root {
+  /* The close icon, see-through as drawn (page, Open): 72% on Filled, 48%
+     on the other styles. */
+  --banner-close: color-mix(in srgb, var(--icon-strong-950) 48%, transparent);
+  --banner-close-on-filled: color-mix(in srgb, var(--static-white) 72%, transparent);
+
+  /* The Stroke style's edge: 1px of stroke/soft-200 along the bottom,
+     inside, so it never changes the 44. */
+  --shadow-banner-edge: inset 0 calc(var(--space-1) * -1) 0 0 var(--stroke-soft-200);
+}

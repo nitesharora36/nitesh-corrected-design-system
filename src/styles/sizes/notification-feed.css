@@ -1,0 +1,98 @@
+/* Size tokens for Notification Feed (design-system/components/notification-feed.md,
+   Figma "Notifications Header [1.1]" node 4308:1004, "Notifications Tab Menu
+   [1.1]" 4349:46656, "Notifications Items [1.1]" 4308:731, "Notifications
+   Footer [1.1]" 4308:5526). Read by components/ds/notification-feed.tsx.
+
+   The panel stacks the Header, the Tab Menu, the list and the Footer with no
+   gaps. The tab bar keeps the Tab Menu's own 48 and 14 (tab-menu.css); only
+   what differs here is below. */
+
+@theme {
+  /* ---- The panel ---- */
+  --spacing-notification-feed: 33.75rem; /* 540 wide */
+  --radius-notification-feed: var(--corner-20);
+  --spacing-notification-feed-line: var(--space-1); /* every line in the panel */
+  /* The header, tab bar and footer sides: 20 (page, Open: off the Figma's
+     spacing scale, kept as drawn). */
+  --spacing-notification-feed-bar-x: var(--space-20);
+
+  /* ---- Header ---- */
+  --spacing-notification-feed-header: 3.5rem; /* 56 tall */
+  --spacing-notification-feed-header-y: var(--space-16);
+  --spacing-notification-feed-header-gap: var(--space-16);
+
+  /* ---- Tab Menu ---- */
+  --spacing-notification-feed-tabs-gap: var(--space-20); /* between tabs (24 on the Tab Menu page) */
+  --spacing-notification-feed-tab-gap: var(--space-4); /* the word to its count */
+  --spacing-notification-feed-tabs-divider: var(--space-20); /* the upright line before the 4th tab, 20 tall */
+  --spacing-notification-feed-filter-right: var(--space-12); /* the filter button, from the right edge */
+
+  /* ---- The list ---- */
+  --spacing-notification-feed-list-pad: var(--space-8);
+  --spacing-notification-feed-list-gap: var(--space-4); /* items and the dividers between them */
+
+  /* ---- Notification item ---- */
+  --spacing-notification-feed-item-pad: var(--space-12);
+  --radius-notification-feed-item: var(--corner-12);
+  --spacing-notification-feed-item-gap: var(--space-14); /* avatar, words, more (15 in the Figma; page, differs) */
+  --spacing-notification-feed-item-words-gap: var(--space-4); /* label to detail line */
+  --spacing-notification-feed-item-detail-gap: var(--space-4); /* time, dot, description */
+  --spacing-notification-feed-item-picture: var(--space-16); /* the 16 x 16 logo */
+  --spacing-notification-feed-item-picture-gap: var(--space-6); /* logo to description */
+  --spacing-notification-feed-item-more: var(--space-40); /* the more button's 40 x 40 space */
+  --spacing-notification-feed-item-more-pad: var(--space-8);
+  --spacing-notification-feed-item-buttons-top: var(--space-16); /* Button type: above the buttons */
+  --spacing-notification-feed-item-buttons-gap: var(--space-10);
+  --spacing-notification-feed-item-attachment-top: var(--space-12); /* File and Message types */
+
+  /* File chip (File type) */
+  --spacing-notification-feed-file: 2.25rem; /* 36 tall */
+  --spacing-notification-feed-file-pad: var(--space-8);
+  --spacing-notification-feed-file-gap: var(--space-4); /* paperclip to the name */
+  --spacing-notification-feed-file-icon: var(--space-20);
+  --spacing-notification-feed-file-size-gap: var(--space-2); /* the name to "(4mb)" */
+  --radius-notification-feed-file: var(--corner-8);
+
+  /* Quoted message (Message type): corners 4 top left, 8 the others */
+  --spacing-notification-feed-message: 2.25rem; /* 36 tall */
+  --spacing-notification-feed-message-y: var(--space-8);
+  --spacing-notification-feed-message-x: var(--space-12);
+  --radius-notification-feed-message: var(--corner-8);
+  --radius-notification-feed-message-start: var(--corner-4); /* top left */
+
+  /* ---- Footer ---- */
+  --spacing-notification-feed-footer: 3rem; /* 48 tall */
+  --spacing-notification-feed-footer-y: var(--space-14);
+  --spacing-notification-feed-footer-gap: var(--space-16);
+  --spacing-notification-feed-footer-hint-gap: var(--space-8); /* the words and the two keys */
+  --spacing-notification-feed-key: var(--space-20); /* 20 x 20 */
+  --spacing-notification-feed-key-pad: var(--space-2);
+  --spacing-notification-feed-key-icon: var(--space-16);
+  --radius-notification-feed-key: var(--corner-4);
+}
+
+/* The panel's shadow, the Figma's custom-shadows/medium, eight layers
+   (shadows.md). Its 1px Edge layer draws the panel's outline. The typed-in
+   near-black layers are --palette-black at the same strength (shadows.md,
+   Open). On dark a shadow keeps only its 1px ring, in stroke/soft-200. */
+:root {
+  --shadow-notification-feed:
+    inset 0 -1px 1px -0.5px color-mix(in srgb, var(--palette-black) 6%, transparent),
+    0 0 0 1px var(--state-faded-lighter),
+    0 48px 48px -24px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 24px 24px -12px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 12px 12px -6px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 6px 6px -3px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 3px 3px -1.5px color-mix(in srgb, var(--palette-black) 2%, transparent),
+    0 1px 1px 0.5px color-mix(in srgb, var(--palette-black) 4%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-notification-feed: 0 0 0 1px var(--stroke-soft-200);
+}
+
+/* The 1px stroke/soft-200 line along the bottom of the header and the tab
+   bar, drawn inside (as the Figma's strokes are), so it never changes their
+   height. The same in both themes. */
+:root {
+  --shadow-notification-feed-line: inset 0 calc(var(--space-1) * -1) 0 0 var(--stroke-soft-200);
+}

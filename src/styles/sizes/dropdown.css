@@ -1,0 +1,74 @@
+/* Size tokens for Dropdown (design-system/components/dropdown.md, Figma
+ * "Dropdown Items [1.1]", node 379:6629, and "Dropdown Misc Items [1.1]",
+ * node 414:8031). Read by components/ds/dropdown.tsx. The Select's list
+ * (select.md) is this menu with these rows. */
+
+@theme {
+  /* ---- The menu ---- */
+  --spacing-dropdown-menu-w: 18.75rem; /* 300, as the Figma draws it; it follows the use */
+  --spacing-dropdown-profile-row: 2rem; /* 32, its rows a little shorter than the Figma's 36 (Nitesh, 23 Oct 2026) */
+  --spacing-dropdown-profile-row-y: var(--space-6);
+  --spacing-dropdown-menu-pad: var(--space-8);
+  --spacing-dropdown-menu-gap: var(--space-4); /* between rows */
+  --radius-dropdown-menu: var(--corner-16);
+  /* The page gives no distance from the button; the Select's list opens 10
+     below its field (select.md), so the menu does the same. */
+  --spacing-dropdown-menu-offset: var(--space-10);
+
+  /* ---- Rows, Small 36 ---- */
+  --spacing-dropdown-sm: 2.25rem; /* 36 */
+  --spacing-dropdown-sm-pad: var(--space-8);
+  --spacing-dropdown-sm-gap: var(--space-8);
+  --radius-dropdown-sm: var(--corner-8);
+  --spacing-dropdown-sm-picture: var(--space-20); /* 20 x 20 */
+  --spacing-dropdown-sm-provider-w: 1.625rem; /* 26, the card logo is 26 x 20 */
+
+  /* ---- Rows, Large 56 ---- */
+  --spacing-dropdown-lg: 3.5rem; /* 56 */
+  --spacing-dropdown-lg-pad: var(--space-8);
+  --spacing-dropdown-lg-gap: var(--space-12);
+  --radius-dropdown-lg: var(--corner-10);
+  /* The 40 picture: an Avatar on its own, anything else in a circle */
+  --spacing-dropdown-lg-picture: var(--space-40);
+  --radius-dropdown-lg-picture: var(--corner-full);
+  --spacing-dropdown-lg-icon-pad: var(--space-10); /* an icon or a flag, 20 inside */
+  --spacing-dropdown-lg-logo-pad: var(--space-8); /* a brand or company logo, 24 inside */
+  --spacing-dropdown-lg-provider-w: var(--space-32); /* a card logo, 32 x 24 */
+  --spacing-dropdown-lg-provider-h: var(--space-24);
+
+  /* ---- The words ---- */
+  --spacing-dropdown-sublabel-gap: var(--space-4); /* label to (Sublabel) */
+  --spacing-dropdown-description-gap: var(--space-4); /* Large: label to description */
+
+  /* ---- The parts on the right ---- */
+  --spacing-dropdown-icon: var(--space-20); /* the right icon, 20 x 20 */
+  --spacing-dropdown-key-y: var(--space-2); /* the shortcut key's box */
+  --spacing-dropdown-key-x: var(--space-6);
+  --radius-dropdown-key: var(--corner-4);
+
+  /* ---- Extra rows ---- */
+  --spacing-dropdown-search: 2.25rem; /* 36 */
+  --spacing-dropdown-search-pad: var(--space-8);
+  --spacing-dropdown-search-gap: var(--space-8);
+  --spacing-dropdown-search-icon: var(--space-20); /* the search and clear icons */
+  --radius-dropdown-clear: var(--corner-full); /* the clear icon's focus ring */
+  --spacing-dropdown-button-row: var(--space-48); /* 48 */
+  --spacing-dropdown-button-row-pad: var(--space-8);
+  --spacing-dropdown-caption: 2.25rem; /* 36 */
+  --spacing-dropdown-caption-pad: var(--space-8);
+
+  /* Flags, avatars and logos in a Disabled row */
+  --opacity-dropdown-picture-off: 48%;
+}
+
+/* The menu's shadow: the Figma's regular-shadow/medium, 0 down 16, blur 32,
+   spread -12, its near-black at 10% (as --palette-black at the same strength,
+   shadows.md). The Select's list, the Popover and the Command Menu point at
+   it. On dark a shadow keeps only its 1px ring layer; this one has none, so
+   it goes (the page's Open asks for a dark value of its own later). */
+:root {
+  --shadow-dropdown-menu: 0 16px 32px -12px color-mix(in srgb, var(--palette-black) 10%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-dropdown-menu: 0 0 0 0 transparent;
+}

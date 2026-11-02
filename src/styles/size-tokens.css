@@ -1,0 +1,162 @@
+/* Size tokens: every height, padding, gap, corner and icon size the design
+ * system's components use, in one place (design-system/README.md, "Sizes
+ * work the same way"). Change a value here and the component changes
+ * everywhere; change a step on a scale and everything on that step follows.
+ *
+ * The scales are the Figma's (file Ao3YVgFYdQIF0znq2ToqVl): 05-Spacing and
+ * 04-Radius. Each component's tokens come from its page in
+ * design-system/components/ and point at a step where the Figma does.
+ *
+ * Tailwind reads the @theme names: --spacing-button-md is h-button-md,
+ * px-button-md-x, gap-button-md-gap; --radius-button-md is rounded-button-md.
+ * Imported by every Tailwind root after typography-tokens.css.
+ */
+
+@import "./sizes/label.css";
+@import "./sizes/text-input.css";
+@import "./sizes/text-area.css";
+@import "./sizes/checkbox.css";
+@import "./sizes/radio.css";
+@import "./sizes/switch.css";
+@import "./sizes/button-group.css";
+@import "./sizes/link-button.css";
+@import "./sizes/compact-button.css";
+@import "./sizes/social-button.css";
+@import "./sizes/fancy-button.css";
+@import "./sizes/tag.css";
+@import "./sizes/badge.css";
+@import "./sizes/avatar.css";
+@import "./sizes/key-components.css";
+@import "./sizes/content-divider.css";
+@import "./sizes/tooltip.css";
+@import "./sizes/breadcrumbs.css";
+@import "./sizes/tab-menu.css";
+@import "./sizes/segmented-control.css";
+@import "./sizes/pagination.css";
+@import "./sizes/step-indicator.css";
+@import "./sizes/select.css";
+@import "./sizes/dropdown.css";
+@import "./sizes/popover.css";
+@import "./sizes/command-menu.css";
+@import "./sizes/filter.css";
+@import "./sizes/alert.css";
+@import "./sizes/banner.css";
+@import "./sizes/progress-bar.css";
+@import "./sizes/chart.css";
+@import "./sizes/kpi-card.css";
+@import "./sizes/notification-feed.css";
+@import "./sizes/activity-feed.css";
+@import "./sizes/date-picker.css";
+@import "./sizes/time-picker.css";
+@import "./sizes/file-upload.css";
+@import "./sizes/slider.css";
+@import "./sizes/rating.css";
+@import "./sizes/color-picker.css";
+@import "./sizes/rich-editor.css";
+@import "./sizes/modal.css";
+@import "./sizes/drawer.css";
+@import "./sizes/accordion.css";
+@import "./sizes/table.css";
+@import "./sizes/scroll.css";
+@import "./sizes/step-drawer.css";
+@import "./sizes/build-chat.css";
+@import "./sizes/step-menu.css";
+@import "./sizes/step-card.css";
+@import "./sizes/settings-modal.css";
+@import "./sizes/table-options.css";
+@import "./sizes/side-panel.css";
+@import "./sizes/login.css";
+@import "./sizes/canvases-page.css";
+@import "./sizes/canvas-card.css";
+@import "./sizes/canvas-tile.css";
+@import "./sizes/canvas-front.css";
+@import "./sizes/canvas-gallery.css";
+@import "./sizes/rail-thread.css";
+@import "./sizes/canvas-board.css";
+
+:root {
+  /* Spacing, the Figma's 05-Spacing */
+  --space-0: 0rem;
+  --space-1: 0.0625rem;
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-6: 0.375rem;
+  --space-8: 0.5rem;
+  --space-10: 0.625rem;
+  --space-12: 0.75rem;
+  --space-14: 0.875rem;
+  --space-16: 1rem;
+  --space-20: 1.25rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+
+  /* Corners, the Figma's 04-Radius */
+  --corner-0: 0rem;
+  --corner-2: 0.125rem;
+  --corner-4: 0.25rem;
+  --corner-6: 0.375rem;
+  --corner-8: 0.5rem;
+  --corner-10: 0.625rem;
+  --corner-12: 0.75rem;
+  --corner-16: 1rem;
+  --corner-20: 1.25rem;
+  --corner-24: 1.5rem;
+  --corner-28: 1.75rem;
+  --corner-full: 62.4375rem; /* 999 */
+}
+
+@theme {
+  /* The two scales as Tailwind names: p-space-10, gap-space-4, rounded-corner-8. */
+  --spacing-space-0: var(--space-0);
+  --spacing-space-1: var(--space-1);
+  --spacing-space-2: var(--space-2);
+  --spacing-space-4: var(--space-4);
+  --spacing-space-6: var(--space-6);
+  --spacing-space-8: var(--space-8);
+  --spacing-space-10: var(--space-10);
+  --spacing-space-12: var(--space-12);
+  --spacing-space-14: var(--space-14);
+  --spacing-space-16: var(--space-16);
+  --spacing-space-20: var(--space-20);
+  --spacing-space-24: var(--space-24);
+  --spacing-space-32: var(--space-32);
+  --spacing-space-40: var(--space-40);
+  --spacing-space-48: var(--space-48);
+  --radius-corner-2: var(--corner-2);
+  --radius-corner-4: var(--corner-4);
+  --radius-corner-6: var(--corner-6);
+  --radius-corner-8: var(--corner-8);
+  --radius-corner-10: var(--corner-10);
+  --radius-corner-12: var(--corner-12);
+  --radius-corner-16: var(--corner-16);
+  --radius-corner-20: var(--corner-20);
+  --radius-corner-24: var(--corner-24);
+  --radius-corner-28: var(--corner-28);
+  --radius-corner-full: var(--corner-full);
+
+  /* ---- Button (design-system/components/button.md) ---- */
+  --spacing-button-md: 2.5rem; /* 40 tall */
+  --spacing-button-md-x: var(--space-10);
+  --spacing-button-md-gap: var(--space-4);
+  --radius-button-md: var(--corner-10);
+
+  --spacing-button-sm: 2.25rem; /* 36 */
+  --spacing-button-sm-x: var(--space-8);
+  --spacing-button-sm-gap: var(--space-4);
+  --radius-button-sm: var(--corner-8);
+
+  --spacing-button-xs: 2rem; /* 32 */
+  --spacing-button-xs-x: var(--space-6);
+  --spacing-button-xs-gap: var(--space-2);
+  --radius-button-xs: var(--corner-8);
+
+  --spacing-button-2xs: 1.75rem; /* 28 */
+  --spacing-button-2xs-x: var(--space-6);
+  --spacing-button-2xs-gap: var(--space-2);
+  --radius-button-2xs: var(--corner-8);
+
+  --spacing-button-label-x: var(--space-4); /* the box around the word */
+  --spacing-button-icon: 1.25rem; /* 20, every size */
+}

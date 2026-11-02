@@ -1,0 +1,30 @@
+/* Size tokens for the canvas card (components/da-dashboards/canvas-card.tsx),
+   27 Oct 2026, after Nitesh's folder reference: a thick frame, a cover on
+   top, and a dark folder rising over its foot with a tab on the left and a
+   soft slope down to the right. He asked for a bigger cover and a shorter
+   folder than the reference's. */
+
+@theme {
+  /* 27 Oct 2026, second pass ("these cards are too big... scale it from the
+     bottom"): a smaller card, its cover a snapshot of the canvas, a short
+     folder holding the name and one line. */
+  --spacing-canvas-card: 16.5rem; /* 264, the card's width: three to a row */
+  --spacing-canvas-card-frame: var(--space-8); /* the frame around everything */
+  --radius-canvas-card: var(--corner-20); /* the frame's corners: the inner 12 plus the frame 8 */
+  --radius-canvas-card-inner: var(--corner-12); /* the cover's and the folder's */
+  --radius-canvas-card-menu: var(--corner-8); /* the menu's box over the cover */
+  --spacing-canvas-card-cover: 9.5rem; /* 152, the cover above the folder's tab: most of the card */
+  --spacing-canvas-card-tab: 1.125rem; /* 18, how far the tab rises over the cover */
+  --spacing-canvas-card-tab-w: 56%; /* the tab's share of the width */
+  --spacing-canvas-card-slope: 1.75rem; /* 28, the slope from the tab down to the folder */
+  --spacing-canvas-card-pad: var(--space-12); /* inside the folder */
+  --spacing-canvas-card-pad-top: var(--space-10); /* the name from the tab's top */
+  --spacing-canvas-card-cover-pad: var(--space-8); /* the menu from the cover's corner */
+}
+
+:root {
+  /* The cover's cells, read by JavaScript: the home field's 3, a little
+     denser (6) so a small cover still reads as the wall. */
+  --canvas-card-cell: 3px;
+  --canvas-card-pitch: 6px;
+}

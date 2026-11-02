@@ -1,0 +1,61 @@
+/* Size tokens for the Key Components (design-system/components/key-components.md,
+   Figma page 263:1844): Key Icons, Content Label, Content Card, Password
+   Strength, Chart Legends and Legend Dots. Read by components/ds/key-components.tsx.
+   (The Label and Hint Text are in styles/sizes/label.css.) */
+
+@theme {
+  /* ---- Key Icon (node 263:1850): an icon in a circle ---- */
+  --spacing-key-icon-2xl: 4rem; /* 64 */
+  --spacing-key-icon-2xl-pad: var(--space-16);
+  --spacing-key-icon-2xl-icon: var(--space-32);
+  --spacing-key-icon-xl: 3.5rem; /* 56 */
+  --spacing-key-icon-xl-pad: var(--space-14);
+  --spacing-key-icon-xl-icon: 1.75rem; /* 28 */
+  --spacing-key-icon-lg: var(--space-48);
+  --spacing-key-icon-lg-pad: var(--space-12);
+  --spacing-key-icon-lg-icon: var(--space-24);
+  --spacing-key-icon-md: var(--space-40);
+  --spacing-key-icon-md-pad: var(--space-10);
+  --spacing-key-icon-md-icon: var(--space-20);
+  --spacing-key-icon-sm: var(--space-32);
+  --spacing-key-icon-sm-pad: var(--space-6);
+  --spacing-key-icon-sm-icon: var(--space-20);
+  --radius-key-icon: var(--corner-full);
+
+  /* ---- Content Label (node 2945:5539) ---- */
+  --spacing-content-label-md: var(--space-40); /* Medium: height and picture */
+  --spacing-content-label-lg: var(--space-48); /* Large: height and picture */
+  --spacing-content-label-gap: var(--space-14); /* picture, words, right-hand part */
+  --spacing-content-label-words-gap: var(--space-4); /* title to description */
+  --spacing-content-label-sublabel-gap: var(--space-4); /* title to "(Sublabel)" */
+
+  /* ---- Content Card (node 2942:9503) ---- */
+  --spacing-content-card: 4.5rem; /* 72 tall with one line of description */
+  --spacing-content-card-pad: var(--space-16);
+  --spacing-content-card-gap: var(--space-14);
+  --spacing-content-card-close: var(--space-20); /* close icon, 20 x 20 */
+  --radius-content-card: var(--corner-12);
+  /* Not on the page: the corner of the close icon's focus ring. */
+  --radius-content-card-close: var(--corner-4);
+
+  /* ---- Password Strength (node 327:8202) ---- */
+  --spacing-password-strength-gap: var(--space-8); /* bars, text, conditions */
+  --spacing-password-strength-bar: var(--space-4); /* 4 tall */
+  --spacing-password-strength-bar-gap: var(--space-8);
+  --radius-password-strength-bar: 0.075rem; /* 1.2 */
+  --spacing-password-strength-icon: var(--space-16);
+  --spacing-password-strength-icon-gap: var(--space-4);
+
+  /* ---- Chart Legend (node 2942:9934) and Legend Dot (node 2942:9880) ---- */
+  --spacing-legend-gap: var(--space-4); /* dot to word */
+  --spacing-legend-dot-md: var(--space-20); /* Medium: the dot's box */
+  --spacing-legend-dot-sm: var(--space-16); /* Small: the dot's box */
+  --spacing-legend-dot: var(--space-12); /* the circle, both sizes */
+  --radius-legend-dot: var(--corner-full);
+}
+
+/* The Legend Dot's 2px ring in stroke/white-0: a ring layer, so it stays on
+   dark (shadows.md); its colour flips with the theme. */
+:root {
+  --shadow-legend-dot: 0 0 0 var(--space-2) var(--stroke-white-0);
+}

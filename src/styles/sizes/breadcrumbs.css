@@ -1,0 +1,11 @@
+/* Size tokens for Breadcrumbs (design-system/components/breadcrumbs.md,
+ * the Figma's "Breadcrumbs Group [1.1]", node 447:8832, and its items,
+ * node 447:8767). */
+
+@theme {
+  --spacing-breadcrumbs: 1.25rem; /* 20 tall, the row */
+  --spacing-breadcrumbs-gap: var(--space-6); /* between every item and divider */
+  --spacing-breadcrumbs-item-gap: var(--space-6); /* the icon to the word */
+  --spacing-breadcrumbs-icon: 1.25rem; /* 20 */
+  --spacing-breadcrumbs-divider: 1.25rem; /* 20 x 20, the arrow, slash or dot */
+}

@@ -1,0 +1,46 @@
+/* Size tokens for Popover (design-system/components/popover.md, Figma
+ * "Popover [1.1]", node 4431:81573, and "Popover Footer [1.1]", node
+ * 4456:83048). Read by components/ds/popover.tsx. */
+
+@theme {
+  /* ---- The box ---- */
+  --spacing-popover-w: 20rem; /* 320, as the Figma draws it; it follows the use */
+  --radius-popover: var(--corner-16);
+
+  /* ---- Body: the Key Icon, then the words ---- */
+  --spacing-popover-body-pad: var(--space-20);
+  --spacing-popover-body-gap: var(--space-16);
+  --spacing-popover-words-gap: var(--space-4); /* title to description */
+  /* With the icon off, the words keep 32 clear of the close button (the page's proposal) */
+  --spacing-popover-words-clear: var(--space-32);
+  --spacing-popover-close-inset: var(--space-16); /* the close button, from the top and the right */
+
+  /* ---- Footer ---- */
+  --spacing-popover-footer-y: var(--space-16);
+  --spacing-popover-footer-x: var(--space-20);
+  --spacing-popover-footer-gap: var(--space-12);
+  --spacing-popover-buttons-gap: var(--space-12);
+  --spacing-popover-button: 5rem; /* 80, each button in the Stepper types */
+
+  /* ---- Tail: 16 x 8, outside the box ---- */
+  --spacing-popover-tail-w: var(--space-16);
+  --spacing-popover-tail-h: var(--space-8);
+  --spacing-popover-tail-inset: var(--space-32); /* from the box's nearer corner */
+  /* The tail's drawing reaches 1px into the box, so it covers the box's edge
+     where they meet (the drawing is the tail's height plus this). */
+  --spacing-popover-tail-overlap: var(--space-1);
+  --spacing-popover-tail-box: calc(var(--spacing-popover-tail-h) + var(--spacing-popover-tail-overlap));
+
+  /* From the tail's tip (or the box) to what it points at. The page gives
+     none; the Tooltip's is 4. */
+  --spacing-popover-offset: var(--space-4);
+}
+
+/* The box's shadow is the Dropdown's menu shadow (--shadow-dropdown-menu,
+   the Figma's regular-shadow/medium), light and dark. The line over the
+   footer: 1px of stroke/soft-200 drawn inside the footer, used as its edge
+   (ds-shadow [--ds-edge:var(--shadow-popover-line)]). */
+:root {
+  --shadow-popover-box: var(--shadow-dropdown-menu);
+  --shadow-popover-line: inset 0 var(--space-1) 0 0 var(--stroke-soft-200);
+}

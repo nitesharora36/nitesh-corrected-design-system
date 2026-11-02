@@ -1,0 +1,391 @@
+{
+  "$description": "The Figma's text styles. Each $description names the code classes.",
+  "Title": {
+    "H1 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "56px",
+        "fontWeight": 500,
+        "lineHeight": "64px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h1"
+    },
+    "H2 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "48px",
+        "fontWeight": 500,
+        "lineHeight": "56px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h2"
+    },
+    "H3 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "40px",
+        "fontWeight": 500,
+        "lineHeight": "48px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h3"
+    },
+    "H4 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "32px",
+        "fontWeight": 500,
+        "lineHeight": "40px",
+        "letterSpacing": "-0.5%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h4"
+    },
+    "H5 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "24px",
+        "fontWeight": 500,
+        "lineHeight": "32px",
+        "letterSpacing": "0%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h5"
+    },
+    "H6 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "20px",
+        "fontWeight": 500,
+        "lineHeight": "28px",
+        "letterSpacing": "0%"
+      },
+      "$description": "Inter Display. Code: font-display text-title-h6"
+    }
+  },
+  "Label": {
+    "X Large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "24px",
+        "fontWeight": 500,
+        "lineHeight": "32px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-label-xl"
+    },
+    "Large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": 500,
+        "lineHeight": "24px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-label-lg"
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": 500,
+        "lineHeight": "24px",
+        "letterSpacing": "-1.1%"
+      },
+      "$description": "Inter. Code: text-label-md"
+    },
+    "Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": 500,
+        "lineHeight": "20px",
+        "letterSpacing": "-0.6%"
+      },
+      "$description": "Inter. Code: text-label-sm"
+    },
+    "Compact": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": 500,
+        "lineHeight": "20px",
+        "letterSpacing": "-0.6%"
+      },
+      "$description": "Inter. Code: text-label-compact"
+    },
+    "X Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": 500,
+        "lineHeight": "16px",
+        "letterSpacing": "0%"
+      },
+      "$description": "Inter. Code: text-label-xs"
+    }
+  },
+  "Paragraph": {
+    "X Large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "24px",
+        "fontWeight": 400,
+        "lineHeight": "32px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-paragraph-xl"
+    },
+    "Large": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-paragraph-lg"
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "-1.1%"
+      },
+      "$description": "Inter. Code: text-paragraph-md"
+    },
+    "Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "20px",
+        "letterSpacing": "-0.6%"
+      },
+      "$description": "Inter. Code: text-paragraph-sm"
+    },
+    "Compact": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": 400,
+        "lineHeight": "20px",
+        "letterSpacing": "-0.6%"
+      },
+      "$description": "Inter. Code: text-paragraph-compact"
+    },
+    "X Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": 400,
+        "lineHeight": "16px",
+        "letterSpacing": "0%"
+      },
+      "$description": "Inter. Code: text-paragraph-xs"
+    }
+  },
+  "Subheading": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": 500,
+        "lineHeight": "24px",
+        "letterSpacing": "+6%"
+      },
+      "$description": "Inter, uppercase. Code: text-subheading-md uppercase"
+    },
+    "Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": 500,
+        "lineHeight": "20px",
+        "letterSpacing": "+6%"
+      },
+      "$description": "Inter, uppercase. Code: text-subheading-sm uppercase"
+    },
+    "X Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": 500,
+        "lineHeight": "16px",
+        "letterSpacing": "+4%"
+      },
+      "$description": "Inter, uppercase. Code: text-subheading-xs uppercase"
+    },
+    "2X Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "11px",
+        "fontWeight": 500,
+        "lineHeight": "12px",
+        "letterSpacing": "+2%"
+      },
+      "$description": "Inter, uppercase. Code: text-subheading-2xs uppercase"
+    }
+  },
+  "DM Mono": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Mono",
+        "fontSize": "16px",
+        "fontWeight": 500,
+        "lineHeight": "24px",
+        "letterSpacing": "0%"
+      },
+      "$description": "DM Mono, uppercase. Code: font-data text-data-md uppercase"
+    },
+    "Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Mono",
+        "fontSize": "14px",
+        "fontWeight": 500,
+        "lineHeight": "20px",
+        "letterSpacing": "0%"
+      },
+      "$description": "DM Mono, uppercase. Code: font-data text-data-sm uppercase"
+    },
+    "X-Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Mono",
+        "fontSize": "12px",
+        "fontWeight": 500,
+        "lineHeight": "16px",
+        "letterSpacing": "0%"
+      },
+      "$description": "DM Mono, uppercase. Code: font-data text-data-xs uppercase"
+    },
+    "2X-Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Mono",
+        "fontSize": "10px",
+        "fontWeight": 500,
+        "lineHeight": "16px",
+        "letterSpacing": "0%"
+      },
+      "$description": "DM Mono, uppercase. Code: font-data text-data-2xs uppercase"
+    }
+  },
+  "Landing Title": {
+    "H1 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "56px",
+        "fontWeight": 550,
+        "lineHeight": "64px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h1"
+    },
+    "H2 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "48px",
+        "fontWeight": 550,
+        "lineHeight": "56px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h2"
+    },
+    "H3 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "40px",
+        "fontWeight": 550,
+        "lineHeight": "48px",
+        "letterSpacing": "-1%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h3"
+    },
+    "H4 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "32px",
+        "fontWeight": 550,
+        "lineHeight": "40px",
+        "letterSpacing": "-0.5%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h4"
+    },
+    "H5 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "24px",
+        "fontWeight": 550,
+        "lineHeight": "32px",
+        "letterSpacing": "-0.5%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h5"
+    },
+    "H6 Title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "20px",
+        "fontWeight": 550,
+        "lineHeight": "28px",
+        "letterSpacing": "-0.6%"
+      },
+      "$description": "Inter Variable, opsz 26. Code: font-landing text-landing-h6"
+    }
+  },
+  "Docs": {
+    "Label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": 500,
+        "lineHeight": "32px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-docs-label"
+    },
+    "Paragraph": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": 400,
+        "lineHeight": "32px",
+        "letterSpacing": "-1.5%"
+      },
+      "$description": "Inter. Code: text-docs-paragraph"
+    }
+  }
+}

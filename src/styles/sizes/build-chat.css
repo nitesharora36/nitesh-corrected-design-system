@@ -1,0 +1,98 @@
+/* Size tokens for the Workflow Studio's build chat, docked on the left
+   (design-system/revamp/build-chat.md). Laid out as Attio's Ask panel
+   (Nitesh, 22 Oct 2026, "exactly the same way"): a full-height column with a
+   44 header and a line under it, the person's words in a grey bubble on the
+   right, the answer as plain text, the composer box at the foot. Read by
+   components/workflow-builder/build-chat.tsx. */
+
+@theme {
+  --spacing-build-chat: 22.5rem; /* 360, the width it starts at */
+  --spacing-build-chat-grip: var(--space-8); /* the draggable strip on the right edge */
+  --spacing-build-chat-grip-line: var(--space-2); /* its line, on hover and while dragging */
+  --spacing-build-chat-head: 2.75rem; /* 44, level with the editor's top bar */
+  --spacing-build-chat-head-start: var(--space-16);
+  --spacing-build-chat-head-end: var(--space-10);
+  --spacing-build-chat-head-gap: var(--space-4); /* between the header's buttons */
+
+  /* ---- The conversation ---- */
+  --spacing-build-chat-x: var(--space-16);
+  --spacing-build-chat-y: var(--space-12);
+  --spacing-build-chat-turn-gap: var(--space-24); /* between one message and the next */
+  --spacing-build-chat-block-gap: var(--space-12); /* between an answer's paragraphs and lists */
+  --spacing-build-chat-list-gap: var(--space-4); /* between a list's items */
+  --spacing-build-chat-list-indent: var(--space-20);
+  --spacing-build-chat-bubble-x: var(--space-12);
+  --spacing-build-chat-bubble-y: var(--space-8);
+  --radius-build-chat-bubble: var(--corner-12);
+
+  /* ---- The composer ---- */
+  --spacing-build-chat-composer-m: var(--space-12); /* around the box */
+  --spacing-build-chat-composer-x: var(--space-12);
+  --spacing-build-chat-composer-top: var(--space-12);
+  --spacing-build-chat-composer-foot: var(--space-8); /* the chip and send row's padding */
+  --spacing-build-chat-composer-min: 4rem; /* 64, about three lines to start, as Attio's */
+  --spacing-build-chat-composer-max: 10rem; /* 160, then it scrolls */
+  --radius-build-chat-composer: var(--corner-16);
+
+  /* ---- The question form ---- */
+  --spacing-build-chat-form-pad: var(--space-12);
+  --spacing-build-chat-form-gap: var(--space-12);
+  --spacing-build-chat-field-gap: var(--space-6); /* a field's name to its value */
+  --radius-build-chat-form: var(--corner-12);
+  /* ---- The agent at work (23 Oct 2026, after Attio's builder) ---- */
+  --spacing-build-chat-step-gap: var(--space-6); /* a sentence to its chips, chip to chip */
+  --spacing-build-chat-chip-gap: var(--space-6); /* a chip's icon to its words */
+  --spacing-build-chat-chip-icon: var(--space-14);
+  --spacing-build-chat-card-pad: var(--space-12); /* the built workflow's card */
+  --spacing-build-chat-card-gap: var(--space-12);
+  --radius-build-chat-card: var(--corner-12);
+  --spacing-build-chat-actions-gap: var(--space-2); /* copy, thumbs */
+  --spacing-build-chat-cell-x: var(--space-8); /* a table's cell */
+  --spacing-build-chat-cell-y: var(--space-6);
+  --radius-build-chat-table: var(--corner-8);
+
+  --spacing-build-chat-thought: 5rem; /* 80, four lines: the window a thought is read in (VS Code's fixed window) */
+  --spacing-build-chat-thought-indent: var(--space-12); /* the thought's words from its rail */
+  --spacing-build-chat-row-indent: var(--space-20); /* a failed step's reason, under its words */
+  --radius-build-chat-icon: var(--corner-4); /* a step's logo on its row */
+  --spacing-build-chat-q-gap: var(--space-8); /* the question to its options, in the composer */
+  --spacing-build-chat-jump: var(--space-12); /* the back-to-latest button, above the composer */
+
+  /* ---- The questionnaire's options: light rows, not cards (23 Oct 2026) ---- */
+  --spacing-build-chat-option-x: var(--space-8);
+  --spacing-build-chat-option-y: var(--space-6);
+  --spacing-build-chat-option-gap: var(--space-8); /* its number to its words */
+  --spacing-build-chat-option-num: var(--space-16); /* the number's column */
+  --radius-build-chat-option: var(--corner-8);
+
+  /* ---- The canvas while the agent builds: the pill in the toolbar's place ---- */
+  --spacing-build-pill: var(--space-32);
+  --spacing-build-pill-x: var(--space-14);
+  --spacing-build-pill-gap: var(--space-8);
+  --spacing-build-pill-icon: var(--space-16);
+  --spacing-build-pill-bottom: var(--space-16);
+}
+
+/* Dragging the panel's right edge (Nitesh, 22 Oct 2026, "make it
+   draggable"). Plain :root variables, read by the panel's script: Tailwind
+   leaves out @theme names no class uses. The panel goes from the narrowest
+   width to as wide as the window allows while the canvas keeps its least. */
+:root {
+  --build-chat-min: 18.75rem; /* 300 */
+  --build-chat-canvas-min: 30rem; /* 480, the canvas never gets narrower */
+}
+
+/* The build chat's motion while the AI thinks (23 Oct 2026, from the
+   research in design-system/revamp/build-chat.md). Plain :root variables, read
+   by styles/workflow-canvas.css; change one and it changes everywhere. The
+   pauses between thoughts and steps are in agent-pace.ts. */
+:root {
+  --build-chat-word-in: 280ms; /* a new word fades in from a slight blur (Streamdown's blurIn) */
+  --build-chat-glide: 280ms; /* the thought's window grows a line, or its text glides up */
+  --build-chat-fold: 360ms; /* a read thought folds up into its heading */
+  --build-chat-fade: 200ms; /* "Thinking" to "Thought for 9s"; a new heading, row or answer */
+  --build-chat-drop: 280ms; /* the step drops in under the thought */
+  --build-chat-drop-delay: 240ms; /* ...this far into the fold (agent-pace.ts DROP_DELAY_MS) */
+  --build-chat-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --build-chat-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}

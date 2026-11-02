@@ -1,0 +1,16 @@
+/* Size tokens for the Settings modal (components/settings-modal.tsx), after
+   Claude's settings (Nitesh, 23 Oct 2026, "the settings should open up like a
+   modal, like the way it opens up in Claude"): a large box over the page, a
+   list of pages on the left with a search on top, the page on the right. */
+
+@theme {
+  --spacing-settings-modal-w: 75rem; /* 1200 at most; it keeps a gutter on smaller windows */
+  --spacing-settings-modal-h: 50rem; /* 800 at most */
+  --spacing-settings-modal-gutter: var(--space-32); /* the window around the box */
+  --spacing-settings-modal-nav: 16.5rem; /* 264, the list of pages */
+  --spacing-settings-modal-nav-pad: var(--space-12);
+  --spacing-settings-modal-search-gap: var(--space-8); /* the search to the first group */
+  --radius-settings-modal: var(--corner-20);
+  --spacing-settings-modal-close: var(--space-16); /* the close button from the box's corner */
+  --spacing-settings-modal-top: var(--space-32); /* room above the page, under the close button (Claude's) */
+}

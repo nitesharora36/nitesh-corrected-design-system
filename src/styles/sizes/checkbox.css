@@ -1,0 +1,46 @@
+/* Size tokens for Checkbox (design-system/components/checkbox.md, Figma
+ * "Checkbox [1.1]" 227:2002, "Checkbox Label [1.1]" 231:4897 and
+ * "Checkbox Card [1.1]" 261:3896). */
+
+@theme {
+  /* ---- The box: the space it takes is the box plus its inset ---- */
+  --spacing-checkbox-md-box: var(--space-16); /* 16, in a 20 x 20 space */
+  --spacing-checkbox-md-inset: var(--space-2);
+  --spacing-checkbox-md-face: 0.8125rem; /* 13 */
+  --spacing-checkbox-sm-box: var(--space-14); /* 14, in a 16 x 16 space */
+  --spacing-checkbox-sm-inset: var(--space-1);
+  --spacing-checkbox-sm-face: 0.6875rem; /* 11 */
+  --radius-checkbox-box: var(--corner-4);
+  --radius-checkbox-face: 0.1625rem; /* 2.6, the raised face when Off */
+
+  /* The tick and the dash, both sizes */
+  --spacing-checkbox-tick-w: 0.56875rem; /* 9.1 */
+  --spacing-checkbox-tick-h: 0.4125rem; /* 6.6 */
+  --spacing-checkbox-dash-w: var(--space-8);
+  --spacing-checkbox-dash-h: 0.09375rem; /* 1.5 */
+
+  /* ---- Checkbox Label ---- */
+  --spacing-checkbox-label-gap: var(--space-8); /* the box to the words */
+  --spacing-checkbox-label-title-gap: var(--space-4); /* label, (Sublabel), Badge */
+  --spacing-checkbox-label-text-gap: var(--space-4); /* the title row to the description */
+  --spacing-checkbox-label-link-gap: var(--space-10); /* the words to the link */
+
+  /* ---- Checkbox Card ---- */
+  --spacing-checkbox-card-pad: var(--space-16);
+  --spacing-checkbox-card-gap: var(--space-14); /* picture, words, box */
+  --radius-checkbox-card: var(--corner-12);
+  --spacing-checkbox-card-picture: var(--space-40); /* 40 x 40 */
+  --spacing-checkbox-card-logo-w: var(--space-32); /* a card brand's logo, 32 x 24 */
+  --spacing-checkbox-card-logo-h: var(--space-24);
+  --radius-checkbox-card-logo: var(--corner-4);
+}
+
+/* The face's drop shadow, typed into the Figma (0 down 2, blur 2, its
+   near-black at 12%), here on --palette-black as shadows.md says. On dark it
+   has no ring layer, so it goes. */
+:root {
+  --shadow-checkbox-face: 0 2px 2px color-mix(in srgb, var(--palette-black) 12%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-checkbox-face: 0 0 0 0 transparent;
+}

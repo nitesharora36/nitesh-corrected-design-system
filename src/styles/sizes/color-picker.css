@@ -1,0 +1,87 @@
+/* Size tokens for Color Picker (design-system/components/color-picker.md,
+ * the Figma's "Color Picker [1.1]" 4456:115795, "Color Spectrum [1.1]"
+ * 4456:115425, "Color Sliders [1.1]" 4415:53671 and "Color Dots [1.1]"
+ * 3365:22464). Read by components/ds/color-picker.tsx. */
+
+@theme {
+  /* ---- The panel: 272 wide (468 tall from its parts); padding 16; the top's parts 12 apart ---- */
+  --spacing-color-picker: 17rem; /* 272 */
+  --radius-color-picker: var(--corner-16);
+  --spacing-color-picker-pad: var(--space-16);
+  --spacing-color-picker-top-gap: var(--space-12);
+  --spacing-color-picker-bottom-gap: var(--space-8); /* "Recommended Colors" to the dots */
+  /* Each part's width inside the padding: 240. The Components page shows a part on its own at it. */
+  --spacing-color-picker-content: calc(var(--spacing-color-picker) - 2 * var(--spacing-color-picker-pad));
+
+  /* ---- Color Spectrum: 240 x 232 in the panel (232 x 232 on its own) ---- */
+  --spacing-color-picker-spectrum: 14.5rem; /* 232 tall, and 232 wide on its own */
+  --radius-color-picker-spectrum: var(--corner-8);
+  --spacing-color-picker-spectrum-fade: 9.25rem; /* 148, the black fade covers the lower 148 */
+  --spacing-color-picker-handle: var(--space-16);
+  --radius-color-picker-handle: var(--corner-full);
+  --spacing-color-picker-handle-half: calc(var(--spacing-color-picker-handle) / 2);
+
+  /* ---- Color Sliders: 16 tall, an 8 track ---- */
+  --spacing-color-picker-slider: var(--space-16);
+  --spacing-color-picker-track: var(--space-8);
+  --radius-color-picker-track: var(--corner-full);
+  /* The opacity track's checkerboard: the page gives no square size; 4. */
+  --spacing-color-picker-checker: var(--space-4);
+
+  /* ---- The value field ---- */
+  --spacing-color-picker-format-gap: var(--space-2); /* "Hex" to its arrow */
+  --spacing-color-picker-format-icon: var(--space-20);
+  /* The format menu's focus ring needs a corner; the page draws none.
+     4, as the Inline Select's (select.md). */
+  --radius-color-picker-format: var(--corner-4);
+  --spacing-color-picker-format-below: var(--space-4); /* the format row, 4 above the field */
+  --spacing-color-picker-field: var(--space-32); /* the Text Input's X-Small */
+  --radius-color-picker-field: var(--corner-8);
+  --spacing-color-picker-eyedropper: var(--space-32);
+  --spacing-color-picker-eyedropper-pad: var(--space-6);
+  --spacing-color-picker-eyedropper-icon: var(--space-20);
+  --spacing-color-picker-value-y: var(--space-6);
+  --spacing-color-picker-value-x: var(--space-10);
+  --spacing-color-picker-opacity: 3.5rem; /* 56 */
+
+  /* ---- Color Dots: a 16 dot in a 24 space; 14 on hover ---- */
+  --spacing-color-picker-dots-gap: var(--space-4);
+  --spacing-color-picker-dot-space: var(--space-24);
+  --spacing-color-picker-dot: var(--space-16);
+  --spacing-color-picker-dot-hover: var(--space-14);
+  --radius-color-picker-dot: var(--corner-full);
+}
+
+:root {
+  /* The panel's shadow, the Figma's regular-shadow/medium (as the Date
+     Picker's): its typed-in near-black at 10% as --palette-black. */
+  --shadow-color-picker-panel: 0 16px 32px -12px color-mix(in srgb, var(--palette-black) 10%, transparent);
+  /* The slider handles' shadow: the Slider's dot (slider.md). */
+  --shadow-color-picker-handle: var(--shadow-slider-dot);
+  /* Every handle's 2px edge inside, static/white so it stays a white ring
+     on the colour in both themes (page, Open). */
+  --shadow-color-picker-handle-edge: inset 0 0 0 2px var(--static-white);
+  /* A Selected dot: a 2px ring inside it in stroke/white-0, then 1.5px
+     outside it in the dot's own colour (currentColor). */
+  --shadow-color-picker-dot-selected: inset 0 0 0 2px var(--stroke-white-0), 0 0 0 1.5px currentColor;
+  /* The line under the top section, and the lines inside the field. Lines,
+     so the same in both themes. */
+  --shadow-color-picker-line-bottom: inset 0 -1px 0 0 var(--stroke-soft-200);
+  --shadow-color-picker-line-right: inset -1px 0 0 0 var(--stroke-soft-200);
+
+  /* The spectrum's two fades over the picked hue: to white towards the left,
+     to black towards the bottom. They are the colour model (pure white and
+     pure black), not chrome, so the picked colour matches what is drawn. */
+  --color-picker-spectrum-white-fade: linear-gradient(to right, var(--static-white), transparent);
+  --color-picker-spectrum-black-fade: linear-gradient(to top, var(--palette-black), transparent);
+  /* The opacity track's checkerboard, the Figma's at 30%, on static/white
+     (the track's own fill), the same in both themes. One tile is two
+     squares across. */
+  --color-picker-checker-ink: color-mix(in srgb, var(--palette-black) 30%, transparent);
+  --color-picker-checker: repeating-conic-gradient(var(--color-picker-checker-ink) 0 25%, transparent 0 50%);
+  --color-picker-checker-tile: calc(var(--spacing-color-picker-checker) * 2) calc(var(--spacing-color-picker-checker) * 2);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  /* On dark a shadow keeps only its 1px ring layer; this one has none. */
+  --shadow-color-picker-panel: 0 0 0 0 transparent;
+}

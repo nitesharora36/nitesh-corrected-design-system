@@ -1,0 +1,59 @@
+/* Size tokens for Text Input (design-system/components/text-input.md,
+ * Figma "Text Input [1.1]", node 266:5251). */
+
+@theme {
+  /* Label, field and hint, top to bottom */
+  --spacing-text-input-stack: var(--space-4);
+
+  /* ---- The field, Medium 40 ---- */
+  --spacing-text-input-md: var(--space-40); /* 40 tall */
+  --spacing-text-input-md-y: var(--space-10);
+  --spacing-text-input-md-left: var(--space-12);
+  --spacing-text-input-md-right: var(--space-10);
+  --spacing-text-input-md-gap: var(--space-8);
+  --radius-text-input-md: var(--corner-10);
+
+  /* ---- Small 36 ---- */
+  --spacing-text-input-sm: 2.25rem; /* 36 */
+  --spacing-text-input-sm-y: var(--space-8);
+  --spacing-text-input-sm-left: var(--space-10);
+  --spacing-text-input-sm-right: var(--space-8);
+  --spacing-text-input-sm-gap: var(--space-8);
+  --radius-text-input-sm: var(--corner-8);
+
+  /* ---- X-Small 32 ---- */
+  --spacing-text-input-xs: var(--space-32); /* 32 tall */
+  --spacing-text-input-xs-y: var(--space-6);
+  --spacing-text-input-xs-left: var(--space-8);
+  --spacing-text-input-xs-right: var(--space-6);
+  --spacing-text-input-xs-gap: var(--space-6);
+  --radius-text-input-xs: var(--corner-8);
+
+  /* Icons in the field, every size */
+  --spacing-text-input-icon: 1.25rem; /* 20 */
+
+  /* ---- The types ---- */
+  /* Card: the field's top and bottom padding (Medium), the brand logo */
+  --spacing-text-input-card-y: var(--space-8);
+  --spacing-text-input-card-logo-w: var(--space-32); /* 32 x 24 */
+  --spacing-text-input-card-logo-h: var(--space-24);
+  --radius-text-input-card-logo: var(--corner-4);
+
+  /* Search: the shortcut key's box */
+  --spacing-text-input-key-y: var(--space-2);
+  --spacing-text-input-key-x: var(--space-6);
+  --radius-text-input-key: var(--corner-4);
+
+  /* Website: the prefix box ("https://") */
+  --spacing-text-input-prefix-y: var(--space-10);
+  --spacing-text-input-prefix-x: var(--space-12);
+
+  /* Phone and Amount: the country or currency picker */
+  --spacing-text-input-picker-y: var(--space-10);
+  --spacing-text-input-picker-left: var(--space-10);
+  --spacing-text-input-picker-right: var(--space-8);
+  --spacing-text-input-picker-gap: var(--space-8);
+
+  /* Dropdown: the small picker inside the field */
+  --spacing-text-input-inline-picker-gap: var(--space-4);
+}

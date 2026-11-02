@@ -1,0 +1,52 @@
+/* Size tokens for Tooltip (design-system/components/tooltip.md, Figma
+   "Tooltip [1.1]", node 2604:269). Read by components/ds/tooltip.tsx. */
+
+@theme {
+  /* ---- 2X-Small ---- */
+  --spacing-tooltip-2xs: var(--space-20); /* box, 20 tall */
+  --spacing-tooltip-2xs-y: var(--space-2);
+  --spacing-tooltip-2xs-x: var(--space-6);
+  --radius-tooltip-2xs: var(--corner-4);
+  --spacing-tooltip-2xs-tail-w: var(--space-8); /* tail 8 x 4 */
+  --spacing-tooltip-2xs-tail-h: var(--space-4);
+  --spacing-tooltip-2xs-tail-inset: var(--space-16); /* left and right tails, from the corner */
+
+  /* ---- X-Small ---- */
+  --spacing-tooltip-xs: 1.75rem; /* box, 28 tall */
+  --spacing-tooltip-xs-y: var(--space-4);
+  --spacing-tooltip-xs-x: var(--space-10);
+  --radius-tooltip-xs: var(--corner-6);
+  --spacing-tooltip-xs-tail-w: var(--space-12); /* tail 12 x 6 */
+  --spacing-tooltip-xs-tail-h: var(--space-6);
+  --spacing-tooltip-xs-tail-inset: var(--space-24);
+
+  /* ---- Large: grows with the text ---- */
+  --spacing-tooltip-lg-w: 17.5rem; /* 280, as the Figma draws it */
+  --spacing-tooltip-lg-pad: var(--space-12);
+  --radius-tooltip-lg: var(--corner-12);
+  --spacing-tooltip-lg-gap: var(--space-12); /* icon, words, close button */
+  --spacing-tooltip-lg-words-gap: var(--space-4); /* title to description */
+  --spacing-tooltip-lg-icon: var(--space-20);
+  --spacing-tooltip-lg-tail-w: var(--space-12); /* tail 12 x 6 */
+  --spacing-tooltip-lg-tail-h: var(--space-6);
+  --spacing-tooltip-lg-tail-inset: 1.75rem; /* 28 */
+
+  /* The tail's drawing reaches 1px into the box, so it covers the box's
+     edge where they meet (the drawing is the tail's height plus this). */
+  --spacing-tooltip-tail-overlap: var(--space-1);
+  --spacing-tooltip-2xs-tail-box: calc(var(--spacing-tooltip-2xs-tail-h) + var(--spacing-tooltip-tail-overlap));
+  --spacing-tooltip-xs-tail-box: calc(var(--spacing-tooltip-xs-tail-h) + var(--spacing-tooltip-tail-overlap));
+  --spacing-tooltip-lg-tail-box: calc(var(--spacing-tooltip-lg-tail-h) + var(--spacing-tooltip-tail-overlap));
+}
+
+/* The page's two shadow layers, 0 1 2 and 0 12 24, the Figma's near-black at 3% and 6%
+   (as --palette-black at the same strength, shadows.md). On dark a shadow
+   keeps only its 1px ring layer; this one has none, so it goes. */
+:root {
+  --shadow-tooltip:
+    0 1px 2px color-mix(in srgb, var(--palette-black) 3%, transparent),
+    0 12px 24px color-mix(in srgb, var(--palette-black) 6%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-tooltip: 0 0 0 0 transparent;
+}

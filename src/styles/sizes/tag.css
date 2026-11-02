@@ -1,0 +1,18 @@
+/* Size tokens for Tag (design-system/components/tag.md, Figma "Tag [1.1]",
+   node 431:16147). One size, 24 tall; read by components/ds/tag.tsx. */
+
+@theme {
+  --spacing-tag: var(--space-24); /* 24 tall */
+  --spacing-tag-y: var(--space-4); /* top and bottom, every tag */
+  --spacing-tag-x: var(--space-8); /* a side that ends in the word (or the count) */
+  --spacing-tag-x-picture: var(--space-4); /* the left side, with a picture */
+  --spacing-tag-x-close: var(--space-4); /* the right side, with the close icon */
+  --spacing-tag-picture: var(--space-16); /* icon, avatar, flag or logo, 16 x 16 */
+  --spacing-tag-picture-gap: var(--space-4); /* picture to word */
+  --spacing-tag-count-gap: var(--space-2); /* word to "(4)" */
+  --spacing-tag-close: var(--space-16); /* close icon, 16 x 16 */
+  --spacing-tag-close-gap: var(--space-2); /* word (or count) to close icon */
+  --radius-tag: var(--corner-6);
+  /* Not on the page: the corner of the close icon's focus ring. */
+  --radius-tag-close: var(--corner-4);
+}

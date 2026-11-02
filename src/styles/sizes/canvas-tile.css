@@ -1,0 +1,28 @@
+/* Size tokens for a chart on a canvas (components/da-dashboards/editor-canvas.tsx,
+   WidgetTile), 27 Oct 2026, after Nitesh's Figma frame "Charts"
+   (198364:115090): the metric card "Widgets [Finance & Banking] [1.1]" and the
+   chart card "Widgets [Marketing & Sales] [1.1]".
+
+   A white card, a hairline edge, the x-small shadow, corner 16, padding 20.
+   Inside, 20 apart: the header (the name, and under it the number with its
+   change; "Details" on the right), a line, the series' rows, the legend, and
+   the chart, the design system's own (its sizes in chart.css). A metric card
+   is the same card with only the name and the number, 4 apart. */
+
+@theme {
+  --radius-canvas-tile: var(--corner-16);
+  --spacing-canvas-tile-pad: var(--space-20);
+  --spacing-canvas-tile-gap: var(--space-20); /* between the header, the line, the rows and the chart */
+  --spacing-canvas-tile-head-gap: var(--space-4); /* the name to its number; a metric card's whole gap */
+  --spacing-canvas-tile-side-gap: var(--space-8); /* the name to "Details"; the number to its badge */
+
+  /* The series' rows under the line: name, number (56), change (72: the
+     arrow 20, 2, the words 44, right-aligned). */
+  --spacing-canvas-tile-rows-gap: var(--space-12);
+  --spacing-canvas-tile-row-gap: var(--space-6);
+  --spacing-canvas-tile-row-value: 3.5rem;
+  --spacing-canvas-tile-row-change: 4.5rem;
+  --spacing-canvas-tile-row-change-words: 2.75rem;
+  --spacing-canvas-tile-row-icon: 1.25rem;
+  --spacing-canvas-tile-row-icon-gap: var(--space-2);
+}

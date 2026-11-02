@@ -1,0 +1,90 @@
+/* Size tokens for Time Picker (design-system/components/time-picker.md, the
+ * Figma's "Time Picker Items" 165483:5687, "Time Picker Select Duration"
+ * 165483:6046, "Time Picker Select Status" 165596:41348 and the picker drawn
+ * in "Time Picker [Examples]" 166102:5347). Read by components/ds/time-picker.tsx.
+ *
+ * The picker's frame, footer and popover gap point at the Date Picker's, the
+ * page's proposal (Open: "so every picker looks the same"), so changing one
+ * changes both. Each pointer carries the page's own number as a fallback. */
+
+@theme {
+  /* ---- Time item ---- */
+  --spacing-time-picker-item: 2.25rem; /* 36 tall */
+  --spacing-time-picker-item-y: var(--space-8);
+  --spacing-time-picker-item-x: var(--space-12);
+  --spacing-time-picker-item-gap: var(--space-10); /* the times and the tick */
+  --radius-time-picker-item: var(--corner-8);
+  /* "09:30" to "AM": the Figma's 3 is off the scale; 4, the page's proposal */
+  --spacing-time-picker-time-gap: var(--space-4);
+  --spacing-time-picker-item-tick: 0.875rem; /* 14 */
+
+  /* ---- Duration chip ---- */
+  --spacing-time-picker-duration: 1.75rem; /* 28 tall */
+  --spacing-time-picker-duration-y: var(--space-4);
+  --spacing-time-picker-duration-x: var(--space-10);
+  --spacing-time-picker-duration-gap: var(--space-6);
+  --radius-time-picker-duration: var(--corner-8);
+  --spacing-time-picker-duration-tick: var(--space-12);
+
+  /* ---- Status chip ---- */
+  --spacing-time-picker-status: 1.75rem; /* 28 tall */
+  --spacing-time-picker-status-y: var(--space-4);
+  --spacing-time-picker-status-left: var(--space-6);
+  --spacing-time-picker-status-right: var(--space-10);
+  --spacing-time-picker-status-gap: var(--space-4);
+  --radius-time-picker-status: var(--corner-8);
+  --spacing-time-picker-status-dot-space: var(--space-16);
+  --spacing-time-picker-status-dot: var(--space-6);
+  --radius-time-picker-status-dot: var(--corner-full);
+
+  /* ---- The assembled picker ---- */
+  --spacing-time-picker: 21.75rem; /* 348 wide */
+  --radius-time-picker: var(--radius-date-picker, var(--corner-20)); /* 20 */
+
+  /* Header: 52 tall (14 + 24 + 14), held at 52 when no time is picked yet */
+  --spacing-time-picker-header: 3.25rem; /* 52 */
+  --spacing-time-picker-header-y: var(--space-14);
+  --spacing-time-picker-header-x: var(--space-16);
+  --spacing-time-picker-header-gap: var(--space-8);
+  --spacing-time-picker-header-icon: var(--space-20);
+
+  /* Durations row: 56 tall (14 + 28 + 14), chips 8 apart */
+  --spacing-time-picker-durations-y: var(--space-14);
+  --spacing-time-picker-durations-x: var(--space-16);
+  --spacing-time-picker-durations-gap: var(--space-8);
+
+  /* Times: 280 tall, a column with padding 8, items 2 apart */
+  --spacing-time-picker-times: 17.5rem; /* 280 */
+  /* The list's column: the picker less its scroll bar (332), so an item is
+     316 wide, as in the example. A list on its own takes this width too. */
+  --spacing-time-picker-list: calc(var(--spacing-time-picker) - var(--spacing-time-picker-scrollbar));
+  --spacing-time-picker-list-pad: var(--space-8);
+  --spacing-time-picker-list-gap: var(--space-2);
+
+  /* The scroll bar: 16 wide, padding 16 top and bottom, 6 sides; a 4 x 48 thumb */
+  --spacing-time-picker-scrollbar: var(--space-16);
+  --spacing-time-picker-scrollbar-y: var(--space-16);
+  --spacing-time-picker-scrollbar-x: var(--space-6);
+  --spacing-time-picker-thumb-w: var(--space-4);
+  --spacing-time-picker-thumb-h: var(--space-48);
+  --radius-time-picker-thumb: var(--corner-full);
+
+  /* Footer: the Date Picker's (16, gap 16, buttons half the width each) */
+  --spacing-time-picker-footer-pad: var(--spacing-date-picker-footer-pad, var(--space-16));
+  --spacing-time-picker-footer-gap: var(--spacing-date-picker-footer-gap, var(--space-16));
+
+  /* The space between a field and the picker it opens: the Date Picker's (8) */
+  --spacing-time-picker-popover-gap: var(--spacing-date-picker-popover-gap, var(--space-8));
+}
+
+:root {
+  /* The Date Picker's frame shadow (regular-shadow/medium), so both pickers
+     match (page, Open). It follows that one on dark too (none). */
+  --shadow-time-picker-panel: var(--shadow-date-picker-panel);
+
+  /* The 1px lines between the parts, drawn inside so the 52, 56 and 16
+     stay exact. Same in both themes. */
+  --shadow-time-picker-line-bottom: inset 0 -1px 0 0 var(--stroke-soft-200);
+  --shadow-time-picker-line-top: inset 0 1px 0 0 var(--stroke-soft-200);
+  --shadow-time-picker-line-left: inset 1px 0 0 0 var(--stroke-soft-200);
+}

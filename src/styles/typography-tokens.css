@@ -1,0 +1,296 @@
+/* Typography tokens, in one file.
+ *
+ * Copied from Nitesh's Figma design system (file Ao3YVgFYdQIF0znq2ToqVl,
+ * Typography page 553:14957): the 34 local text styles, plus the settings he
+ * uses without a style in his AI product screens. Values are copied, never
+ * rounded. Sizes and line heights in rem (1rem = 16px); tracking in em
+ * (Figma percent divided by 100). Research and evidence:
+ * "8Bit Product/design-system/typography/" next to this repo.
+ *
+ * One font file carries every Inter role: app/fonts/InterVariable.woff2
+ * (Inter 4.1, axes opsz 14 to 32 and wght 100 to 900). The optical size is
+ * pinned per family and never follows the font size:
+ *   font-sans     opsz 14  Figma "Inter": Label, Paragraph, Subheading, chat
+ *   font-display  opsz 32  Figma "Inter Display" Medium (measured identical
+ *                          to the static Inter Display file)
+ *   font-landing  opsz 26  Figma "Inter Variable" Landing Title, weight 550
+ *   font-data     DM Mono Medium 500
+ *   font-mono     JetBrains Mono, code only
+ * `--ui-opsz` lets the playground try the display cut on all UI text.
+ *
+ * Imported by every Tailwind root after theme-tokens.css: app/globals.css,
+ * app/(dashboard)/globals.css, app/(auth)/globals.css, app/(teams)/globals.css.
+ * New size names must also be listed in lib/utils.ts (tailwind-merge).
+ */
+
+@theme {
+  /* ---- Faces. next/font sets the --font-* sources on <html> (app/layout.tsx). */
+  --font-sans: var(--font-inter-variable, ui-sans-serif), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-sans--font-variation-settings: "opsz" var(--ui-opsz, 14);
+  --font-display: var(--font-inter-variable, ui-sans-serif), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-display--font-variation-settings: "opsz" 32;
+  --font-landing: var(--font-inter-variable, ui-sans-serif), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-landing--font-variation-settings: "opsz" 26;
+  --font-data: var(--font-dm-mono, ui-monospace), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-jetbrains, ui-monospace), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---- Weights. His product uses 400 and 500 on words (430 and 450 for
+     chat, 550 on landing titles, 600 only on tiny caps badges). Selected
+     states change colour or fill, never weight, so the old semibold steps
+     down to 500. */
+  --font-weight-semibold: 500;
+  --font-weight-bold: 600;
+
+  /* ---- Tailwind's default steps, snapped to his scale so every existing
+     text-xs ... text-4xl in the product follows the Figma sizes, line
+     heights and tracking. */
+  --text-xs: 0.75rem; /* Label and Paragraph X Small 12/16 0% */
+  --text-xs--line-height: 1rem;
+  --text-xs--letter-spacing: 0em;
+  --text-sm: 0.875rem; /* Small 14/20 -0.6% */
+  --text-sm--line-height: 1.25rem;
+  --text-sm--letter-spacing: -0.006em;
+  --text-base: 1rem; /* Medium 16/24 -1.1% */
+  --text-base--line-height: 1.5rem;
+  --text-base--letter-spacing: -0.011em;
+  --text-lg: 1.125rem; /* Large 18/24 -1.5% */
+  --text-lg--line-height: 1.5rem;
+  --text-lg--letter-spacing: -0.015em;
+  --text-xl: 1.25rem; /* Title H6 20/28 0% */
+  --text-xl--line-height: 1.75rem;
+  --text-xl--letter-spacing: 0em;
+  --text-2xl: 1.5rem; /* Title H5 24/32 0% */
+  --text-2xl--line-height: 2rem;
+  --text-2xl--letter-spacing: 0em;
+  --text-3xl: 2rem; /* Title H4 32/40 -0.5% */
+  --text-3xl--line-height: 2.5rem;
+  --text-3xl--letter-spacing: -0.005em;
+  --text-4xl: 2.5rem; /* Title H3 40/48 -1% */
+  --text-4xl--line-height: 3rem;
+  --text-4xl--letter-spacing: -0.01em;
+
+  /* ---- Title. Pair with font-display (opsz 32). Figma "Inter Display" Medium. */
+  --text-title-h1: 3.5rem; /* 56/64 -1% */
+  --text-title-h1--line-height: 4rem;
+  --text-title-h1--letter-spacing: -0.01em;
+  --text-title-h1--font-weight: 500;
+  --text-title-h2: 3rem; /* 48/56 -1% */
+  --text-title-h2--line-height: 3.5rem;
+  --text-title-h2--letter-spacing: -0.01em;
+  --text-title-h2--font-weight: 500;
+  --text-title-h3: 2.5rem; /* 40/48 -1% */
+  --text-title-h3--line-height: 3rem;
+  --text-title-h3--letter-spacing: -0.01em;
+  --text-title-h3--font-weight: 500;
+  --text-title-h4: 2rem; /* 32/40 -0.5% */
+  --text-title-h4--line-height: 2.5rem;
+  --text-title-h4--letter-spacing: -0.005em;
+  --text-title-h4--font-weight: 500;
+  --text-title-h5: 1.5rem; /* 24/32 0% */
+  --text-title-h5--line-height: 2rem;
+  --text-title-h5--letter-spacing: 0em;
+  --text-title-h5--font-weight: 500;
+  --text-title-h6: 1.25rem; /* 20/28 0% */
+  --text-title-h6--line-height: 1.75rem;
+  --text-title-h6--letter-spacing: 0em;
+  --text-title-h6--font-weight: 500;
+
+  /* ---- Landing Title. Pair with font-landing (opsz 26). Marketing only. */
+  --text-landing-h1: 3.5rem; /* 56/64 -1% */
+  --text-landing-h1--line-height: 4rem;
+  --text-landing-h1--letter-spacing: -0.01em;
+  --text-landing-h1--font-weight: 550;
+  --text-landing-h2: 3rem; /* 48/56 -1% */
+  --text-landing-h2--line-height: 3.5rem;
+  --text-landing-h2--letter-spacing: -0.01em;
+  --text-landing-h2--font-weight: 550;
+  --text-landing-h3: 2.5rem; /* 40/48 -1% */
+  --text-landing-h3--line-height: 3rem;
+  --text-landing-h3--letter-spacing: -0.01em;
+  --text-landing-h3--font-weight: 550;
+  --text-landing-h4: 2rem; /* 32/40 -0.5% */
+  --text-landing-h4--line-height: 2.5rem;
+  --text-landing-h4--letter-spacing: -0.005em;
+  --text-landing-h4--font-weight: 550;
+  --text-landing-h5: 1.5rem; /* 24/32 -0.5% */
+  --text-landing-h5--line-height: 2rem;
+  --text-landing-h5--letter-spacing: -0.005em;
+  --text-landing-h5--font-weight: 550;
+  --text-landing-h6: 1.25rem; /* 20/28 -0.6% */
+  --text-landing-h6--line-height: 1.75rem;
+  --text-landing-h6--letter-spacing: -0.006em;
+  --text-landing-h6--font-weight: 550;
+
+  /* ---- Label. font-sans. Figma "Inter" Medium 500. */
+  --text-label-xl: 1.5rem; /* 24/32 -1.5% */
+  --text-label-xl--line-height: 2rem;
+  --text-label-xl--letter-spacing: -0.015em;
+  --text-label-xl--font-weight: 500;
+  --text-label-lg: 1.125rem; /* 18/24 -1.5% */
+  --text-label-lg--line-height: 1.5rem;
+  --text-label-lg--letter-spacing: -0.015em;
+  --text-label-lg--font-weight: 500;
+  --text-label-md: 1rem; /* 16/24 -1.1% */
+  --text-label-md--line-height: 1.5rem;
+  --text-label-md--letter-spacing: -0.011em;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 0.875rem; /* 14/20 -0.6% */
+  --text-label-sm--line-height: 1.25rem;
+  --text-label-sm--letter-spacing: -0.006em;
+  --text-label-sm--font-weight: 500;
+  --text-label-compact: 0.8125rem; /* 13/20 -0.6% */
+  --text-label-compact--line-height: 1.25rem;
+  --text-label-compact--letter-spacing: -0.006em;
+  --text-label-compact--font-weight: 500;
+  --text-label-xs: 0.75rem; /* 12/16 0% */
+  --text-label-xs--line-height: 1rem;
+  --text-label-xs--letter-spacing: 0em;
+  --text-label-xs--font-weight: 500;
+
+  /* ---- Paragraph. font-sans. Figma "Inter" Regular 400. */
+  --text-paragraph-xl: 1.5rem; /* 24/32 -1.5% */
+  --text-paragraph-xl--line-height: 2rem;
+  --text-paragraph-xl--letter-spacing: -0.015em;
+  --text-paragraph-xl--font-weight: 400;
+  --text-paragraph-lg: 1.125rem; /* 18/24 -1.5% */
+  --text-paragraph-lg--line-height: 1.5rem;
+  --text-paragraph-lg--letter-spacing: -0.015em;
+  --text-paragraph-lg--font-weight: 400;
+  --text-paragraph-md: 1rem; /* 16/24 -1.1% */
+  --text-paragraph-md--line-height: 1.5rem;
+  --text-paragraph-md--letter-spacing: -0.011em;
+  --text-paragraph-md--font-weight: 400;
+  --text-paragraph-sm: 0.875rem; /* 14/20 -0.6% */
+  --text-paragraph-sm--line-height: 1.25rem;
+  --text-paragraph-sm--letter-spacing: -0.006em;
+  --text-paragraph-sm--font-weight: 400;
+  --text-paragraph-compact: 0.8125rem; /* 13/20 -0.6% */
+  --text-paragraph-compact--line-height: 1.25rem;
+  --text-paragraph-compact--letter-spacing: -0.006em;
+  --text-paragraph-compact--font-weight: 400;
+  --text-paragraph-xs: 0.75rem; /* 12/16 0% */
+  --text-paragraph-xs--line-height: 1rem;
+  --text-paragraph-xs--letter-spacing: 0em;
+  --text-paragraph-xs--font-weight: 400;
+
+  /* ---- Subheading. font-sans, add the uppercase utility. Medium 500. */
+  --text-subheading-md: 1rem; /* 16/24 +6% */
+  --text-subheading-md--line-height: 1.5rem;
+  --text-subheading-md--letter-spacing: 0.06em;
+  --text-subheading-md--font-weight: 500;
+  --text-subheading-sm: 0.875rem; /* 14/20 +6% */
+  --text-subheading-sm--line-height: 1.25rem;
+  --text-subheading-sm--letter-spacing: 0.06em;
+  --text-subheading-sm--font-weight: 500;
+  --text-subheading-xs: 0.75rem; /* 12/16 +4% */
+  --text-subheading-xs--line-height: 1rem;
+  --text-subheading-xs--letter-spacing: 0.04em;
+  --text-subheading-xs--font-weight: 500;
+  --text-subheading-2xs: 0.6875rem; /* 11/12 +2% */
+  --text-subheading-2xs--line-height: 0.75rem;
+  --text-subheading-2xs--letter-spacing: 0.02em;
+  --text-subheading-2xs--font-weight: 500;
+
+  /* ---- DM Mono. Pair with font-data, add uppercase. Medium 500, 0%. */
+  --text-data-md: 1rem; /* 16/24 */
+  --text-data-md--line-height: 1.5rem;
+  --text-data-md--letter-spacing: 0em;
+  --text-data-md--font-weight: 500;
+  --text-data-sm: 0.875rem; /* 14/20 */
+  --text-data-sm--line-height: 1.25rem;
+  --text-data-sm--letter-spacing: 0em;
+  --text-data-sm--font-weight: 500;
+  --text-data-xs: 0.75rem; /* 12/16 */
+  --text-data-xs--line-height: 1rem;
+  --text-data-xs--letter-spacing: 0em;
+  --text-data-xs--font-weight: 500;
+  --text-data-2xs: 0.625rem; /* 10/16 */
+  --text-data-2xs--line-height: 1rem;
+  --text-data-2xs--letter-spacing: 0em;
+  --text-data-2xs--font-weight: 500;
+
+  /* ---- Docs. font-sans, add features-cv09. 18/32 -1.5%. */
+  --text-docs-label: 1.125rem;
+  --text-docs-label--line-height: 2rem;
+  --text-docs-label--letter-spacing: -0.015em;
+  --text-docs-label--font-weight: 500;
+  --text-docs-paragraph: 1.125rem;
+  --text-docs-paragraph--line-height: 2rem;
+  --text-docs-paragraph--letter-spacing: -0.015em;
+  --text-docs-paragraph--font-weight: 400;
+
+  /* ---- Settings he uses without a style, in his AI product screens. */
+  --text-chat: 0.9375rem; /* chat message: 430, 15/24 -1% */
+  --text-chat--line-height: 1.5rem;
+  --text-chat--letter-spacing: -0.01em;
+  --text-chat--font-weight: 430;
+  --text-chat-input: 0.9375rem; /* composer text: 430, 15/24 -0.6% */
+  --text-chat-input--line-height: 1.5rem;
+  --text-chat-input--letter-spacing: -0.006em;
+  --text-chat-input--font-weight: 430;
+  --text-greeting: 2rem; /* greeting: Inter Display 500, 32/40 -3%. Pair with font-display. */
+  --text-greeting--line-height: 2.5rem;
+  --text-greeting--letter-spacing: -0.03em;
+  --text-greeting--font-weight: 500;
+  --text-badge-plan: 0.6875rem; /* PRO badge: 600, 11/12 +2%, uppercase */
+  --text-badge-plan--line-height: 0.75rem;
+  --text-badge-plan--letter-spacing: 0.02em;
+  --text-badge-plan--font-weight: 600;
+  --text-wordmark: 1.125rem; /* wordmark: Inter Display 500, 18/24 0%. Pair with font-display. */
+  --text-wordmark--line-height: 1.5rem;
+  --text-wordmark--letter-spacing: 0em;
+  --text-wordmark--font-weight: 500;
+
+  /* ---- Navigation rail. Sizes and tracking from his "Sidebar / AI
+     Template" (Label/Small rows, Label/X Small group labels). Weight 400
+     follows his Dualite reference, which sets the rail in regular; his
+     template uses 500. Change the rail's type here. */
+  --text-nav: 0.875rem; /* 14/20 -0.6% */
+  --text-nav--line-height: 1.25rem;
+  --text-nav--letter-spacing: -0.006em;
+  --text-nav--font-weight: 400;
+  --text-nav-label: 0.75rem; /* 12/16 0% */
+  --text-nav-label--line-height: 1rem;
+  --text-nav-label--letter-spacing: 0em;
+  --text-nav-label--font-weight: 400;
+}
+
+/* OpenType, as in Figma: ligatures and contextual alternates off on every
+   Inter and DM Mono layer. Set through font-variant-ligatures so a child that
+   adds font-feature-settings (tabular-nums, cv09) does not undo it. Figma's
+   SS11 toggle does nothing: no Inter release has that feature. */
+@utility features-cv09 {
+  font-feature-settings: "cv09" 1; /* flat top 3, on his link buttons and Docs styles */
+}
+
+/* The 10% (Nitesh, 14 Oct 2026): Inter carries 90% of the product, and a
+   few big headings, the home greeting first, set in the brand's serif,
+   Tiempos Text Regular (8bit Branding/brand/identity/typography.md): 400,
+   never heavier, tracked -4%. Mark such a heading `heading-serif`.
+
+   Gated until 8bit owns the licence: it only applies under .font-tiempos-on,
+   which the design playground sets after loading Klim's test font
+   (app/(playground)/tiempos.css). Everywhere else these headings keep their
+   Inter Display style. When the licence is bought, load the full font with
+   next/font and set .font-tiempos-on at the root. Unlayered, so it wins
+   over the Tailwind utilities on the same heading. */
+.font-tiempos-on .heading-serif {
+  font-family: var(--font-tiempos), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  font-variation-settings: normal;
+}
+
+@layer base {
+  html {
+    font-optical-sizing: none;
+    font-variant-ligatures: no-common-ligatures no-contextual;
+  }
+  code,
+  kbd,
+  samp,
+  pre,
+  .font-mono {
+    font-variant-ligatures: normal;
+  }
+}

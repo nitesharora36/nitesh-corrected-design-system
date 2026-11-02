@@ -1,0 +1,34 @@
+/* Size tokens for Scroll (design-system/components/scroll.md, Figma
+   "Scroll [1.1]", node 166941:61889). Read by components/ds/scroll.tsx.
+   The thumb is 4 wide at every size; the space each side of it is what is
+   left of the track, (track - thumb) / 2: 8, 6 and 4. */
+
+@theme {
+  /* ---- The track, across ---- */
+  --spacing-scroll-md: var(--space-20); /* Medium */
+  --spacing-scroll-sm: var(--space-16); /* Small */
+  --spacing-scroll-xs: var(--space-12); /* X-Small */
+
+  /* ---- The thumb ---- */
+  --spacing-scroll-thumb: var(--space-4); /* 4 wide; its length follows how much is in view */
+  --radius-scroll-thumb: var(--corner-full);
+  --spacing-scroll-md-side: calc((var(--spacing-scroll-md) - var(--spacing-scroll-thumb)) / 2); /* 8 */
+  --spacing-scroll-sm-side: calc((var(--spacing-scroll-sm) - var(--spacing-scroll-thumb)) / 2); /* 6 */
+  --spacing-scroll-xs-side: calc((var(--spacing-scroll-xs) - var(--spacing-scroll-thumb)) / 2); /* 4 */
+
+  /* Space at both ends of the track, every size (page, Open: the Figma
+     shows only the top, 8 down). */
+  --spacing-scroll-end: var(--space-8);
+
+  /* The height the Figma draws the track, 400. Only the Components page
+     uses it, to show the Scroll at the Figma's size. */
+  --spacing-scroll-figma: 25rem; /* 400 */
+}
+
+/* The track's 1px stroke/soft-200 edge, inside: down its left side, or
+   along its top when it runs sideways (page, Open). A line, so it stays on
+   dark; its colour flips with the theme. */
+:root {
+  --shadow-scroll-edge-y: inset 1px 0 0 0 var(--stroke-soft-200);
+  --shadow-scroll-edge-x: inset 0 1px 0 0 var(--stroke-soft-200);
+}

@@ -1,0 +1,67 @@
+/* Size tokens for Alert, Toast and Notification (design-system/components/alert.md,
+   Figma "Alert & Notification & Toast [1.1]", node 169:2399). Read by
+   components/ds/alert.tsx.
+
+   One component, three sizes: X-Small 32 and Small 36 are one line; Large
+   has a title, a description and links. A Toast is the Small size at the
+   bottom centre of the screen, a Notification the Large size at the bottom
+   right. */
+
+@theme {
+  /* X-Small (32): one line */
+  --spacing-alert-xs: var(--space-32); /* 32 tall */
+  --spacing-alert-xs-pad: var(--space-8); /* every side */
+  --spacing-alert-xs-gap: var(--space-8);
+  --spacing-alert-xs-icon: var(--space-16); /* status and close icons */
+  --radius-alert-xs: var(--corner-8);
+
+  /* Small (36): one line */
+  --spacing-alert-sm: 2.25rem; /* 36 */
+  --spacing-alert-sm-y: var(--space-8);
+  --spacing-alert-sm-x: var(--space-10);
+  --spacing-alert-sm-gap: var(--space-8);
+  --spacing-alert-sm-icon: var(--space-20);
+  --radius-alert-sm: var(--corner-8);
+
+  /* Large: grows with the text (124 with two lines of description) */
+  --spacing-alert-lg-top: var(--space-14);
+  --spacing-alert-lg-x: var(--space-14);
+  --spacing-alert-lg-bottom: var(--space-16);
+  --spacing-alert-lg-gap: var(--space-12); /* icon, middle column, close */
+  --spacing-alert-lg-icon: var(--space-20);
+  --spacing-alert-lg-body-gap: var(--space-10); /* the words to the links */
+  --spacing-alert-lg-text-gap: var(--space-4); /* title to description */
+  --spacing-alert-lg-links-gap: var(--space-8); /* link, dot, link */
+  --spacing-alert-lg-dot: var(--space-4); /* the dot between the links, 4 wide */
+  --radius-alert-lg: var(--corner-12);
+
+  /* Where each one sits */
+  --spacing-alert-notification: 24.375rem; /* 390 wide */
+  --spacing-alert-notification-inset: var(--space-32); /* in from the right and from the bottom */
+  --spacing-alert-toast-bottom: var(--space-40); /* above the bottom of the screen */
+
+  /* Not on the page: the corner of the close icon's focus ring (page, Open:
+     the close icon is its own button). */
+  --radius-alert-close: var(--corner-4);
+}
+
+/* The see-through parts (page, Colours): a token at reduced strength, kept as
+   drawn (page, Open). They follow the theme, as their tokens do. */
+:root {
+  --alert-description: color-mix(in srgb, var(--text-strong-950) 72%, transparent); /* Light, Lighter */
+  --alert-dot: color-mix(in srgb, var(--text-strong-950) 48%, transparent);
+  --alert-dot-on-filled: color-mix(in srgb, var(--static-white) 48%, transparent);
+  --alert-close: color-mix(in srgb, var(--icon-strong-950) 40%, transparent);
+  --alert-close-on-filled: color-mix(in srgb, var(--static-white) 72%, transparent);
+}
+
+/* The Stroke style's shadow, the Figma's regular-shadow/medium (shadows.md):
+   0 16 32 -12, its near-black at 10% (as --palette-black at the same
+   strength). On dark a shadow keeps only its 1px ring layer; this one has
+   none, so it goes (the Stroke style keeps its edge). */
+:root {
+  --shadow-alert: 0 16px 32px -12px color-mix(in srgb, var(--palette-black) 10%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-alert: 0 0 0 0 transparent;
+}

@@ -1,0 +1,58 @@
+/* Size tokens for Switch (design-system/components/switch.md, Figma
+ * "Switch [1.1]" 385:4086, "Switch Label [1.1]" 385:4580, "Switch Card [1.1]"
+ * 385:4733 and "Integration Switch [1.1]" 3678:14609). The Label and Card
+ * values are the Checkbox's, kept in step by hand. */
+
+@theme {
+  /* ---- The switch: a 28 x 16 track, 2px in from a 32 x 20 space ---- */
+  --spacing-switch-track-w: 1.75rem; /* 28 */
+  --spacing-switch-track-h: var(--space-16);
+  --spacing-switch-inset: var(--space-2);
+  --radius-switch-track: var(--corner-full);
+
+  /* The knob: 12, 2px inside the track; 10 when pressed or disabled */
+  --spacing-switch-knob: var(--space-12);
+  --spacing-switch-knob-small: var(--space-10);
+  --spacing-switch-knob-inset: var(--space-2);
+  --spacing-switch-knob-travel: var(--space-12); /* Off to On: 28 - 2 - 12 - 2 */
+  --radius-switch-knob: var(--corner-full);
+
+  /* ---- Switch Label (the Checkbox Label's) ---- */
+  --spacing-switch-label-gap: var(--space-8);
+  --spacing-switch-label-title-gap: var(--space-4);
+  --spacing-switch-label-text-gap: var(--space-4);
+  --spacing-switch-label-link-gap: var(--space-10);
+
+  /* ---- Switch Card (the Checkbox Card's) ---- */
+  --spacing-switch-card-pad: var(--space-16);
+  --spacing-switch-card-gap: var(--space-14);
+  --radius-switch-card: var(--corner-12);
+  --spacing-switch-card-picture: var(--space-40);
+  --spacing-switch-card-logo-w: var(--space-32);
+  --spacing-switch-card-logo-h: var(--space-24);
+  --radius-switch-card-logo: var(--corner-4);
+
+  /* ---- Integration Switch ---- */
+  --spacing-switch-integration-pad: var(--space-16); /* Card only */
+  --spacing-switch-integration-gap: var(--space-14);
+  --radius-switch-integration: var(--corner-12);
+  --spacing-switch-integration-text-gap: var(--space-4); /* title to description */
+  --spacing-switch-integration-title-gap: var(--space-4); /* title to Badge */
+  --spacing-switch-integration-logo-pad: var(--space-8);
+  --spacing-switch-integration-card-circle: var(--space-40); /* logo 24 */
+  --spacing-switch-integration-card-logo: var(--space-24);
+  --spacing-switch-integration-list-circle: var(--space-48); /* logo 32 */
+  --spacing-switch-integration-list-logo: var(--space-32);
+  --radius-switch-integration-circle: var(--corner-full);
+}
+
+/* The knob's two shadows, typed into the Figma (0 down 2, blur 4, at 8%; 0
+   down 4, blur 8, at 6%), here on --palette-black as shadows.md says. On dark
+   they have no ring layer, so they go. */
+:root {
+  --shadow-switch-knob: 0 2px 4px color-mix(in srgb, var(--palette-black) 8%, transparent),
+    0 4px 8px color-mix(in srgb, var(--palette-black) 6%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-switch-knob: 0 0 0 0 transparent;
+}

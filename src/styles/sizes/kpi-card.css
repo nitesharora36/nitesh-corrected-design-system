@@ -1,0 +1,18 @@
+/* Size tokens for the KPI Card (design-system/components/kpi-card.md). Read
+   by components/ds/kpi-card.tsx. */
+
+@theme {
+  --spacing-kpi-card-pad: var(--space-16);
+  --spacing-kpi-card-gap: var(--space-12); /* between the card's rows */
+  --radius-kpi-card: var(--corner-16);
+  --spacing-kpi-card-head-gap: var(--space-8); /* the icon to the label */
+  --spacing-kpi-card-icon: 1.25rem; /* 20 */
+  --spacing-kpi-card-value-gap: var(--space-4); /* the value to its change */
+  --spacing-kpi-card-change-gap: var(--space-6); /* the badge to its period */
+  --spacing-kpi-card-side-gap: var(--space-16); /* the number to its gauge */
+  --spacing-kpi-card-picture: var(--space-48); /* a sparkline's or mini bars' height */
+  --spacing-kpi-card-gauge: 4rem; /* 64 */
+  --spacing-kpi-card-loading-value: 6rem; /* 96, the grey bar where the value goes */
+  --spacing-kpi-card-loading-h: var(--space-24);
+  --radius-kpi-card-loading: var(--corner-4);
+}

@@ -1,0 +1,53 @@
+/* Size tokens for the Workflow Studio's step card
+   (components/workflow-builder/step-card.tsx; Nitesh, 21 Oct 2026, after
+   OpenAI's Agent Builder). Read by the card and, for the auto-layout, by
+   components/workflow-builder/canvas-layout.ts (which keeps the same numbers
+   as plain values, since dagre runs in JavaScript). */
+
+@theme {
+  /* ---- The card: as wide as its words, between these ---- */
+  --spacing-step-card-min: 11.25rem; /* 180 */
+  --spacing-step-card-max: 18.75rem; /* 300 */
+  --spacing-step-card-pad: var(--space-12);
+  --spacing-step-card-gap: var(--space-12); /* the tile to the words */
+  --radius-step-card: var(--corner-16);
+
+  /* ---- The colour tile and its glyph ---- */
+  --spacing-step-card-tile: var(--space-32);
+  --spacing-step-card-glyph: 1.125rem; /* 18 */
+  --radius-step-card-tile: var(--corner-8);
+
+  /* ---- A fork's arms: one row each, under the title ---- */
+  --spacing-step-card-rows-gap: var(--space-6);
+  --spacing-step-card-row: var(--space-32);
+  --spacing-step-card-row-x: var(--space-12);
+  --radius-step-card-row: var(--corner-8);
+
+  /* ---- The Down view (22 Oct 2026): every card one width (NODE_W in
+     canvas-layout.ts), a fork's arms as one row of chips under the title ---- */
+  --spacing-step-card-fixed: 16.25rem; /* 260 */
+  --spacing-step-card-chips-gap: var(--space-6);
+  --spacing-step-card-chip-x: var(--space-8);
+
+  /* ---- The Tree view (23 Oct 2026): every card one width (TREE.cardW in
+     canvas-layout.ts); a line's label, a small pill on it near its start ---- */
+  --spacing-step-card-tree: 15rem; /* 240 */
+  --spacing-edge-pill: var(--space-20); /* its height */
+  --spacing-edge-pill-x: var(--space-8);
+  --radius-edge-pill: var(--corner-full);
+
+  /* ---- The Fit view (23 Oct 2026): every card one width (FIT.cardW in
+     canvas-layout.ts) ---- */
+  --spacing-step-card-fit: 18.75rem; /* 300: the samples' long names fit */
+
+  /* ---- An opened stage's frame on the Down view ---- */
+  --radius-stage-area: var(--corner-20);
+  --spacing-stage-area-head: var(--space-8); /* its header's words to the fold button */
+
+  /* ---- The "+" beside an output's connection point, outside the card ---- */
+  --spacing-step-card-plus-gap: var(--space-14);
+
+  /* ---- A loop's dashed area (22 Oct 2026; its room is laid out in canvas-layout.ts) ---- */
+  --radius-loop-area: var(--corner-20);
+  --spacing-loop-area-hint-gap: var(--space-8); /* the "+" to its words, and the drop hint from the corner */
+}

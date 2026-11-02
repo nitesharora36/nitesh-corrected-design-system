@@ -1,0 +1,13 @@
+/* Size tokens for Label and Hint Text (design-system/components/key-components.md,
+ * "Label", node 266:2814, and "Hint Text", node 266:5284). Used by the Text
+ * Input, the Text Area and every other field. */
+
+@theme {
+  /* ---- Label: the label, *, (Optional), the info icon, a Link Button ---- */
+  --spacing-label-gap: var(--space-1);
+  --spacing-label-icon: 1.25rem; /* 20, the info icon */
+
+  /* ---- Hint Text: an icon, then the line ---- */
+  --spacing-label-hint-gap: var(--space-4);
+  --spacing-label-hint-icon: var(--space-16); /* 16 */
+}

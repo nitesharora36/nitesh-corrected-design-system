@@ -1,0 +1,86 @@
+/* Size tokens for Filter (design-system/components/filter.md, Figma
+ * "Horizontal Filter [1.1]" 4370:6018, "Vertical Filter Items [1.1]"
+ * 4379:1183, "Vertical Filter Header [1.1]" 4379:2209 and "Vertical Filter
+ * Footer [1.1]" 4415:863; the panel from the page's blocks). Read by
+ * components/ds/filter.tsx. */
+
+@theme {
+  /* ---- Horizontal Filter: one row, every part Small (36) ---- */
+  --spacing-filter-bar: 2.25rem; /* 36 */
+  --spacing-filter-bar-gap: var(--space-12); /* between the parts (12 on the Calendar bar's left too, ours) */
+  --spacing-filter-search-w: 18.75rem; /* 300, the Search */
+  --spacing-filter-views-w: 20rem; /* 320, the Segmented Control */
+  /* The panel opens under the Filter button. The page gives no distance; the
+     Select's list opens 10 below its field (select.md), so the panel does too. */
+  --spacing-filter-panel-offset: var(--space-10);
+
+  /* ---- The filter panel ---- */
+  --spacing-filter-panel-w: 43.5rem; /* 696 */
+  --radius-filter-panel: var(--corner-20);
+
+  /* Left column: the rows */
+  --spacing-filter-left-w: 14rem; /* 224 */
+  --spacing-filter-left-pad: var(--space-12);
+  --spacing-filter-left-gap: var(--space-8);
+
+  /* Right side: header, search row, choices, footer */
+  --spacing-filter-right-w: 29.5rem; /* 472 */
+
+  /* Rows on the left (Vertical Filter Items) */
+  --spacing-filter-item: 2.25rem; /* 36 */
+  --spacing-filter-item-pad: var(--space-8);
+  --spacing-filter-item-gap: var(--space-8);
+  --radius-filter-item: var(--corner-8);
+  --spacing-filter-icon: var(--space-20); /* every icon in the panel: rows, header, search */
+
+  /* Header (Vertical Filter Header) */
+  --spacing-filter-header: 3.25rem; /* 52 */
+  --spacing-filter-header-y: var(--space-16);
+  --spacing-filter-header-x: var(--space-20);
+  --spacing-filter-header-gap: var(--space-8);
+
+  /* Search row */
+  --spacing-filter-search-row: 2.75rem; /* 44 */
+  --spacing-filter-search-row-y: var(--space-12);
+  --spacing-filter-search-row-x: var(--space-20);
+  --spacing-filter-search-row-gap: var(--space-8);
+  --spacing-filter-key-y: var(--space-2); /* the shortcut key's box, as the Dropdown's */
+  --spacing-filter-key-x: var(--space-6);
+  --radius-filter-key: var(--corner-4);
+
+  /* Choices */
+  --spacing-filter-choices-pad: var(--space-20);
+  --spacing-filter-choices-gap: var(--space-16); /* Checkbox and Radio Labels */
+  --spacing-filter-fields-gap: var(--space-12); /* Text Inputs */
+  --spacing-filter-note-gap: var(--space-12); /* a choice and its note */
+
+  /* Footer (Vertical Filter Footer) */
+  --spacing-filter-footer: 4.25rem; /* 68 */
+  --spacing-filter-footer-y: var(--space-16);
+  --spacing-filter-footer-x: var(--space-20);
+  --spacing-filter-footer-gap: var(--space-16);
+}
+
+/* The panel's shadow: the Figma's custom-shadows/medium, eight layers, its
+   grey as --palette-black at the same strengths (shadows.md). On dark only
+   the 1px ring stays, in stroke/soft-200 (shadows.md, Light and dark).
+   The lines inside the panel (1px of stroke/soft-200, drawn inside each part
+   so they never change its size) are used as the part's edge:
+   ds-shadow [--ds-edge:var(--shadow-filter-line-bottom)]. */
+:root {
+  --shadow-filter-panel:
+    inset 0 -1px 1px -0.5px color-mix(in srgb, var(--palette-black) 6%, transparent),
+    0 0 0 1px var(--state-faded-lighter),
+    0 48px 48px -24px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 24px 24px -12px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 12px 12px -6px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 6px 6px -3px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 3px 3px -1.5px color-mix(in srgb, var(--palette-black) 2%, transparent),
+    0 1px 1px 0.5px color-mix(in srgb, var(--palette-black) 4%, transparent);
+  --shadow-filter-line-bottom: inset 0 calc(var(--space-1) * -1) 0 0 var(--stroke-soft-200);
+  --shadow-filter-line-top: inset 0 var(--space-1) 0 0 var(--stroke-soft-200);
+  --shadow-filter-line-right: inset calc(var(--space-1) * -1) 0 0 0 var(--stroke-soft-200);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-filter-panel: 0 0 0 1px var(--stroke-soft-200);
+}

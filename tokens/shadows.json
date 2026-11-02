@@ -1,0 +1,57 @@
+{
+  "$description": "Shadows many components share. A component's own shadows live in its size file (src/styles/sizes).",
+  "light": {
+    "card": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(10, 13, 20, 0.03)",
+      "$description": "CSS --shadow-card, Tailwind shadow-card"
+    },
+    "composer": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(10, 13, 20, 0.03), 0 2px 4px rgba(27, 28, 29, 0.04)",
+      "$description": "CSS --shadow-composer, Tailwind shadow-composer"
+    },
+    "segment": {
+      "$type": "shadow",
+      "$value": "0 2px 4px rgba(14, 18, 27, 0.03), 0 6px 10px rgba(14, 18, 27, 0.06)",
+      "$description": "CSS --shadow-segment, Tailwind shadow-segment"
+    },
+    "effort-knob": {
+      "$type": "shadow",
+      "$value": "0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(10, 13, 20, 0.12)",
+      "$description": "CSS --shadow-effort-knob, Tailwind shadow-effort-knob"
+    },
+    "peek": {
+      "$type": "shadow",
+      "$value": "0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 4px 40px rgba(0, 0, 0, 0.06), 0 3px 20px rgba(0, 0, 0, 0.08), 0 3px 12px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.08)",
+      "$description": "CSS --shadow-peek, Tailwind shadow-peek"
+    }
+  },
+  "dark": {
+    "card": {
+      "$type": "shadow",
+      "$value": "inset 0 1px 0 rgba(255, 255, 255, 0.03)",
+      "$description": "CSS --shadow-card, Tailwind shadow-card"
+    },
+    "composer": {
+      "$type": "shadow",
+      "$value": "inset 0 1px 0 rgba(255, 255, 255, 0.03)",
+      "$description": "CSS --shadow-composer, Tailwind shadow-composer"
+    },
+    "segment": {
+      "$type": "shadow",
+      "$value": "0 2px 4px rgba(14, 18, 27, 0.03), 0 6px 10px rgba(14, 18, 27, 0.06)",
+      "$description": "CSS --shadow-segment, Tailwind shadow-segment"
+    },
+    "effort-knob": {
+      "$type": "shadow",
+      "$value": "0 1px 3px rgba(0, 0, 0, 0.5)",
+      "$description": "CSS --shadow-effort-knob, Tailwind shadow-effort-knob"
+    },
+    "peek": {
+      "$type": "shadow",
+      "$value": "0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 4px 40px rgba(0, 0, 0, 0.1), 0 3px 20px rgba(0, 0, 0, 0.125), 0 3px 12px rgba(0, 0, 0, 0.125), 0 2px 8px rgba(0, 0, 0, 0.125), 0 1px 1px rgba(0, 0, 0, 0.125)",
+      "$description": "CSS --shadow-peek, Tailwind shadow-peek"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+/* The canvas's board (components/da-dashboards/editor-canvas.tsx and
+   canvas-grid.ts, components/da-dashboards/dashboards.css), 28 Oct 2026: the
+   fine grid's row, the gap between cards, the resize handles and their knobs,
+   the picked cards' box and a box drawn on the open board. Plain
+   :root values: the board reads the row and the gap in JavaScript (so those
+   two stay in px), and the stylesheet reads the rest. */
+
+:root {
+  --canvas-board-row: 16px; /* one row of the board's grid */
+  --canvas-board-gap: 16px; /* between two cards: each card sits 8 inside its cells */
+  --canvas-board-inset: calc(var(--canvas-board-gap) / 2); /* half the gap: a card's edge from its cells' edge */
+  --canvas-board-edge: 16px; /* an edge handle's reach, across the card's edge */
+  --canvas-board-corner: 24px; /* a corner handle's reach */
+  --canvas-board-knob: 8px; /* the round knob on a handle, shown on hover */
+  --canvas-board-knob-ring: 1.5px; /* the knob's primary ring */
+  --canvas-board-rest: 160px; /* the board is at least the window's height less this (the bar above it) */
+  --canvas-board-box-line: 1px; /* the line of the picked cards' box, and of a box drawn on the open board */
+  --canvas-board-lasso-corner: var(--corner-4); /* a drawn box's corner */
+}

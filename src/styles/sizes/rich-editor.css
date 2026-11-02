@@ -1,0 +1,72 @@
+/* Size tokens for Rich Editor (design-system/components/rich-editor.md, the
+ * Figma's "Rich Editor [1.1]" 166926:17605, "Rich Editor Items [1.1]"
+ * 166251:2701 and "Rich Editor Colors [1.1]" 166331:4100). Read by
+ * components/ds/rich-editor.tsx. */
+
+@theme {
+  /* ---- Toolbar: 32 tall, padding 2, everything 2 apart ---- */
+  --spacing-rich-editor-toolbar: var(--space-32);
+  --spacing-rich-editor-toolbar-pad: var(--space-2);
+  --spacing-rich-editor-toolbar-gap: var(--space-2);
+  --radius-rich-editor-toolbar: var(--corner-8);
+
+  /* ---- Divider: a 1 x 16 line, centred in a space 4 wide ---- */
+  --spacing-rich-editor-divider-space: var(--space-4);
+  --spacing-rich-editor-divider: var(--space-16);
+  --spacing-rich-editor-divider-line: var(--space-1);
+
+  /* ---- Buttons: 28 tall, corner 6, their parts 2 apart ---- */
+  --spacing-rich-editor-button: 1.75rem; /* 28 */
+  --radius-rich-editor-button: var(--corner-6);
+  --spacing-rich-editor-button-gap: var(--space-2);
+  --spacing-rich-editor-button-pad: var(--space-4); /* every side, but the left of Text and Color */
+  --spacing-rich-editor-button-text-left: var(--space-10);
+  --spacing-rich-editor-button-color-left: var(--space-8);
+  --spacing-rich-editor-icon: var(--space-20); /* icons and the down arrow */
+  --spacing-rich-editor-dot: var(--space-16); /* the colour dot, 16 x 16 */
+  --radius-rich-editor-dot: var(--corner-full);
+
+  /* ---- The menus ---- */
+  /* The heading, size, alignment and more menus are the Dropdown's
+     (dropdown.md); they open as far from their button as the Dropdown's. */
+  --spacing-rich-editor-menu-offset: var(--spacing-dropdown-menu-offset);
+  /* The colour menu, as the Figma draws it: 132 wide, padding 4, corner 12,
+     rows 4 apart; each row 32 tall, padding 6, the dot and its name 8 apart,
+     corner 6. */
+  --spacing-rich-editor-color-menu: 8.25rem; /* 132 */
+  --spacing-rich-editor-color-menu-pad: var(--space-4);
+  --spacing-rich-editor-color-menu-gap: var(--space-4);
+  --radius-rich-editor-color-menu: var(--corner-12);
+  --spacing-rich-editor-color-row: var(--space-32);
+  --spacing-rich-editor-color-row-pad: var(--space-6);
+  --spacing-rich-editor-color-row-gap: var(--space-8);
+  --radius-rich-editor-color-row: var(--corner-6);
+
+  /* ---- The toolbar on a writing box (the Figma's example) ---- */
+  --spacing-rich-editor-box-toolbar: 2.25rem; /* 36 tall */
+  --spacing-rich-editor-box-toolbar-pad: var(--space-4);
+  --spacing-rich-editor-box-toolbar-gap: var(--space-4);
+  /* The writing box is the Text Area's field, the page's proposal (Open),
+     so its corner, padding and writing height point at the Text Area's
+     (the Figma's example: corner 12, padding 12 with 16 on the left). */
+  --radius-rich-editor-box: var(--radius-text-area);
+  --spacing-rich-editor-box-top: var(--spacing-text-area-top);
+  --spacing-rich-editor-box-right: var(--spacing-text-area-right);
+  --spacing-rich-editor-box-bottom: var(--spacing-text-area-bottom);
+  --spacing-rich-editor-box-left: var(--spacing-text-area-left);
+  --spacing-rich-editor-box-gap: var(--spacing-text-area-gap); /* the text to the counter */
+  --spacing-rich-editor-box-writing: var(--spacing-text-area-writing);
+  /* A list's indent in the writing area: the page gives none; 24 so the
+     bullets and numbers show. */
+  --spacing-rich-editor-list-indent: var(--space-24);
+}
+
+:root {
+  /* The toolbar's 1px edge sits outside (the 32 does not include it), so it
+     is a ring, not a border (page, "In code"). It reads stroke/soft-200, so
+     it follows the theme. */
+  --shadow-rich-editor-edge: 0 0 0 1px var(--stroke-soft-200);
+  /* The 1px line along the bottom of the toolbar row on a writing box, drawn
+     inside its 36. */
+  --shadow-rich-editor-line-bottom: inset 0 -1px 0 0 var(--stroke-soft-200);
+}

@@ -1,0 +1,20 @@
+/* Size tokens for Pagination (design-system/components/pagination.md, the
+ * Figma's "Pagination Group [1.1]", node 513:3892, and "Pagination Cells
+ * [1.1]", node 513:3681). */
+
+@theme {
+  --spacing-pagination: 2rem; /* 32 tall, the row */
+  --spacing-pagination-parts-gap: var(--space-24); /* "Page 2 of 16", the pages, per page */
+  --spacing-pagination-gap: var(--space-8); /* the arrows and cells */
+
+  /* Page cell */
+  --spacing-pagination-cell: 2rem; /* 32 x 32 */
+  --spacing-pagination-cell-pad: var(--space-6);
+  --radius-pagination-cell: var(--corner-8); /* Basic */
+  --radius-pagination-cell-round: var(--corner-full); /* Full Radius */
+
+  /* Group type: one bar, its cells joined */
+  --radius-pagination-group: var(--corner-8);
+  --spacing-pagination-group-line: var(--space-1); /* cells overlap by their 1px edge, so two edges read as one line */
+  --spacing-pagination-icon: 1.25rem; /* 20, the arrows as cells */
+}

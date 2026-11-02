@@ -1,0 +1,27 @@
+/* The gallery's one stylesheet: the design system's styles in the same order
+ * as the product's (app/(dashboard)/globals.css in neutrino-frontend-v3), so a
+ * component looks the same here as in the product.
+ *
+ * source("..") points Tailwind at src/ only: the docs folders are never read
+ * for class names. */
+@import "tailwindcss" source("..");
+@import "tw-animate-css";
+@import "../styles/typography.css";
+@import "../styles/theme.css";
+@import "../styles/theme-tokens.css";
+@import "../styles/typography-tokens.css";
+@import "../styles/size-tokens.css";
+@import "../styles/ds.css";
+
+/* Dark is the "ink" theme; "dark" is accepted too. */
+@custom-variant dark (&:is([data-theme="ink"] *, [data-theme="dark"] *));
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

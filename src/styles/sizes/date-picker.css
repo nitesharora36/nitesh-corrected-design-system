@@ -1,0 +1,77 @@
+/* Size tokens for Date Picker (design-system/components/date-picker.md, the
+ * Figma's "Date & Range Picker [1.1]" 446:7414, "Day Cells [1.1]" 437:175,
+ * "Day Labels [1.1]" 3118:24556, "Date Selector [1.1]" 442:192 and "Period
+ * Range [1.1]" 443:336). Read by components/ds/date-picker.tsx. The Time
+ * Picker's frame and footer point at these (time-picker.md, Open). */
+
+@theme {
+  /* ---- The whole picker ---- */
+  --radius-date-picker: var(--corner-20);
+
+  /* ---- One month: 368 wide, padding 20, its parts and rows 8 apart ---- */
+  --spacing-date-picker-month: 23rem; /* 368 */
+  --spacing-date-picker-month-pad: var(--space-20);
+  --spacing-date-picker-gap: var(--space-8); /* header, weekdays, weeks; and the cells in a row */
+
+  /* ---- Month header (Date Selector) ---- */
+  --spacing-date-picker-header: 2.25rem; /* 36 tall */
+  --spacing-date-picker-header-gap: var(--space-6);
+  --spacing-date-picker-header-pad: var(--space-6); /* both arrows: every side */
+  --spacing-date-picker-header-bare-y: var(--space-8); /* no arrows: top and bottom (sides stay 6) */
+  --spacing-date-picker-header-far: 2.25rem; /* 36, one arrow: the side without it */
+  --radius-date-picker-header: var(--corner-8);
+
+  /* ---- Weekday letters and day cells: 40 x 40, padding 10 top and bottom ---- */
+  --spacing-date-picker-day: 2.5rem; /* 40 */
+  --spacing-date-picker-day-y: var(--space-10);
+  --radius-date-picker-day: var(--corner-8);
+  --spacing-date-picker-dot: 0.1875rem; /* 3, the marked dot */
+  --spacing-date-picker-dot-bottom: var(--space-6); /* its bottom above the cell's bottom */
+  --radius-date-picker-dot: var(--corner-full);
+
+  /* The range band reaches over half the gap on each side, so the bands of
+     two cells meet in the middle of the 8 between them. */
+  --spacing-date-picker-band-reach: calc(var(--spacing-date-picker-gap) / 2);
+
+  /* ---- Quick picks column (Range Picker) ---- */
+  --spacing-date-picker-picks: 12.5rem; /* 200 wide */
+  --spacing-date-picker-picks-top: var(--space-20);
+  --spacing-date-picker-picks-x: var(--space-16);
+  --spacing-date-picker-picks-bottom: var(--space-2);
+  --spacing-date-picker-picks-gap: var(--space-8);
+
+  /* One quick pick (Period Range): 168 x 36, the column's inner width */
+  --spacing-date-picker-pick: 2.25rem; /* 36 tall */
+  --spacing-date-picker-pick-y: var(--space-8);
+  --spacing-date-picker-pick-right: var(--space-8);
+  --spacing-date-picker-pick-left: var(--space-12);
+  --radius-date-picker-pick: var(--corner-8);
+
+  /* ---- Footer: 68 tall (16 + the 36 buttons + 16) ---- */
+  --spacing-date-picker-footer-pad: var(--space-16);
+  --spacing-date-picker-footer-range-left: var(--space-24); /* Range Picker */
+  --spacing-date-picker-footer-gap: var(--space-16);
+  --spacing-date-picker-footer-button: 6.75rem; /* 108, Range Picker's Cancel and Apply */
+
+  /* The space between a field and the picker it opens. The page does not
+     give one (Open: what opens the picker); 8 until Nitesh says. */
+  --spacing-date-picker-popover-gap: var(--space-8);
+}
+
+:root {
+  /* The Figma's regular-shadow/medium: 0 down 16, blur 32, spread -12, its
+     typed-in near-black at 10%, here --palette-black at the same strength
+     (shadows.md, Open). */
+  --shadow-date-picker-panel: 0 16px 32px -12px color-mix(in srgb, var(--palette-black) 10%, transparent);
+
+  /* The 1px lines inside the picker: under the quick picks' right side,
+     before the second month, above the footer. Drawn inside, so the
+     Figma's 200 + 368 + 368 and 364 + 68 stay exact. Same in both themes. */
+  --shadow-date-picker-line-right: inset -1px 0 0 0 var(--stroke-soft-200);
+  --shadow-date-picker-line-left: inset 1px 0 0 0 var(--stroke-soft-200);
+  --shadow-date-picker-line-top: inset 0 1px 0 0 var(--stroke-soft-200);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  /* On dark a shadow keeps only its 1px ring layer; this one has none. */
+  --shadow-date-picker-panel: 0 0 0 0 transparent;
+}

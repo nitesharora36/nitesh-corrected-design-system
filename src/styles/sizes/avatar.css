@@ -1,0 +1,66 @@
+/* Size tokens for Avatar, its corner marks, Avatar Group and Compact Avatar
+   Group (design-system/components/avatar.md, Figma "Avatar [1.1]" node
+   245:18786, "Top Status [1.1]" 245:18697, "Bottom Status [1.1]" 245:18721,
+   "Avatar Group [1.1]" 581:6198, "Compact Avatar Group [1.1]" 2906:14962).
+   Read by components/ds/avatar.tsx. */
+
+@theme {
+  /* ---- Avatar: a full circle at every size ---- */
+  --spacing-avatar-80: 5rem; /* 80 */
+  --spacing-avatar-72: 4.5rem; /* 72 */
+  --spacing-avatar-64: 4rem; /* 64 */
+  --spacing-avatar-56: 3.5rem; /* 56 */
+  --spacing-avatar-48: var(--space-48);
+  --spacing-avatar-40: var(--space-40);
+  --spacing-avatar-32: var(--space-32);
+  --spacing-avatar-24: var(--space-24);
+  --spacing-avatar-20: var(--space-20);
+  --radius-avatar: var(--corner-full);
+
+  /* ---- Corner marks, one top right and one bottom right ---- */
+  --spacing-avatar-80-mark: var(--space-32);
+  --spacing-avatar-72-mark: var(--space-32);
+  --spacing-avatar-64-mark: 1.75rem; /* 28 */
+  --spacing-avatar-56-mark: var(--space-24);
+  --spacing-avatar-48-mark: var(--space-20);
+  --spacing-avatar-40-mark: 1.125rem; /* 18 */
+  --spacing-avatar-32-mark: var(--space-16);
+  --spacing-avatar-24-mark: var(--space-12);
+  --spacing-avatar-20-mark: var(--space-10);
+  --radius-avatar-mark: var(--corner-full);
+  /* Not on the page: where the mark's box sits (on the avatar's corner), and
+     how big the icon or logo is inside it (a share of the mark). */
+  --spacing-avatar-mark-inset: var(--space-0);
+  --spacing-avatar-mark-icon: 62.5%;
+
+  /* ---- Avatar Group: how far each avatar overlaps the one before ---- */
+  --spacing-avatar-group-80: var(--space-16);
+  --spacing-avatar-group-72: var(--space-16);
+  --spacing-avatar-group-64: var(--space-16);
+  --spacing-avatar-group-56: var(--space-16);
+  --spacing-avatar-group-48: var(--space-12);
+  --spacing-avatar-group-40: var(--space-12);
+  --spacing-avatar-group-32: var(--space-6);
+  --spacing-avatar-group-24: var(--space-4);
+  --spacing-avatar-group-20: var(--space-4);
+
+  /* ---- Compact Avatar Group: a pill ---- */
+  --spacing-avatar-compact-overlap: var(--space-2);
+  --spacing-avatar-compact-y: var(--space-2); /* top and bottom */
+  --spacing-avatar-compact-left: var(--space-2);
+  --spacing-avatar-compact-right: var(--space-10);
+  --spacing-avatar-compact-count-gap: var(--space-8); /* avatars to "+4" */
+  --radius-avatar-compact: var(--corner-full);
+}
+
+/* Rings, drawn as shadows outside the circle. They are 1px-ring style layers,
+   so they stay on dark (shadows.md); their colours flip with the theme. */
+:root {
+  /* The ring in bg/white-0 that cuts a corner mark out of the avatar.
+     Not on the page: its width, 2 like the group's ring. */
+  --shadow-avatar-mark: 0 0 0 var(--space-2) var(--bg-white-0);
+  /* Avatar Group: a 2px ring in stroke/white-0 outside each avatar. */
+  --shadow-avatar-group: 0 0 0 var(--space-2) var(--stroke-white-0);
+  /* Compact Avatar Group, Stroke: a 1px stroke/soft-200 edge outside. */
+  --shadow-avatar-compact-stroke: 0 0 0 var(--space-1) var(--stroke-soft-200);
+}

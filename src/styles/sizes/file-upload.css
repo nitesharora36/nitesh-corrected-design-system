@@ -1,0 +1,62 @@
+/* Size tokens for File Upload (design-system/components/file-upload.md, the
+ * Figma's "File Upload Area [1.1]" 450:9413, "File Upload Cards [1.1]"
+ * 451:409, "File Format Icons [1.1]" 450:17234 and "Image Upload [1.1]"
+ * 452:653). Read by components/ds/file-upload.tsx. */
+
+@theme {
+  /* The area and the cards take their container's width; the Figma draws
+     them 400 wide (the Components page shows them at that width). */
+  --spacing-file-upload-figma: 25rem; /* 400 */
+
+  /* ---- Upload Area: padding 32, everything 20 apart ---- */
+  --spacing-file-upload-area-pad: var(--space-32);
+  --spacing-file-upload-area-gap: var(--space-20);
+  --radius-file-upload-area: var(--corner-12);
+  --spacing-file-upload-area-icon: var(--space-24);
+  --spacing-file-upload-area-words-gap: var(--space-6);
+  /* The error message under the area: 4, as the Text Input and Text Area
+     put between a field and its hint */
+  --spacing-file-upload-area-hint-gap: var(--space-4);
+
+  /* ---- Upload Card: 16 top, right and bottom; 14 left ---- */
+  --spacing-file-upload-card-top: var(--space-16);
+  --spacing-file-upload-card-right: var(--space-16);
+  --spacing-file-upload-card-bottom: var(--space-16);
+  --spacing-file-upload-card-left: var(--space-14);
+  --radius-file-upload-card: var(--corner-12);
+  --spacing-file-upload-card-gap: var(--space-16); /* the file row to the progress bar (the bar is the Progress Bar's, 6 tall) */
+  --spacing-file-upload-card-row-gap: var(--space-12); /* icon, words, button */
+  --spacing-file-upload-card-words-gap: var(--space-4); /* the name to the line under it */
+  --spacing-file-upload-card-line-gap: var(--space-4); /* size, the dot, the status */
+  --spacing-file-upload-card-status-gap: var(--space-4); /* the status icon to its word */
+  --spacing-file-upload-card-status-icon: var(--space-16);
+  --spacing-file-upload-card-retry-gap: var(--space-8); /* Try Again under the words */
+  --spacing-file-upload-cards-gap: var(--space-12); /* the area, then each card under it */
+
+  /* ---- Format Icon, Medium (40); X-Small is it scaled to 80% ---- */
+  --spacing-file-upload-format: var(--space-40);
+  --spacing-file-upload-format-label-top: 1.125rem; /* 18 */
+  --spacing-file-upload-format-label: var(--space-16); /* 16 tall */
+  --spacing-file-upload-format-label-y: var(--space-2);
+  --spacing-file-upload-format-label-x: 0.1875rem; /* 3 */
+  --radius-file-upload-format-label: var(--corner-4);
+  --spacing-file-upload-format-xs: var(--space-32);
+
+  /* ---- Image Upload ---- */
+  --spacing-file-upload-image-vertical: 4rem; /* 64, the picture */
+  --spacing-file-upload-image-horizontal: 3.5rem; /* 56 */
+  --radius-file-upload-image: var(--corner-full);
+  --spacing-file-upload-image-gap: var(--space-20); /* after the picture */
+  --spacing-file-upload-image-words-gap: var(--space-4);
+  --spacing-file-upload-image-buttons-top: var(--space-12); /* under the words */
+  --spacing-file-upload-image-buttons-gap: var(--space-12);
+}
+
+:root {
+  /* The area's dashed edge: 5 on, 5 off, drawn as an SVG line 1px wide,
+     half a pixel in from the edge so it sits inside; its corner follows. */
+  --file-upload-area-dash: 0.3125rem 0.3125rem;
+  --file-upload-area-dash-corner: calc(var(--radius-file-upload-area) - 0.5px);
+  /* X-Small Format Icon: the Medium drawing at 80%, label and all. */
+  --file-upload-format-xs-scale: 0.8;
+}

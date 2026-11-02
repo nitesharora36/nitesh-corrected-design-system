@@ -1,0 +1,54 @@
+/* Size tokens for the Workflow Studio's step drawer
+   (design-system/revamp/step-drawer.md). The spacing and sizes follow
+   Nitesh's sketch v2 (21 Oct 2026, "a perfect example of spacing and
+   sizing"); the type and colours are the design system's. Only the drawer's
+   own layout: the components inside it keep their own sizes. Read by
+   components/workflow-builder/drawer-kit.tsx (the parts every step kind's
+   drawer shares), step-drawer.tsx and ref-field.tsx. */
+
+@theme {
+  /* ---- The body, under the Medium header ---- */
+  /* Under the Large header (padding 20), as OpenAI's inspector (21 Oct 2026). */
+  --spacing-step-drawer-x: var(--space-20);
+  --spacing-step-drawer-head-y: var(--space-12); /* the header's top and bottom, 20 to 12 (Nitesh, 21 Oct 2026) */
+  --spacing-step-drawer-glyph: 0.875rem; /* 14, a kind's glyph in the header's 24 tile (the card's is 18 in 32) */
+  --spacing-step-drawer-name-x: var(--space-6); /* the name in the header: room for its hover fill, pulled back so the words stay put */
+  --radius-step-drawer-name: var(--corner-6);
+  --spacing-step-drawer-top: var(--space-16); /* below the inset line */
+  --spacing-step-drawer-bottom: var(--space-20);
+  --spacing-step-drawer-gap: var(--space-16); /* between the body's parts */
+  --spacing-step-drawer-field-gap: var(--space-16); /* between word fields */
+  --spacing-step-drawer-label: 5.5rem; /* 88, the Name row's label column */
+
+  /* ---- The sentence and the preview: read-only boxes ---- */
+  --spacing-step-drawer-box-x: var(--space-12);
+  --spacing-step-drawer-box-y: var(--space-10);
+  --radius-step-drawer-box: var(--corner-12);
+
+  /* ---- Choice rows: the name, then the Inline Select, no gap between rows ---- */
+  --spacing-step-drawer-row: 2.25rem; /* 36 tall */
+  --spacing-step-drawer-row-gap: var(--space-12); /* the name to the picker */
+
+  /* ---- The word field with chips: the Text Input's field, growing ---- */
+  --spacing-step-drawer-words-min: var(--space-40); /* one line, as the Text Input, Medium */
+  --spacing-step-drawer-words-long: 7rem; /* 112, a description or body to start, as OpenAI's */
+  --spacing-step-drawer-words-x: var(--space-12);
+  --spacing-step-drawer-words-y: var(--space-6);
+  --radius-step-drawer-words: var(--corner-12); /* a filled field, as OpenAI's */
+  --leading-step-drawer-words: 1.75rem; /* 28: a Tag (24) fits in a line of words */
+
+  /* ---- Inside the preview card ---- */
+  --spacing-step-drawer-card-gap: var(--space-6); /* badges, title, body */
+  --spacing-step-drawer-badges-gap: var(--space-6);
+  --spacing-step-drawer-preview-gap: var(--space-8); /* heading, card, caption */
+
+  /* ---- The answer of "Try it now": rows of name and value ---- */
+  --spacing-step-drawer-answer-gap: var(--space-4);
+
+  /* ---- Lists inside a drawer (22 Oct 2026): questions, tools, conditions, people ---- */
+  --spacing-step-drawer-list-gap: var(--space-8); /* between a list's items */
+  --spacing-step-drawer-item-gap: var(--space-8); /* between the parts of one item */
+  --spacing-step-drawer-logo: var(--space-20); /* an app's logo in a tool row */
+  --spacing-step-drawer-tags-gap: var(--space-6); /* between tags in a field or a list */
+  --spacing-step-drawer-tags-input: 6rem; /* 96, the least room left for typing beside tags */
+}

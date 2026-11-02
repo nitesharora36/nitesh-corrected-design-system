@@ -1,0 +1,18 @@
+/* Size tokens for the canvases page (app/(dashboard)/dashboards/page.tsx).
+   28 Oct 2026, after Claude's home screen: "Canvas" in the centre, the chat
+   bar under it, then the list's row (Published and Drafts on the left, the
+   search, the sort and the view switch on the right) and the cards, all on
+   one column three cards wide, scrolling down. */
+
+@theme {
+  --spacing-canvases-search: 13.75rem; /* 220, the search field */
+  --spacing-canvases-header-gap: var(--space-16); /* between the row's tools' groups */
+  --spacing-canvases-front-top: var(--space-48); /* above "Canvas", with the page's own 40 */
+  --spacing-canvases-front-gap: var(--space-40); /* "Canvas" to the chat bar, as on the chat home */
+  --spacing-canvases-list-top: var(--space-48); /* the chat bar to the list's row */
+  --spacing-canvases-list-gap: var(--space-16); /* the list's row to the cards, and between the cards */
+  --spacing-canvases-see-all-top: var(--space-24); /* the cards to "See all", under them */
+  /* The column: three cards and the two gaps between them (824), so the chat
+     bar, the row and the cards share one pair of edges, as in the reference. */
+  --container-canvases-column: calc(var(--spacing-canvas-card) * 3 + var(--space-16) * 2);
+}

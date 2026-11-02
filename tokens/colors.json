@@ -1,0 +1,1487 @@
+{
+  "$description": "Neutrino colour tokens, named as in Nitesh's Figma. Values are resolved per theme; the palette is the source.",
+  "palette": {
+    "gray": {
+      "0": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#fafafa"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#f0f0f0"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ebebeb"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#d1d1d1"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#a3a3a3"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#737373"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#5c5c5c"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#262626"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#171717"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#111111"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0e0e0e"
+      }
+    },
+    "blue": {
+      "50": {
+        "$type": "color",
+        "$value": "#f2f7ff"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#e5effe"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#cbe0ff"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#8cb9fd"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#3d8bff"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#0461d5"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#0254bb"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#0047a2"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#013b88"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#012f6e"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#02193c"
+      }
+    },
+    "amber": {
+      "50": {
+        "$type": "color",
+        "$value": "#fffbeb"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#fef3c7"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#fde68a"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#fcd34d"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#fbbf24"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#f59e0b"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#d97706"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#b45309"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#92400e"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#78350f"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#451a03"
+      }
+    },
+    "red": {
+      "50": {
+        "$type": "color",
+        "$value": "#fef2f2"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#fee2e2"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#fecaca"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#fca5a5"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#f87171"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#ef4444"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#dc2626"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#b91c1c"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#991b1b"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#7f1d1d"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#450a0a"
+      }
+    },
+    "green": {
+      "50": {
+        "$type": "color",
+        "$value": "#ecfdf5"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#d1fae5"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#a7f3d0"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#6ee7b7"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#34d399"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#10b981"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#059669"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#047857"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#065f46"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#064e3b"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#022c22"
+      }
+    },
+    "faded": {
+      "100": {
+        "$type": "color",
+        "$value": "#f5f5f5"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#7b7b7b"
+      }
+    },
+    "information": {
+      "50": {
+        "$type": "color",
+        "$value": "#ebf1ff"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#c0d5ff"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#aac3fe"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#4d82ff"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#476cff"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#335cff"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#122368"
+      }
+    },
+    "warning": {
+      "50": {
+        "$type": "color",
+        "$value": "#fff3eb"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ffd9c0"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#ffbd9d"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#ffa468"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#fa7319"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#e16614"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#71330a"
+      }
+    },
+    "error": {
+      "50": {
+        "$type": "color",
+        "$value": "#ffebec"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ffc0c5"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#feada9"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#ff6875"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#fb3748"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#e93544"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#681219"
+      }
+    },
+    "success": {
+      "50": {
+        "$type": "color",
+        "$value": "#e3f7ec"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#c2f5da"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#8ae1a5"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#3ee089"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#1fc16b"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#1daf61"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0b4627"
+      }
+    },
+    "away": {
+      "50": {
+        "$type": "color",
+        "$value": "#fffaeb"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ffecc0"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#ffd68f"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#ffd268"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#fbc64b"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#f6b51e"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#e6a819"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#624c18"
+      }
+    },
+    "feature": {
+      "50": {
+        "$type": "color",
+        "$value": "#efebff"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#cac0ff"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#c0b8fe"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#8c71f6"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#784def"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#7d52f4"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#351a75"
+      }
+    },
+    "verified": {
+      "50": {
+        "$type": "color",
+        "$value": "#ebf8ff"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#c0eaff"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#a2dbfe"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#68cdff"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#47c2ff"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#35ade9"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#124b68"
+      }
+    },
+    "highlighted": {
+      "50": {
+        "$type": "color",
+        "$value": "#ffebf4"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ffc0df"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#ffb0cd"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#ff68b3"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#fb4ba3"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#e9358f"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#68123d"
+      }
+    },
+    "stable": {
+      "50": {
+        "$type": "color",
+        "$value": "#e4fbf8"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#c2f5ee"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#66e9d4"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#3fdec9"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#22d3bb"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#1daf9c"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0b463e"
+      }
+    },
+    "black": {
+      "$type": "color",
+      "$value": "#000000"
+    }
+  },
+  "light": {
+    "bg": {
+      "white-0": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Buttons, inputs, cards, menus, dialogs, the composer. CSS --bg-white-0."
+      },
+      "weak-25": {
+        "$type": "color",
+        "$value": "#f0f0f0",
+        "$description": "Disabled controls; chips, the selected row, stat cards. CSS --bg-weak-25."
+      },
+      "weak-50": {
+        "$type": "color",
+        "$value": "#f0f0f0",
+        "$description": "Quiet fills: soft buttons and their hover, composer controls, the user's bubble. CSS --bg-weak-50."
+      },
+      "soft-200": {
+        "$type": "color",
+        "$value": "#ebebeb",
+        "$description": "A pressed or picked fill, the user's avatar. CSS --bg-soft-200."
+      },
+      "sub-300": {
+        "$type": "color",
+        "$value": "#d1d1d1",
+        "$description": "Strong neutral fills, a switch that is off. CSS --bg-sub-300."
+      },
+      "surface-800": {
+        "$type": "color",
+        "$value": "#262626",
+        "$description": "Dark neutral fills: the Neutral filled button. CSS --bg-surface-800."
+      },
+      "strong-950": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "The strongest fill: Neutral filled on hover, tooltips. CSS --bg-strong-950."
+      },
+      "page": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Main page and the chat thread (dark sits a step under bg/white-0) (Neutrino only). CSS --bg-page."
+      },
+      "ground": {
+        "$type": "color",
+        "$value": "#fafafa",
+        "$description": "Sidebar and top bar, under the page (Neutrino only). CSS --bg-ground."
+      }
+    },
+    "text": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Headings, titles, the picked item, words on hover. CSS --text-strong-950."
+      },
+      "sub-600": {
+        "$type": "color",
+        "$value": "#5c5c5c",
+        "$description": "Secondary words, sidebar rows, Neutral buttons at rest. CSS --text-sub-600."
+      },
+      "soft-400": {
+        "$type": "color",
+        "$value": "#a3a3a3",
+        "$description": "Group labels, captions, quiet words. CSS --text-soft-400."
+      },
+      "disabled-300": {
+        "$type": "color",
+        "$value": "#d1d1d1",
+        "$description": "Disabled words. CSS --text-disabled-300."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Words on bg/strong-950 and bg/surface-800. CSS --text-white-0."
+      },
+      "body": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Chat answers and long reading (Neutrino only). CSS --text-body."
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#737373",
+        "$description": "Placeholders, hints, times: between sub and soft (Neutrino only). CSS --text-muted."
+      }
+    },
+    "icon": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Icons next to text/strong-950. CSS --icon-strong-950."
+      },
+      "sub-600": {
+        "$type": "color",
+        "$value": "#5c5c5c",
+        "$description": "Icons next to text/sub-600. CSS --icon-sub-600."
+      },
+      "soft-400": {
+        "$type": "color",
+        "$value": "#a3a3a3",
+        "$description": "Quiet icons. CSS --icon-soft-400."
+      },
+      "disabled-300": {
+        "$type": "color",
+        "$value": "#d1d1d1",
+        "$description": "Disabled icons. CSS --icon-disabled-300."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Icons on bg/strong-950 and bg/surface-800. CSS --icon-white-0."
+      }
+    },
+    "stroke": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Focused and strongest edges. CSS --stroke-strong-950."
+      },
+      "sub-300": {
+        "$type": "color",
+        "$value": "#d1d1d1",
+        "$description": "Inputs and hovered edges. CSS --stroke-sub-300."
+      },
+      "soft-200": {
+        "$type": "color",
+        "$value": "#ebebeb",
+        "$description": "Every hairline: dividers, card and button edges, table rules, the search box. CSS --stroke-soft-200."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "An edge in the colour of bg/white-0 (a cut-out ring). CSS --stroke-white-0."
+      },
+      "rim": {
+        "$type": "color",
+        "$value": "#ebebeb",
+        "$description": "The edge of cards and the composer: a whisper in dark (Neutrino only). CSS --stroke-rim."
+      }
+    },
+    "static": {
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Words and icons on Primary and on status fills. CSS --static-white."
+      },
+      "black": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Words and icons that stay dark in both themes. CSS --static-black."
+      }
+    },
+    "primary": {
+      "darkest": {
+        "$type": "color",
+        "$value": "#013b88",
+        "$description": "Primary pressed. CSS --primary-darkest."
+      },
+      "dark": {
+        "$type": "color",
+        "$value": "#0047a2",
+        "$description": "Primary on hover. CSS --primary-dark."
+      },
+      "base": {
+        "$type": "color",
+        "$value": "#0461d5",
+        "$description": "The main action: Primary buttons, Send, blue icons, the New chat plus. Lighter on dark, as in the Figma. CSS --primary-base."
+      },
+      "light": {
+        "$type": "color",
+        "$value": "#e5effe",
+        "$description": "A light blue fill. CSS --primary-light."
+      },
+      "lighter": {
+        "$type": "color",
+        "$value": "#f2f7ff",
+        "$description": "The lightest blue fill. CSS --primary-lighter."
+      },
+      "alpha-24": {
+        "$type": "color",
+        "$value": "#0461d53d",
+        "$description": "See-through blue, strong. CSS --primary-alpha-24."
+      },
+      "alpha-16": {
+        "$type": "color",
+        "$value": "#0461d529",
+        "$description": "See-through blue. CSS --primary-alpha-16."
+      },
+      "alpha-10": {
+        "$type": "color",
+        "$value": "#0461d51a",
+        "$description": "Soft Primary buttons and their hover, the Primary focus ring. CSS --primary-alpha-10."
+      }
+    },
+    "signal": {
+      "text": {
+        "$type": "color",
+        "$value": "#0047a2",
+        "$description": "Links, the tools tray, blue words (Neutrino only). CSS --signal-text."
+      },
+      "wash": {
+        "$type": "color",
+        "$value": "#0461d50f",
+        "$description": "A faint blue fill behind signal text (Neutrino only). CSS --signal-wash."
+      }
+    },
+    "state": {
+      "faded": {
+        "dark": {
+          "$type": "color",
+          "$value": "#262626",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-faded-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#7b7b7b",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-faded-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ebebeb",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-faded-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#f5f5f5",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-faded-lighter."
+        }
+      },
+      "information": {
+        "dark": {
+          "$type": "color",
+          "$value": "#122368",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-information-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#335cff",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-information-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#c0d5ff",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-information-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#ebf1ff",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-information-lighter."
+        }
+      },
+      "warning": {
+        "dark": {
+          "$type": "color",
+          "$value": "#71330a",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-warning-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#fa7319",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-warning-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ffd9c0",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-warning-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fff3eb",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-warning-lighter."
+        }
+      },
+      "error": {
+        "dark": {
+          "$type": "color",
+          "$value": "#681219",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-error-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#fb3748",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-error-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ffc0c5",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-error-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#ffebec",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-error-lighter."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#e93544",
+          "$description": "Error filled on hover (Neutrino only). CSS --state-error-hover."
+        }
+      },
+      "success": {
+        "dark": {
+          "$type": "color",
+          "$value": "#0b4627",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-success-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#1fc16b",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-success-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#c2f5da",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-success-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#e3f7ec",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-success-lighter."
+        }
+      },
+      "away": {
+        "dark": {
+          "$type": "color",
+          "$value": "#624c18",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-away-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#f6b51e",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-away-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ffecc0",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-away-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fffaeb",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-away-lighter."
+        }
+      },
+      "feature": {
+        "dark": {
+          "$type": "color",
+          "$value": "#351a75",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-feature-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#7d52f4",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-feature-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#cac0ff",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-feature-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#efebff",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-feature-lighter."
+        }
+      },
+      "verified": {
+        "dark": {
+          "$type": "color",
+          "$value": "#124b68",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-verified-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#47c2ff",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-verified-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#c0eaff",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-verified-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#ebf8ff",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-verified-lighter."
+        }
+      },
+      "highlighted": {
+        "dark": {
+          "$type": "color",
+          "$value": "#68123d",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-highlighted-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#fb4ba3",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-highlighted-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#ffc0df",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-highlighted-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#ffebf4",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-highlighted-lighter."
+        }
+      },
+      "stable": {
+        "dark": {
+          "$type": "color",
+          "$value": "#0b463e",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-stable-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#22d3bb",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-stable-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#c2f5ee",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-stable-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#e4fbf8",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-stable-lighter."
+        }
+      }
+    },
+    "overlay": {
+      "gray": {
+        "$type": "color",
+        "$value": "#2626263d",
+        "$description": "Behind modals and drawers. CSS --overlay-gray."
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "The page colour at the end of a fade. CSS --overlay-white."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#ffffff00",
+        "$description": "The same, fully see-through, at the start of a fade. CSS --overlay-white-0."
+      },
+      "scrim": {
+        "$type": "color",
+        "$value": "#0000001f",
+        "$description": "Behind the sidebar peek (Neutrino only). CSS --overlay-scrim."
+      },
+      "tint-4": {
+        "$type": "color",
+        "$value": "#0000000a",
+        "$description": "Row hover (Neutrino only). CSS --overlay-tint-4."
+      },
+      "tint-6": {
+        "$type": "color",
+        "$value": "#0000000f",
+        "$description": "Muted and accent fills (Neutrino only). CSS --overlay-tint-6."
+      },
+      "tint-9": {
+        "$type": "color",
+        "$value": "#00000017",
+        "$description": "A stronger hover (Neutrino only). CSS --overlay-tint-9."
+      },
+      "tint-12": {
+        "$type": "color",
+        "$value": "#0000001f",
+        "$description": "Pressed (Neutrino only). CSS --overlay-tint-12."
+      },
+      "tint-16": {
+        "$type": "color",
+        "$value": "#00000029",
+        "$description": "The strongest tint (Neutrino only). CSS --overlay-tint-16."
+      }
+    }
+  },
+  "dark": {
+    "bg": {
+      "white-0": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Buttons, inputs, cards, menus, dialogs, the composer. CSS --bg-white-0."
+      },
+      "weak-25": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Disabled controls; chips, the selected row, stat cards. CSS --bg-weak-25."
+      },
+      "weak-50": {
+        "$type": "color",
+        "$value": "#262626",
+        "$description": "Quiet fills: soft buttons and their hover, composer controls, the user's bubble. CSS --bg-weak-50."
+      },
+      "soft-200": {
+        "$type": "color",
+        "$value": "#262626",
+        "$description": "A pressed or picked fill, the user's avatar. CSS --bg-soft-200."
+      },
+      "sub-300": {
+        "$type": "color",
+        "$value": "#5c5c5c",
+        "$description": "Strong neutral fills, a switch that is off. CSS --bg-sub-300."
+      },
+      "surface-800": {
+        "$type": "color",
+        "$value": "#ebebeb",
+        "$description": "Dark neutral fills: the Neutral filled button. CSS --bg-surface-800."
+      },
+      "strong-950": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "The strongest fill: Neutral filled on hover, tooltips. CSS --bg-strong-950."
+      },
+      "page": {
+        "$type": "color",
+        "$value": "#111111",
+        "$description": "Main page and the chat thread (dark sits a step under bg/white-0) (Neutrino only). CSS --bg-page."
+      },
+      "ground": {
+        "$type": "color",
+        "$value": "#0e0e0e",
+        "$description": "Sidebar and top bar, under the page (Neutrino only). CSS --bg-ground."
+      }
+    },
+    "text": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Headings, titles, the picked item, words on hover. CSS --text-strong-950."
+      },
+      "sub-600": {
+        "$type": "color",
+        "$value": "#a3a3a3",
+        "$description": "Secondary words, sidebar rows, Neutral buttons at rest. CSS --text-sub-600."
+      },
+      "soft-400": {
+        "$type": "color",
+        "$value": "#737373",
+        "$description": "Group labels, captions, quiet words. CSS --text-soft-400."
+      },
+      "disabled-300": {
+        "$type": "color",
+        "$value": "#5c5c5c",
+        "$description": "Disabled words. CSS --text-disabled-300."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Words on bg/strong-950 and bg/surface-800. CSS --text-white-0."
+      },
+      "body": {
+        "$type": "color",
+        "$value": "#ebebeb",
+        "$description": "Chat answers and long reading (Neutrino only). CSS --text-body."
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#737373",
+        "$description": "Placeholders, hints, times: between sub and soft (Neutrino only). CSS --text-muted."
+      }
+    },
+    "icon": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Icons next to text/strong-950. CSS --icon-strong-950."
+      },
+      "sub-600": {
+        "$type": "color",
+        "$value": "#a3a3a3",
+        "$description": "Icons next to text/sub-600. CSS --icon-sub-600."
+      },
+      "soft-400": {
+        "$type": "color",
+        "$value": "#737373",
+        "$description": "Quiet icons. CSS --icon-soft-400."
+      },
+      "disabled-300": {
+        "$type": "color",
+        "$value": "#5c5c5c",
+        "$description": "Disabled icons. CSS --icon-disabled-300."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Icons on bg/strong-950 and bg/surface-800. CSS --icon-white-0."
+      }
+    },
+    "stroke": {
+      "strong-950": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Focused and strongest edges. CSS --stroke-strong-950."
+      },
+      "sub-300": {
+        "$type": "color",
+        "$value": "#ffffff1f",
+        "$description": "Inputs and hovered edges. CSS --stroke-sub-300."
+      },
+      "soft-200": {
+        "$type": "color",
+        "$value": "#ffffff17",
+        "$description": "Every hairline: dividers, card and button edges, table rules, the search box. CSS --stroke-soft-200."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "An edge in the colour of bg/white-0 (a cut-out ring). CSS --stroke-white-0."
+      },
+      "rim": {
+        "$type": "color",
+        "$value": "#ffffff08",
+        "$description": "The edge of cards and the composer: a whisper in dark (Neutrino only). CSS --stroke-rim."
+      }
+    },
+    "static": {
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Words and icons on Primary and on status fills. CSS --static-white."
+      },
+      "black": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "Words and icons that stay dark in both themes. CSS --static-black."
+      }
+    },
+    "primary": {
+      "darkest": {
+        "$type": "color",
+        "$value": "#013b88",
+        "$description": "Primary pressed. CSS --primary-darkest."
+      },
+      "dark": {
+        "$type": "color",
+        "$value": "#0047a2",
+        "$description": "Primary on hover. CSS --primary-dark."
+      },
+      "base": {
+        "$type": "color",
+        "$value": "#3d8bff",
+        "$description": "The main action: Primary buttons, Send, blue icons, the New chat plus. Lighter on dark, as in the Figma. CSS --primary-base."
+      },
+      "light": {
+        "$type": "color",
+        "$value": "#e5effe",
+        "$description": "A light blue fill. CSS --primary-light."
+      },
+      "lighter": {
+        "$type": "color",
+        "$value": "#f2f7ff",
+        "$description": "The lightest blue fill. CSS --primary-lighter."
+      },
+      "alpha-24": {
+        "$type": "color",
+        "$value": "#3d8bff3d",
+        "$description": "See-through blue, strong. CSS --primary-alpha-24."
+      },
+      "alpha-16": {
+        "$type": "color",
+        "$value": "#3d8bff29",
+        "$description": "See-through blue. CSS --primary-alpha-16."
+      },
+      "alpha-10": {
+        "$type": "color",
+        "$value": "#3d8bff1a",
+        "$description": "Soft Primary buttons and their hover, the Primary focus ring. CSS --primary-alpha-10."
+      }
+    },
+    "signal": {
+      "text": {
+        "$type": "color",
+        "$value": "#8cb9fd",
+        "$description": "Links, the tools tray, blue words (Neutrino only). CSS --signal-text."
+      },
+      "wash": {
+        "$type": "color",
+        "$value": "#3d8bff14",
+        "$description": "A faint blue fill behind signal text (Neutrino only). CSS --signal-wash."
+      }
+    },
+    "state": {
+      "faded": {
+        "dark": {
+          "$type": "color",
+          "$value": "#ebebeb",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-faded-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#7b7b7b",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-faded-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#a3a3a33d",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-faded-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#a3a3a31a",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-faded-lighter."
+        }
+      },
+      "information": {
+        "dark": {
+          "$type": "color",
+          "$value": "#aac3fe",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-information-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#335cff",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-information-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#476cff2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-information-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#476cff1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-information-lighter."
+        }
+      },
+      "warning": {
+        "dark": {
+          "$type": "color",
+          "$value": "#ffbd9d",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-warning-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#e16614",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-warning-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#fa73192e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-warning-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fa73191f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-warning-lighter."
+        }
+      },
+      "error": {
+        "dark": {
+          "$type": "color",
+          "$value": "#feada9",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-error-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#e93544",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-error-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#fb37482e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-error-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fb37481f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-error-lighter."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#fb3748",
+          "$description": "Error filled on hover (Neutrino only). CSS --state-error-hover."
+        }
+      },
+      "success": {
+        "dark": {
+          "$type": "color",
+          "$value": "#8ae1a5",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-success-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#1daf61",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-success-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#1fc16b2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-success-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#1fc16b1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-success-lighter."
+        }
+      },
+      "away": {
+        "dark": {
+          "$type": "color",
+          "$value": "#ffd68f",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-away-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#e6a819",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-away-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#fbc64b2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-away-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fbc64b1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-away-lighter."
+        }
+      },
+      "feature": {
+        "dark": {
+          "$type": "color",
+          "$value": "#c0b8fe",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-feature-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#7d52f4",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-feature-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#784def2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-feature-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#784def1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-feature-lighter."
+        }
+      },
+      "verified": {
+        "dark": {
+          "$type": "color",
+          "$value": "#a2dbfe",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-verified-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#35ade9",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-verified-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#47c2ff2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-verified-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#47c2ff1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-verified-lighter."
+        }
+      },
+      "highlighted": {
+        "dark": {
+          "$type": "color",
+          "$value": "#ffb0cd",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-highlighted-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#e9358f",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-highlighted-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#fb4ba32e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-highlighted-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#fb4ba31f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-highlighted-lighter."
+        }
+      },
+      "stable": {
+        "dark": {
+          "$type": "color",
+          "$value": "#66e9d4",
+          "$description": "Words and icons on its own light and lighter fills (badges, tags, alerts): AAA, 7:1. CSS --state-stable-dark."
+        },
+        "base": {
+          "$type": "color",
+          "$value": "#1daf9c",
+          "$description": "The status colour: its icons, words and solid fills. CSS --state-stable-base."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "#22d3bb2e",
+          "$description": "A stronger tint: badge and alert edges. CSS --state-stable-light."
+        },
+        "lighter": {
+          "$type": "color",
+          "$value": "#22d3bb1f",
+          "$description": "The faint fill behind a status, its focus ring. CSS --state-stable-lighter."
+        }
+      }
+    },
+    "overlay": {
+      "gray": {
+        "$type": "color",
+        "$value": "#2626268f",
+        "$description": "Behind modals and drawers. CSS --overlay-gray."
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#171717",
+        "$description": "The page colour at the end of a fade. CSS --overlay-white."
+      },
+      "white-0": {
+        "$type": "color",
+        "$value": "#17171700",
+        "$description": "The same, fully see-through, at the start of a fade. CSS --overlay-white-0."
+      },
+      "scrim": {
+        "$type": "color",
+        "$value": "#00000066",
+        "$description": "Behind the sidebar peek (Neutrino only). CSS --overlay-scrim."
+      },
+      "tint-4": {
+        "$type": "color",
+        "$value": "#ffffff0a",
+        "$description": "Row hover (Neutrino only). CSS --overlay-tint-4."
+      },
+      "tint-6": {
+        "$type": "color",
+        "$value": "#ffffff0f",
+        "$description": "Muted and accent fills (Neutrino only). CSS --overlay-tint-6."
+      },
+      "tint-9": {
+        "$type": "color",
+        "$value": "#ffffff17",
+        "$description": "A stronger hover (Neutrino only). CSS --overlay-tint-9."
+      },
+      "tint-12": {
+        "$type": "color",
+        "$value": "#ffffff1f",
+        "$description": "Pressed (Neutrino only). CSS --overlay-tint-12."
+      },
+      "tint-16": {
+        "$type": "color",
+        "$value": "#ffffff29",
+        "$description": "The strongest tint (Neutrino only). CSS --overlay-tint-16."
+      }
+    }
+  }
+}

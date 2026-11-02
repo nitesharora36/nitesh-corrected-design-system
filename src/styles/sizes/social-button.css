@@ -1,0 +1,56 @@
+/* Size tokens and brand colours for Social Button
+ * (design-system/components/social-button.md).
+ *
+ * One size, as tall as the Button's Medium: 40, padding 10 left and 16
+ * right, logo to words 8, corner 10, logo 20. Icon only is a 40 square.
+ */
+@theme {
+  --spacing-social-button: 2.5rem; /* 40 tall; the icon-only square */
+  --spacing-social-button-left: var(--space-10);
+  --spacing-social-button-right: var(--space-16);
+  --spacing-social-button-gap: var(--space-8); /* logo to words */
+  --spacing-social-button-logo: 1.25rem; /* 20 */
+  --radius-social-button: var(--corner-10);
+}
+
+/* Brand colours. The page makes this the one place a brand's hex is allowed
+ * (Open 1, waiting for Nitesh), so scripts/check-colours.sh counts these
+ * lines. Named as the page proposes for colors/build.mjs: social/apple,
+ * social/twitter and social/github have a light and a dark value (the
+ * near-black logos turn white on dark); every other one is the same in both
+ * themes. The logos are stand-in marks for now (components/ds/social-button.tsx). */
+:root {
+  /* Filled: the fill */
+  --social-apple-fill: #000000;
+  --social-twitter-fill: #000000;
+  --social-github-fill: #24292F;
+  --social-google-fill: #F14336;
+  --social-facebook-fill: #1977F3;
+  --social-linkedin-fill: #0077B5;
+  --social-dropbox-fill: #3984FF;
+
+  /* Stroke: the logo in the brand's own colours */
+  --social-apple: #000000;
+  --social-twitter: #010101;
+  --social-github: #24292F;
+  --social-google-blue: #4285F4;
+  --social-google-yellow: #FBBC05;
+  --social-google-red: #EA4335;
+  --social-google-green: #34A853;
+  --social-facebook-bottom: #0062E0;
+  --social-facebook-top: #19AFFF;
+  --social-linkedin: #0077B5;
+  --social-dropbox: #0061FF;
+
+  /* Filled, Hover: a layer at 16% over the brand's fill, white for Apple, X
+     and GitHub, black for the others. No token stays white or black in both
+     themes yet (page, Open 6), so they are made here from static/white and
+     the palette's black, the same in both themes. */
+  --social-button-hover-white: linear-gradient(color-mix(in srgb, var(--static-white) 16%, transparent), color-mix(in srgb, var(--static-white) 16%, transparent));
+  --social-button-hover-black: linear-gradient(color-mix(in srgb, var(--palette-black) 16%, transparent), color-mix(in srgb, var(--palette-black) 16%, transparent));
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --social-apple: #FFFFFF;
+  --social-twitter: #FFFFFF;
+  --social-github: #FFFFFF;
+}

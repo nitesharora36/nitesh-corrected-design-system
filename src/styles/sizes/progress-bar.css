@@ -1,0 +1,35 @@
+/* Size tokens for Progress Bar (design-system/components/progress-bar.md,
+   Figma "Progress Bar [1.1]" node 450:17821, "Progress Bar Line [1.1]"
+   450:17810, "Progress Bar Label [1.1]" 515:3758, "Circular Progress Bar
+   [1.1]" 466:4652). Read by components/ds/progress-bar.tsx. */
+
+@theme {
+  /* ---- The bar: the track and the filled part ---- */
+  --spacing-progress-bar-track: var(--space-6); /* 6 tall */
+  --radius-progress-bar-track: var(--corner-full);
+
+  /* ---- Progress Bar Label ---- */
+  /* On Top: a column, the title row, the bar, the optional bottom line (32, or 54) */
+  --spacing-progress-bar-label-gap: var(--space-6);
+  --spacing-progress-bar-label-title-gap: var(--space-6); /* title to value */
+  --spacing-progress-bar-label-bottom-gap: var(--space-4); /* link to sentence */
+  /* On Right: a row, the bar then the value (16 tall) */
+  --spacing-progress-bar-label-right-gap: var(--space-8);
+
+  /* ---- Circular Progress Bar ----
+     The ring's thickness is the Figma's share of the size, rounded to whole
+     pixels as the page proposes (Open): 6.4, 5.8, 5.1, 4.5, 6.7 become
+     6, 6, 5, 4, 7. */
+  --spacing-progress-bar-circle-80: 5rem; /* 80 */
+  --spacing-progress-bar-circle-80-ring: var(--space-6);
+  --spacing-progress-bar-circle-72: 4.5rem; /* 72 */
+  --spacing-progress-bar-circle-72-ring: var(--space-6);
+  --spacing-progress-bar-circle-64: 4rem; /* 64 */
+  --spacing-progress-bar-circle-64-ring: 0.3125rem; /* 5 */
+  --spacing-progress-bar-circle-56: 3.5rem; /* 56 */
+  --spacing-progress-bar-circle-56-ring: var(--space-4);
+  --spacing-progress-bar-circle-48: var(--space-48);
+  --spacing-progress-bar-circle-48-ring: 0.4375rem; /* 7 */
+  /* The value sits centred in a box this far in from each side. */
+  --spacing-progress-bar-circle-value-inset: var(--space-12);
+}

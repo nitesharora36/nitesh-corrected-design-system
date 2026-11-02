@@ -1,0 +1,19 @@
+/* Size tokens for Link Button (design-system/components/link-button.md).
+ *
+ * Two sizes: Medium 20, Small 16. No padding; the width follows the words.
+ * The Figma's link has no corner; the 4 is the page's proposal (Open, 1) for
+ * the focus ring, which needs one.
+ */
+@theme {
+  /* Medium */
+  --spacing-link-button-md: 1.25rem; /* 20 tall */
+  --spacing-link-button-md-gap: var(--space-4);
+  --spacing-link-button-md-icon: 1.25rem; /* 20 */
+
+  /* Small */
+  --spacing-link-button-sm: 1rem; /* 16 */
+  --spacing-link-button-sm-gap: var(--space-4);
+  --spacing-link-button-sm-icon: 1rem; /* 16 */
+
+  --radius-link-button: var(--corner-4); /* the focus ring's corner, proposed */
+}

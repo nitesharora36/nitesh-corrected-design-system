@@ -1,0 +1,43 @@
+/* Size tokens for Tab Menu (design-system/components/tab-menu.md, the
+ * Figma's "Tab Menu Horizontal [1.1]", node 3511:9958, and "Tab Menu
+ * Vertical [1.1]", node 3516:10411). */
+
+@theme {
+  /* Horizontal: the bar */
+  --spacing-tab-menu-bar: 3rem; /* 48 tall */
+  --spacing-tab-menu-bar-y: var(--space-14); /* padding, top and bottom */
+  --spacing-tab-menu-bar-gap: var(--space-24); /* between tabs */
+  --spacing-tab-menu-active-line: var(--space-2); /* under the active tab, on the bottom line */
+
+  /* Every tab, both directions */
+  --spacing-tab-menu-tab-gap: var(--space-6); /* icon, word, badge, arrow */
+  --spacing-tab-menu-icon: 1.25rem; /* 20 */
+  --spacing-tab-menu-arrow: 1.25rem; /* 20, the circle */
+  --spacing-tab-menu-arrow-pad: var(--space-1);
+  --spacing-tab-menu-arrow-icon: 1.125rem; /* 18, the chevron */
+  --radius-tab-menu-arrow: var(--corner-full);
+
+  /* Vertical: the container (Card style; the List style has none) */
+  --spacing-tab-menu-card-pad: var(--space-10);
+  --radius-tab-menu-card: var(--corner-16);
+  --spacing-tab-menu-rows-gap: var(--space-8); /* between rows */
+
+  /* Vertical: each row */
+  --spacing-tab-menu-row: 2.25rem; /* 36 tall */
+  --spacing-tab-menu-row-pad: var(--space-8);
+  --radius-tab-menu-row: var(--corner-8);
+
+  /* The Figma draws the vertical menu 258 wide. The menu itself fills its
+     container; the Components page shows it at this width. */
+  --spacing-tab-menu-vertical: 16.125rem; /* 258 */
+}
+
+/* The horizontal bar's lines, top and bottom: 1px of stroke/soft-200 drawn
+   inside the bar (as the Figma's strokes are), so they never change its 48
+   or its padding, and the active tab's line paints over the bottom one.
+   Used as the bar's edge: ds-shadow [--ds-edge:var(--shadow-tab-menu-bar)]. */
+:root {
+  --shadow-tab-menu-bar:
+    inset 0 var(--space-1) 0 0 var(--stroke-soft-200),
+    inset 0 calc(var(--space-1) * -1) 0 0 var(--stroke-soft-200);
+}

@@ -1,0 +1,65 @@
+/* Size tokens and layers for Fancy Button (design-system/components/fancy-button.md).
+ *
+ * Three sizes: Medium 40, Small 36, X-Small 32. The word sits in its own box
+ * with 4 on each side, so icon to word is 8, as on the Button.
+ */
+@theme {
+  /* Medium */
+  --spacing-fancy-button-md: 2.5rem; /* 40 tall */
+  --spacing-fancy-button-md-x: var(--space-10);
+  --spacing-fancy-button-md-gap: var(--space-4);
+  --radius-fancy-button-md: var(--corner-10);
+
+  /* Small */
+  --spacing-fancy-button-sm: 2.25rem; /* 36 */
+  --spacing-fancy-button-sm-x: var(--space-8);
+  --spacing-fancy-button-sm-gap: var(--space-4);
+  --radius-fancy-button-sm: var(--corner-8);
+
+  /* X-Small: the gap is 4 here and 2 on the Button (page, Open 3) */
+  --spacing-fancy-button-xs: 2rem; /* 32 */
+  --spacing-fancy-button-xs-x: var(--space-6);
+  --spacing-fancy-button-xs-gap: var(--space-4);
+  --radius-fancy-button-xs: var(--corner-8);
+
+  --spacing-fancy-button-label-x: var(--space-4); /* the box around the word */
+  --spacing-fancy-button-icon: 1.25rem; /* 20, every size */
+  --spacing-fancy-button-edge: var(--space-1); /* layer 3, the inside edge, 1px */
+}
+
+/* The layers, bottom up (the page's "Layers"):
+ *   1. fill            the type's colour token (in the component)
+ *   2. shine           --fancy-button-shine, a white gradient over the fill
+ *   3. inside edge     --fancy-button-edge, a 1px gradient line just inside
+ *                      the border, cut to the corner by --fancy-button-edge-mask
+ *   4. ring + 5. drop  --shadow-fancy-<type>, one Figma effect style each
+ * The drop shadows' typed-in colours (the Figma's near-black greys) are
+ * --palette-black at the same strength, as shadows.md proposes. On dark a
+ * shadow keeps only its 1px ring (shadows.md, "Light and dark"). */
+:root {
+  --fancy-button-shine: linear-gradient(to bottom, color-mix(in srgb, var(--static-white) 16%, transparent), color-mix(in srgb, var(--static-white) 0%, transparent));
+  --fancy-button-shine-hover: linear-gradient(to bottom, color-mix(in srgb, var(--static-white) 24%, transparent), color-mix(in srgb, var(--static-white) 0%, transparent));
+  --fancy-button-edge: linear-gradient(to bottom, color-mix(in srgb, var(--static-white) 12%, transparent), color-mix(in srgb, var(--static-white) 0%, transparent));
+  /* Keeps only the 1px frame of the edge layer: the whole box minus its
+     content box, by "exclude" (the colour only sets what shows; any opaque
+     one would do). */
+  --fancy-button-edge-mask: linear-gradient(var(--static-white) 0 0) content-box exclude, linear-gradient(var(--static-white) 0 0);
+
+  /* components/fancy-buttons/neutral, primary, error, stroke (Basic) */
+  --shadow-fancy-neutral: 0 0 0 1px var(--bg-surface-800), 0 1px 2px color-mix(in srgb, var(--palette-black) 48%, transparent);
+  --shadow-fancy-primary: 0 0 0 1px var(--primary-base), 0 1px 2px color-mix(in srgb, var(--palette-black) 24%, transparent);
+  --shadow-fancy-error: 0 0 0 1px var(--state-error-base), 0 1px 2px color-mix(in srgb, var(--palette-black) 24%, transparent);
+  --shadow-fancy-stroke: 0 0 0 1px var(--stroke-soft-200), 0 1px 3px color-mix(in srgb, var(--palette-black) 12%, transparent);
+
+  /* Focus (page, Open 1): the Button's rings (2px bg/white-0, then 2px of
+     colour), drawn outside the 1px ring, so each starts 1px further out. */
+  --shadow-fancy-button-focus-neutral: 0 0 0 3px var(--bg-white-0), 0 0 0 5px var(--state-faded-light);
+  --shadow-fancy-button-focus-primary: 0 0 0 3px var(--bg-white-0), 0 0 0 5px var(--primary-alpha-10);
+  --shadow-fancy-button-focus-error: 0 0 0 3px var(--bg-white-0), 0 0 0 5px var(--state-error-lighter);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-fancy-neutral: 0 0 0 1px var(--bg-surface-800);
+  --shadow-fancy-primary: 0 0 0 1px var(--primary-base);
+  --shadow-fancy-error: 0 0 0 1px var(--state-error-base);
+  --shadow-fancy-stroke: 0 0 0 1px var(--stroke-soft-200);
+}

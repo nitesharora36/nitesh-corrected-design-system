@@ -1,0 +1,105 @@
+/* Size tokens for Table (design-system/components/table.md, Figma Table
+   page 553:14955: "Table Header Cell [1.1]" 587:5793, "Table Row Cell
+   [1.1]" 553:22175, "Sorting Icons [1.1]" 581:2327). Read by
+   components/ds/table.tsx. The checkbox, radio, Key Icon, avatar, buttons,
+   switch and badges in the cells keep their own sizes. */
+
+@theme {
+  /* ---- Header row and header cells ---- */
+  --spacing-table-header: 2.25rem; /* 36 tall */
+  --radius-table-header: var(--corner-8);
+  --spacing-table-header-y: var(--space-8);
+  --spacing-table-header-x: var(--space-12);
+  --spacing-table-header-gap: var(--space-10); /* after the checkbox */
+  --spacing-table-header-below: var(--space-8); /* the header row to the first row */
+  --spacing-table-sort-icon: var(--space-20); /* the sort arrows */
+  --spacing-table-sort-gap: var(--space-2); /* the word to the arrows */
+  /* Not on the page: the corner of the sort button's focus ring (page, Open). */
+  --radius-table-sort: var(--corner-4);
+
+  /* ---- Rows ---- */
+  --spacing-table-row-xl: 4rem; /* X-Large, 64 */
+  --spacing-table-row-lg: var(--space-48); /* Large, 48 */
+  --radius-table-row: var(--corner-12); /* rounds a hovered row's grey */
+  /* Between rows: the Content Divider, Line Spacing (4 tall), with 4 above
+     and below it, so rows are 12 apart with the line in the middle. */
+  --spacing-table-divider-y: var(--space-4);
+
+  /* ---- Body cells ---- */
+  --spacing-table-cell-pad: var(--space-12); /* text cells: top, bottom, left; other cells: every side */
+  --spacing-table-text-right: var(--space-20); /* text cells' right */
+  --spacing-table-text-gap: var(--space-12); /* checkbox, picture, words */
+  --spacing-table-words-gap: var(--space-2); /* title to description (X-Large) */
+  --spacing-table-cell-gap: var(--space-8); /* other cells: between their parts */
+
+  /* ---- The table, decided 23 Oct 2026 (table.md, "The table family"):
+     the Figma's Table, the box and header of Nitesh's Projects reference,
+     and the working parts of the grouped table he picked. ---- */
+  /* The box: the table sits in it, the header bar 4 inside its edge, so the
+     header's corner 8 and the box's 12 nest (12 - 4). */
+  --spacing-table-frame-pad: var(--space-4);
+  --radius-table-frame: var(--corner-12);
+  --radius-table-row-framed: var(--corner-8); /* a row's hover corner inside the box */
+  /* Grid (the Excel kind): 40 rows on lines, 12 at the cells' sides, as
+     the other kinds' cells (more room, Nitesh, 24 Oct 2026; was 36 and 8). */
+  --spacing-table-row-grid: var(--space-40); /* 40 */
+  --spacing-table-grid-x: var(--space-12);
+  /* A group's row: as tall as the header, pinned under it while its rows
+     scroll (the header's band is 44: the bar 36 and the 8 under it). */
+  --spacing-table-group: 2.25rem; /* 36 */
+  --spacing-table-group-top: 2.75rem; /* 44 */
+  --spacing-table-group-gap: var(--space-8);
+  /* The Horizontal Filter (filter.md) to the table under it, as the Figma's
+     table blocks. */
+  --spacing-table-filter-below: var(--space-16);
+  /* Picked rows: the bar of what can be done to them, floating at the box's foot. */
+  --spacing-table-bulk-below: var(--space-12);
+  --spacing-table-bulk-gap: var(--space-8);
+  --spacing-table-bulk-x: var(--space-12);
+  --spacing-table-bulk-y: var(--space-6);
+  --radius-table-bulk: var(--corner-12);
+  --spacing-table-bulk-line: var(--space-16); /* the line between the count and the actions */
+  /* A column's edge, dragged to size it. */
+  --spacing-table-resize: var(--space-8);
+  /* Loading, empty and error rows. */
+  --spacing-table-message-y: var(--space-32);
+  --spacing-table-skeleton-h: var(--space-12);
+
+  /* ---- A brand or company logo, in a circle ---- */
+  --spacing-table-logo-xl: var(--space-40);
+  --spacing-table-logo-lg: var(--space-32);
+  --spacing-table-logo-pad: var(--space-6); /* the logo 28 across on X-Large */
+  --radius-table-logo: var(--corner-full);
+}
+
+/* The other cells' column widths, as the Figma draws them. The Table's
+   columns prop reads them in its grid, from a style, so they are plain
+   variables: Tailwind leaves out @theme names no class uses. */
+:root {
+  --table-col-button: 4rem; /* 64 */
+  --table-col-button-group: 6rem; /* 96 */
+  --table-col-toggle: 4rem; /* 64 */
+  --table-col-rating: 8.25rem; /* 132 */
+  --table-col-progress-bar: 12.25rem; /* 196 */
+  --table-col-status-badge: 7.5rem; /* 120 */
+  --table-col-badge-group: 11.125rem; /* 178 */
+  --table-col-avatar-group: 9.75rem; /* 156 */
+  --table-col-index: 3rem; /* 48, a grid's row numbers (24 Oct 2026; was 44) */
+  --table-col-number: 6rem; /* 96, a column of figures (23 Oct 2026) */
+  /* Not in the Figma: the narrowest a text column gets, so a name never
+     disappears; below it the table scrolls sideways. The Leading column
+     (avatar, name, email) needs more. */
+  --table-col-fill-min: 8rem; /* 128 */
+  --table-col-leading-min: 13.75rem; /* 220 */
+}
+
+/* Colours the table mixes from tokens (23 Oct 2026). A picked row is
+   primary/alpha-10 over bg/white-0 (alpha-16 on hover), mixed into one solid
+   colour so a pinned cell, which takes its row's fill, still hides what
+   scrolls under it. The bulk bar floats with the Dropdown's shadow. Plain
+   variables, so dark reaches them. */
+:root {
+  --table-row-picked: color-mix(in srgb, var(--primary-base) 10%, var(--bg-white-0));
+  --table-row-picked-hover: color-mix(in srgb, var(--primary-base) 16%, var(--bg-white-0));
+  --shadow-table-bulk: var(--shadow-dropdown-menu);
+}

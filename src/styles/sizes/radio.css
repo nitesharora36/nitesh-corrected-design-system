@@ -1,0 +1,38 @@
+/* Size tokens for Radio (design-system/components/radio.md, Figma
+ * "Radio [1.1]" 515:4242, "Radio Label [1.1]" 515:4282 and "Radio Card [1.1]"
+ * 515:4347). The Label and Card values are the Checkbox's, kept in step by
+ * hand so each can still change on its own. */
+
+@theme {
+  /* ---- The button: a 16 circle, 2px in from a 20 x 20 space ---- */
+  --spacing-radio-circle: var(--space-16);
+  --spacing-radio-inset: var(--space-2);
+  --spacing-radio-face: 0.8125rem; /* 13, the raised face when Off */
+  --spacing-radio-dot: var(--space-8); /* 8 x 8, when On */
+  --radius-radio-circle: var(--corner-full);
+
+  /* ---- Radio Label (the Checkbox Label's) ---- */
+  --spacing-radio-label-gap: var(--space-8);
+  --spacing-radio-label-title-gap: var(--space-4);
+  --spacing-radio-label-text-gap: var(--space-4);
+  --spacing-radio-label-link-gap: var(--space-10);
+
+  /* ---- Radio Card (the Checkbox Card's) ---- */
+  --spacing-radio-card-pad: var(--space-16);
+  --spacing-radio-card-gap: var(--space-14);
+  --radius-radio-card: var(--corner-12);
+  --spacing-radio-card-picture: var(--space-40);
+  --spacing-radio-card-logo-w: var(--space-32);
+  --spacing-radio-card-logo-h: var(--space-24);
+  --radius-radio-card-logo: var(--corner-4);
+}
+
+/* The face's drop shadow, typed into the Figma (0 down 2, blur 4, spread -2,
+   its near-black at 12%), here on --palette-black as shadows.md says. On dark
+   it has no ring layer, so it goes. */
+:root {
+  --shadow-radio-face: 0 2px 4px -2px color-mix(in srgb, var(--palette-black) 12%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-radio-face: 0 0 0 0 transparent;
+}

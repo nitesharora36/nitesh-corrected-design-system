@@ -1,0 +1,47 @@
+/* Size tokens for Badge and Status Badge (design-system/components/badge.md,
+   Figma "Badge [1.1]" node 118:2324 and "Status Badge [1.1]" node 171:5100).
+   Read by components/ds/badge.tsx. */
+
+@theme {
+  /* ---- Badge ---- */
+  --spacing-badge-sm: var(--space-16); /* Small, 16 tall */
+  --spacing-badge-md: var(--space-20); /* Medium, 20 tall */
+  --spacing-badge-y: var(--space-2); /* top and bottom, both sizes */
+  --spacing-badge-x: var(--space-8); /* a side that ends in the word */
+  --spacing-badge-x-icon: var(--space-4); /* the icon's side */
+  --spacing-badge-gap: var(--space-2); /* icon to word */
+  --spacing-badge-sm-icon: var(--space-12);
+  --spacing-badge-md-icon: var(--space-16);
+  --spacing-badge-dot-box: var(--space-16); /* the box the dot sits in */
+  --spacing-badge-dot: var(--space-4); /* the dot, in the middle of its box */
+  --spacing-badge-dot-gap: var(--space-0); /* dot box to word */
+  --spacing-badge-sm-dot-x: var(--space-0); /* left side with a dot, Small */
+  --spacing-badge-md-dot-x: var(--space-2); /* left side with a dot, Medium */
+  --spacing-badge-number-pad: var(--space-2); /* Number: 16 x 16 or 20 x 20 */
+  --radius-badge: var(--corner-full);
+  --radius-badge-dot: var(--corner-full);
+
+  /* ---- Status Badge ---- */
+  --spacing-status-badge: var(--space-24); /* 24 tall */
+  --spacing-status-badge-y: var(--space-4);
+  --spacing-status-badge-left: var(--space-4);
+  --spacing-status-badge-right: var(--space-8);
+  --spacing-status-badge-dot: var(--space-6); /* 6 x 6 */
+  --spacing-status-badge-dot-gap: var(--space-2);
+  --spacing-status-badge-icon: var(--space-16); /* 16 x 16 */
+  --spacing-status-badge-icon-gap: var(--space-4);
+  --radius-status-badge: var(--corner-6);
+  --radius-status-badge-dot: var(--corner-full);
+}
+
+/* The Status Badge's Stroke edge, as the Figma's Status Badge [1.1] draws
+   it in both themes (24 Oct 2026, Nitesh: "still not same"): stroke/soft-200
+   is #EBEBEB on light, as ours, and #262626 (Gray 700) on dark, where our
+   hairline is white at 9% and reads lighter (#2C2C2C) on bg/white-0. Every
+   other hairline keeps ours. */
+:root {
+  --status-badge-edge: var(--stroke-soft-200);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --status-badge-edge: var(--bg-soft-200); /* Gray 700, the Figma's dark stroke/soft-200 */
+}

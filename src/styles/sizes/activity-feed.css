@@ -1,0 +1,79 @@
+/* Size tokens for Activity Feed (design-system/components/activity-feed.md,
+   Figma "Activity Feed [1.1]" node 166035:46833, "Activity Feed File Items
+   [1.1]" 165967:4028, "Activity Feed Comment Items [1.1]" 166017:612,
+   "Activity Feed Task Status Items [1.1]" 166035:47290, "Activity Feed
+   Selected Filter [1.1]" 165967:3881). Read by components/ds/activity-feed.tsx.
+
+   Every chip's edge sits inside, as the page proposes (Open: the Figma draws
+   the File and Task chips' edges outside). */
+
+@theme {
+  /* ---- The feed ---- */
+  --spacing-activity-feed-gap: var(--space-32); /* between events */
+  --spacing-activity-feed-line: var(--space-1); /* the line down the side, 1 wide */
+  --spacing-activity-feed-line-top: var(--space-16); /* the picture's centre, from the event's top */
+  /* The line's left side, so its middle is 16 in (the pictures' centres). */
+  --spacing-activity-feed-line-x: calc(var(--space-16) - var(--space-1) / 2);
+  /* How far below an event its piece of line reaches: the gap, then the
+     next picture's centre. */
+  --spacing-activity-feed-line-reach: calc(var(--spacing-activity-feed-gap) + var(--spacing-activity-feed-line-top));
+
+  /* ---- An event ---- */
+  --spacing-activity-feed-event-gap: var(--space-16); /* picture, words, more button */
+  --spacing-activity-feed-picture: var(--space-32); /* a 32 Avatar or Key Icon */
+  --radius-activity-feed-picture: var(--corner-full);
+  --spacing-activity-feed-words-gap: var(--space-8); /* sentence line to chips */
+  --spacing-activity-feed-sentence-gap: var(--space-2); /* sentence, dot, time */
+  --spacing-activity-feed-dot: 0.875rem; /* 14, the dot's width */
+  --spacing-activity-feed-chips-gap: var(--space-8); /* file chips, task chips */
+
+  /* ---- File chip ---- */
+  --spacing-activity-feed-file: 1.75rem; /* 28 tall */
+  --radius-activity-feed-file: var(--corner-8);
+  --spacing-activity-feed-file-y: var(--space-4); /* the name part */
+  --spacing-activity-feed-file-left: var(--space-6);
+  --spacing-activity-feed-file-right: var(--space-10);
+  --spacing-activity-feed-file-gap: var(--space-6); /* paperclip to the name */
+  --spacing-activity-feed-file-icon: var(--space-20);
+  --spacing-activity-feed-file-size-gap: var(--space-4); /* the name to "(4mb)" */
+  --spacing-activity-feed-download: 1.75rem; /* 28 x 28 */
+  --spacing-activity-feed-download-pad: 0.3125rem; /* 5, off the spacing scale (page, Open: kept as drawn) */
+  --spacing-activity-feed-download-icon: 1.125rem; /* 18 */
+
+  /* ---- Comment chip: a speech bubble, corners 4 top left and 12 the others ---- */
+  --spacing-activity-feed-comment: 2.25rem; /* 36 tall */
+  --spacing-activity-feed-comment-y: var(--space-8);
+  --spacing-activity-feed-comment-left: var(--space-8);
+  --spacing-activity-feed-comment-right: var(--space-14);
+  --spacing-activity-feed-comment-gap: var(--space-6); /* icon, comment, Reply */
+  --spacing-activity-feed-comment-icon: var(--space-20);
+  --radius-activity-feed-comment: var(--corner-12);
+  --radius-activity-feed-comment-start: var(--corner-4); /* top left */
+
+  /* ---- Task chip ---- */
+  --spacing-activity-feed-task: 1.75rem; /* 28 tall */
+  --spacing-activity-feed-task-y: var(--space-4);
+  --spacing-activity-feed-task-left: var(--space-6);
+  --spacing-activity-feed-task-right: var(--space-10);
+  --spacing-activity-feed-task-gap: var(--space-6);
+  --spacing-activity-feed-task-icon: var(--space-20);
+  --radius-activity-feed-task: var(--corner-8);
+
+  /* ---- Filter chip ---- */
+  --spacing-activity-feed-filter: 1.75rem; /* 28 tall */
+  --spacing-activity-feed-filter-y: var(--space-4);
+  --spacing-activity-feed-filter-x: var(--space-10);
+  --spacing-activity-feed-filter-gap: var(--space-6);
+  --spacing-activity-feed-filter-icon: 1.125rem; /* 18 */
+  --radius-activity-feed-filter: var(--corner-8);
+}
+
+:root {
+  /* The 4px ring in stroke/white-0 outside each picture, which cuts the
+     feed's line. A ring layer, so it stays on dark (shadows.md); its colour
+     flips with the theme. */
+  --shadow-activity-feed-picture: 0 0 0 var(--space-4) var(--stroke-white-0);
+  /* The File chip's line between the name and the download button: 1px of
+     stroke/soft-200 inside the right side of the name part. */
+  --shadow-activity-feed-divider: inset calc(var(--space-1) * -1) 0 0 0 var(--stroke-soft-200);
+}

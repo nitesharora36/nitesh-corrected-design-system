@@ -1,0 +1,74 @@
+/* Size tokens for Drawer (design-system/components/drawer.md, Figma Drawer
+   page 486:7366: "Drawer Header [1.1]" 3187:2897, "Drawer Footer [1.1]"
+   4096:21416). Read by components/ds/drawer.tsx. The Key Icon, close
+   button, Badge, Link Button and footer buttons (Medium, 40) keep their
+   own sizes. */
+
+@theme {
+  /* ---- The panel: against the right edge, the full height ---- */
+  --spacing-drawer: 25rem; /* 400 wide; the full width on a phone (page, Open) */
+
+  /* ---- Floating (drawer.md, "The panel, floating"; Nitesh's drawer frame
+     198333:66011, 21 Oct 2026): 8 in from the top, right and bottom ---- */
+  --spacing-drawer-inset: var(--space-8);
+  --radius-drawer-floating: var(--corner-20);
+
+  /* ---- Header ---- */
+  --spacing-drawer-header-sm: 4rem; /* Small, 64 tall */
+  --spacing-drawer-header-lg: 5.5rem; /* Large, 88 tall */
+  --spacing-drawer-header-pad: var(--space-20);
+  --spacing-drawer-header-sm-gap: var(--space-12); /* icon, words, link, close */
+  --spacing-drawer-header-lg-gap: var(--space-16);
+  --spacing-drawer-header-words-gap: var(--space-4); /* title to description */
+  --spacing-drawer-header-badge-gap: var(--space-8); /* title to the number Badge */
+  --spacing-drawer-header-sm-icon: var(--space-24); /* Small's bare icon; Large's is the Key Icon, Large (48) */
+  /* Small's picture (Neutrino, 22 Oct 2026): an app's logo or a step's kind
+     tile before the title. */
+  --spacing-drawer-header-sm-picture: var(--space-24);
+  --radius-drawer-header-sm-picture: var(--corner-6);
+  --spacing-drawer-header-sm-picture-gap: var(--space-8); /* the picture to the title */
+  /* Medium (Neutrino, 21 Oct 2026): a 28 picture, the title and a line under it */
+  --spacing-drawer-header-md-x: var(--space-16);
+  --spacing-drawer-header-md-top: var(--space-16);
+  --spacing-drawer-header-md-bottom: var(--space-16); /* equal to the top (Nitesh, 21 Oct 2026) */
+  --spacing-drawer-header-md-gap: var(--space-10);
+  --spacing-drawer-header-md-words-gap: var(--space-2);
+  --spacing-drawer-header-md-picture: 1.75rem; /* 28 */
+  --radius-drawer-header-md-picture: var(--corner-6);
+
+  /* ---- Body: sections ---- */
+  --spacing-drawer-section-pad: var(--space-20);
+  --spacing-drawer-section-gap: var(--space-16);
+  --spacing-drawer-section-band-top: var(--space-12); /* a section under a Solid Text band starts 12 below it */
+
+  /* ---- Footer ---- */
+  --spacing-drawer-footer: 5rem; /* 80 tall */
+  --spacing-drawer-footer-pad: var(--space-20);
+  --spacing-drawer-footer-gap: var(--space-16); /* the left part to the buttons, and between the buttons */
+}
+
+/* The panel's 1px stroke/soft-200 line down its left side, and the
+   Footer's along its top, both inside. Lines, so they stay on dark. The
+   panel has no corner and no shadow. */
+:root {
+  --shadow-drawer-panel-line: inset 1px 0 0 0 var(--stroke-soft-200);
+  --shadow-drawer-footer-line: inset 0 1px 0 0 var(--stroke-soft-200);
+}
+
+/* The floating panel's shadow, the Figma's custom-shadows/medium (drawer.md,
+   Open; the same layers as the Notification Feed's). On dark a shadow keeps
+   only its 1px ring, in stroke/soft-200. */
+:root {
+  --shadow-drawer:
+    inset 0 -1px 1px -0.5px color-mix(in srgb, var(--palette-black) 6%, transparent),
+    0 0 0 1px var(--state-faded-lighter),
+    0 48px 48px -24px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 24px 24px -12px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 12px 12px -6px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 6px 6px -3px color-mix(in srgb, var(--palette-black) 4%, transparent),
+    0 3px 3px -1.5px color-mix(in srgb, var(--palette-black) 2%, transparent),
+    0 1px 1px 0.5px color-mix(in srgb, var(--palette-black) 4%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-drawer: 0 0 0 1px var(--stroke-soft-200);
+}

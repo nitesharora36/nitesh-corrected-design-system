@@ -1,0 +1,112 @@
+/* Size tokens for Select (design-system/components/select.md, Figma
+ * "Select [1.1]" 270:1085, "Compact Select [1.1]" 377:5083, "Compact Select
+ * for Input [1.1]" 307:16883 and "Inline Select [1.1]" 332:4537). Read by
+ * components/ds/select.tsx. The open list is the Dropdown's menu and rows
+ * (styles/sizes/dropdown.css). */
+
+@theme {
+  /* ---- Select: label, field and hint, top to bottom ---- */
+  --spacing-select-stack: var(--space-4);
+
+  /* The field: the Text Input's sizes (text-input.md) */
+  --spacing-select-md: var(--space-40); /* 40 tall */
+  --spacing-select-md-y: var(--space-10);
+  --spacing-select-md-left: var(--space-12);
+  --spacing-select-md-right: var(--space-10);
+  --spacing-select-md-gap: var(--space-8);
+  --radius-select-md: var(--corner-10);
+
+  --spacing-select-sm: 2.25rem; /* 36 */
+  --spacing-select-sm-y: var(--space-8);
+  --spacing-select-sm-left: var(--space-10);
+  --spacing-select-sm-right: var(--space-8);
+  --spacing-select-sm-gap: var(--space-8);
+  --radius-select-sm: var(--corner-8);
+
+  --spacing-select-xs: var(--space-32); /* 32 tall */
+  --spacing-select-xs-y: var(--space-6);
+  --spacing-select-xs-left: var(--space-8);
+  --spacing-select-xs-right: var(--space-6);
+  --spacing-select-xs-gap: var(--space-6);
+  --radius-select-xs: var(--corner-8);
+
+  /* Provider: the same padding on every side, around a 32 x 24 card logo */
+  --spacing-select-md-provider-pad: var(--space-8);
+  --spacing-select-sm-provider-pad: var(--space-6);
+  --spacing-select-xs-provider-pad: var(--space-4);
+  --spacing-select-card-w: var(--space-32);
+  --spacing-select-card-h: var(--space-24);
+  /* The grey stand-in card's corner: the page gives none; the Text Input's
+     card logo box is 4 (text-input.css). */
+  --radius-select-card: var(--corner-4);
+  --radius-select-company: var(--corner-full); /* the empty logo circle */
+
+  --spacing-select-picture: var(--space-20); /* an icon, a flag, an avatar, a logo */
+  --spacing-select-arrow: var(--space-20); /* the arrow, every size and type */
+  --spacing-select-mark: var(--space-16); /* a settings row list's check, on the left (21 Oct 2026) */
+
+  /* The open list: 10 below the field */
+  --spacing-select-list-offset: var(--space-10);
+
+  /* ---- Compact Select ---- */
+  --spacing-select-compact-md: var(--space-40); /* 40 tall */
+  --spacing-select-compact-md-pad: var(--space-10);
+  --spacing-select-compact-md-basic-left: var(--space-12);
+  --spacing-select-compact-md-gap: var(--space-4);
+  --radius-select-compact-md: var(--corner-10);
+
+  --spacing-select-compact-sm: 2.25rem; /* 36 */
+  --spacing-select-compact-sm-pad: var(--space-8);
+  --spacing-select-compact-sm-basic-left: var(--space-12);
+  --spacing-select-compact-sm-gap: var(--space-4);
+  --radius-select-compact-sm: var(--corner-8);
+
+  --spacing-select-compact-xs: var(--space-32); /* 32 tall */
+  --spacing-select-compact-xs-pad: var(--space-6);
+  --spacing-select-compact-xs-country-left: var(--space-8);
+  --spacing-select-compact-xs-basic-left: var(--space-10);
+  --spacing-select-compact-xs-gap: var(--space-2);
+  --radius-select-compact-xs: var(--corner-8);
+
+  --spacing-select-compact-icon: var(--space-20);
+  --spacing-select-compact-flag: var(--space-20);
+  --spacing-select-compact-xs-flag: var(--space-16); /* 16 x 16 at X-Small */
+
+  /* ---- Compact Select for Input (inside the Text Input) ---- */
+  --spacing-select-input-md: var(--space-40); /* 40 tall */
+  --spacing-select-input-md-y: var(--space-10);
+  --spacing-select-input-md-left: var(--space-10);
+  --spacing-select-input-md-right: var(--space-8);
+  --spacing-select-input-md-gap: var(--space-8);
+
+  --spacing-select-input-sm: 2.25rem; /* 36 */
+  --spacing-select-input-sm-y: var(--space-8);
+  --spacing-select-input-sm-left: var(--space-8);
+  --spacing-select-input-sm-right: var(--space-8);
+  --spacing-select-input-sm-gap: var(--space-8);
+
+  --spacing-select-input-xs: var(--space-32); /* 32 tall */
+  --spacing-select-input-xs-y: var(--space-6);
+  --spacing-select-input-xs-left: var(--space-8);
+  --spacing-select-input-xs-right: var(--space-6);
+  --spacing-select-input-xs-gap: var(--space-6);
+
+  --spacing-select-input-flag: var(--space-20);
+  --spacing-select-input-xs-flag: var(--space-16); /* 16 x 16 at X-Small */
+  --spacing-select-input-code-gap: var(--space-2); /* the code and the arrow */
+  /* No corner of its own (the field gives it); the keyboard ring follows. */
+  --radius-select-input: var(--corner-0);
+
+  /* ---- Inline Select: no box, no padding ---- */
+  --spacing-select-inline: var(--space-20); /* 20 tall */
+  --spacing-select-inline-icon: var(--space-20);
+  --spacing-select-inline-icon-gap: var(--space-4); /* Icon type: icon to word */
+  --spacing-select-inline-flag: var(--space-16);
+  --spacing-select-inline-flag-gap: var(--space-6); /* Country type: flag to code */
+  --spacing-select-inline-arrow-gap: var(--space-2); /* the word and the arrow */
+  /* No box in the Figma; the keyboard ring takes the Link Button's 4. */
+  --radius-select-inline: var(--corner-4);
+
+  /* Flags, avatars and logos in Disabled */
+  --opacity-select-picture-off: 48%;
+}

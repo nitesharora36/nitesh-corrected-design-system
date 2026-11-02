@@ -1,0 +1,44 @@
+/* Size tokens for Segmented Control (design-system/components/segmented-control.md,
+ * the Figma's "Segmented Control [1.1]", node 2604:114, and its segments,
+ * node 2603:2062). */
+
+@theme {
+  /* Medium, the Figma's size */
+  --spacing-segmented-control-md: 2.25rem; /* 36 tall, the track */
+  --spacing-segmented-control-md-pad: var(--space-4); /* inside the track */
+  --spacing-segmented-control-md-gap: var(--space-4); /* between segments */
+  --radius-segmented-control-md: var(--corner-10);
+  --spacing-segmented-control-md-segment: 1.75rem; /* 28 tall */
+  --spacing-segmented-control-md-segment-pad: var(--space-4);
+  --spacing-segmented-control-md-segment-gap: var(--space-6); /* the icon to the word */
+  --radius-segmented-control-md-segment: var(--corner-6);
+
+  /* Small (proposed on the page): the sidebar's Chat and Canvas switch,
+     brought down to the rail's scale. Its sides are the sidebar's 4; the
+     page gives no icon size or icon gap for it, so it keeps Medium's. */
+  --spacing-segmented-control-sm: 1.75rem; /* 28 tall, the track */
+  --spacing-segmented-control-sm-pad: var(--space-2);
+  --spacing-segmented-control-sm-gap: var(--space-2);
+  --radius-segmented-control-sm: var(--corner-8);
+  --spacing-segmented-control-sm-segment: 1.5rem; /* 24 tall */
+  --spacing-segmented-control-sm-segment-x: var(--space-4);
+  --spacing-segmented-control-sm-segment-gap: var(--space-6);
+  --radius-segmented-control-sm-segment: var(--corner-6);
+
+  --spacing-segmented-control-icon: 1.25rem; /* 20 */
+  --spacing-segmented-control-icon-menu: 1.125rem; /* 18, inside a menu (the profile menu's theme switch, 23 Oct 2026) */
+  --spacing-segmented-control-label-gap: var(--space-6); /* the Label above the track */
+}
+
+/* The picked segment's shadow, the Figma's "components/toggle/switch"
+   (shadows.md: --shadow-toggle). Its typed-in near-black is --palette-black
+   at the same strength (shadows.md, Open). On dark a shadow keeps only its 1px
+   ring, and this one has none, so it goes. */
+:root {
+  --shadow-segmented-control-picked:
+    0 2px 4px 0 color-mix(in srgb, var(--palette-black) 3%, transparent),
+    0 6px 10px 0 color-mix(in srgb, var(--palette-black) 6%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-segmented-control-picked: 0 0 0 0 transparent;
+}

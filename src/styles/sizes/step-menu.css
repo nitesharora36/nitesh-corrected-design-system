@@ -1,0 +1,12 @@
+/* Size tokens for the Workflow Studio's step menu, the one the "+" opens
+   (design-system/revamp/workflow-builder.md, 22 Oct 2026, after Attio's
+   "Search blocks"): the library's Command Menu, narrow, in a popover. Read by
+   components/workflow-builder/piece-picker.tsx. */
+
+@theme {
+  --spacing-step-menu-w: 20rem; /* 320 */
+  --spacing-step-menu-list: 22.5rem; /* 360, the list's most, then it scrolls */
+  --radius-step-menu-tile: var(--corner-6); /* a kind's tile in a row, 20 */
+  --spacing-step-menu-glyph: var(--space-12); /* its glyph */
+  --spacing-step-menu-empty-y: var(--space-24); /* "No steps match", above and below */
+}

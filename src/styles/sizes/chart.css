@@ -1,0 +1,56 @@
+/* Size tokens for the Charts (design-system/components/chart.md). Read by
+   components/ds/chart.tsx and components/ds/neutrino-cells.tsx. */
+
+/* The lattice and the rings, read by the canvas: plain variables, because
+   Tailwind leaves out @theme names that no class uses. */
+:root {
+  --chart-cell: 3px; /* a cell: the brand's square, at chart size */
+  --chart-pitch: 5px; /* cell to cell (the home field's is 7: denser here so a shape reads) */
+  --chart-cell-sm: 2px; /* sparklines and mini bars */
+  --chart-pitch-sm: 4px;
+  --chart-heat-cell: 12px; /* a heatmap's value */
+  --chart-heat-pitch: 15px;
+  --chart-bar-max: 24px; /* the widest a bar gets */
+  --chart-cube-max: 48px; /* the cube form's bar: wide enough for its two faces (the Figma's BarLineChart draws 70) */
+  --chart-donut-ring: 28px; /* the donut's ring */
+  --chart-gauge-ring: 14px; /* the gauge's ring */
+  --chart-gauge-ring-sm: 8px; /* the KPI card's gauge */
+  --chart-line: 2px; /* a line chart's line, sharp over its cells */
+  --chart-line-sm: 1.5px; /* a sparkline's */
+}
+
+@theme {
+  /* ---- The plot and its axes ---- */
+  --spacing-chart-height: 15rem; /* 240, a chart's box by default */
+  --spacing-chart-height-sm: 10rem; /* 160 */
+  --spacing-chart-axis-y: 2.5rem; /* 40, the value labels' column */
+  --spacing-chart-axis-x: var(--space-24); /* the category labels' row */
+  --spacing-chart-plot-top: var(--space-8); /* room over the top tick's label */
+  --spacing-chart-end: 2.5rem; /* 40, after a line's end, for its value */
+  --spacing-chart-label-col: 6rem; /* 96, a horizontal bar's names */
+  --spacing-chart-value-gap: var(--space-8); /* a label to its mark */
+  --spacing-chart-breakdown: 0.8125rem; /* 13, three rows of cells */
+
+  /* ---- Donut, gauge, heatmap ---- */
+  --spacing-chart-donut: 11.5rem; /* 184 */
+  --spacing-chart-gauge: 7.5rem; /* 120 */
+  --spacing-chart-heat-label: 2.5rem; /* 40, the row names */
+  --spacing-chart-donut-gap: var(--space-24); /* the ring to its legend */
+
+  /* ---- Legend and tooltip ---- */
+  --spacing-chart-swatch: 0.8125rem; /* 13, a key of three by three cells */
+  --spacing-chart-line-key: 1rem; /* 16, a line chart's key: a short stroke */
+  --spacing-chart-legend-gap: var(--space-16);
+  --spacing-chart-legend-key-gap: var(--space-6);
+  --spacing-chart-legend-row: var(--space-8); /* rows in a donut's legend */
+  --spacing-chart-legend-min: 10rem; /* 160: narrower, a donut's legend drops under the ring */
+  --spacing-chart-tip-gap: var(--space-4);
+  --spacing-chart-tip-row: var(--space-6);
+  --spacing-chart-tip-y: var(--space-8);
+
+  /* ---- The chart card ---- */
+  --spacing-chart-card-pad: var(--space-20);
+  --spacing-chart-card-gap: var(--space-16);
+  --radius-chart-card: var(--corner-16);
+  --radius-chart-plot: var(--corner-4); /* the focus ring around the plot */
+}

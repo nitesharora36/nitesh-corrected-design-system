@@ -1,0 +1,29 @@
+/* Size tokens for Content Divider (design-system/components/content-divider.md,
+   Figma "Content Divider [1.1]", node 414:4401). Read by
+   components/ds/content-divider.tsx. The buttons keep the Button's own sizes
+   (X-Small, 32). */
+
+@theme {
+  --spacing-content-divider-line: var(--space-1); /* every line, 1 */
+  --spacing-content-divider-gap: var(--space-10); /* line to word, button or group */
+
+  /* Line Spacing: 4 tall, the line with 1.5 above and below */
+  --spacing-content-divider-spacing: var(--space-4);
+  --spacing-content-divider-spacing-y: 0.09375rem; /* 1.5 */
+
+  /* Text and Line: 12 tall */
+  --spacing-content-divider-text-line: var(--space-12);
+
+  /* Text: 24 tall */
+  --spacing-content-divider-text: var(--space-24);
+  --spacing-content-divider-text-y: var(--space-4);
+  --spacing-content-divider-text-x: var(--space-8);
+
+  /* Solid Text: 28 tall, on a grey band */
+  --spacing-content-divider-solid: 1.75rem; /* 28 */
+  --spacing-content-divider-solid-y: var(--space-6);
+  --spacing-content-divider-solid-x: var(--space-20);
+
+  /* Icon Button, Icon Button Group, Text Button, Text Button Group: 32 tall */
+  --spacing-content-divider-button: var(--space-32);
+}

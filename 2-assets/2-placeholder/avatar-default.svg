@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Nitesh's Figma "Avatar [1.1]" (Ao3YVgFYdQIF0znq2ToqVl, node 198211:22425): the empty avatar, shown until a user has a photo. -->
+<path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z" fill="#EBEBEB"/>
+<g clip-path="url(#avatar-default-clip)">
+<ellipse cx="12" cy="23.4002" rx="9.6" ry="7.2" fill="white" fill-opacity="0.72"/>
+<circle opacity="0.9" cx="12" cy="9.5998" r="4.8" fill="white"/>
+</g>
+<defs>
+<clipPath id="avatar-default-clip">
+<rect width="24" height="24" rx="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

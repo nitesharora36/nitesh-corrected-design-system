@@ -1,0 +1,22 @@
+/* Size tokens for Text Area (design-system/components/text-area.md,
+ * Figma "Text Area [1.1]", node 435:5725, and "Character Counter [1.1]",
+ * node 435:5712). One size. */
+
+@theme {
+  /* Label, field and hint, top to bottom */
+  --spacing-text-area-stack: var(--space-4);
+
+  /* ---- The field: 112 to start, 10 + 72 + 8 + 12 + 10 ---- */
+  --spacing-text-area-top: var(--space-10);
+  --spacing-text-area-right: var(--space-10);
+  --spacing-text-area-bottom: var(--space-10);
+  --spacing-text-area-left: var(--space-12);
+  --spacing-text-area-gap: var(--space-8); /* writing area to counter row */
+  --spacing-text-area-writing: 4.5rem; /* 72, the writing area to start */
+  --radius-text-area: var(--corner-12);
+
+  /* ---- The counter row: the count, then the resize handle ---- */
+  --spacing-text-area-counter: var(--space-12); /* 12 tall */
+  --spacing-text-area-counter-gap: var(--space-6);
+  --spacing-text-area-handle: var(--space-12); /* 12 x 12 */
+}

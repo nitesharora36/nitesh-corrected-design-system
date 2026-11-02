@@ -1,0 +1,27 @@
+/* Size tokens for Compact Button (design-system/components/compact-button.md).
+ *
+ * Two sizes: Large 24 (padding 2, icon 20), Medium 20 (padding 1, icon 18).
+ * Full Radius Off is corner 6, On is a circle.
+ */
+@theme {
+  /* Large */
+  --spacing-compact-button-lg: 1.5rem; /* 24 x 24 */
+  --spacing-compact-button-lg-pad: var(--space-2);
+  --spacing-compact-button-lg-icon: 1.25rem; /* 20 */
+
+  /* Medium */
+  --spacing-compact-button-md: 1.25rem; /* 20 x 20 */
+  --spacing-compact-button-md-pad: var(--space-1);
+  --spacing-compact-button-md-icon: 1.125rem; /* 18 */
+
+  --radius-compact-button: var(--corner-6); /* Full Radius Off */
+  --radius-compact-button-full: var(--corner-full); /* Full Radius On */
+}
+
+:root {
+  /* Modifiable's Hover and Active fill: white at 16% in both themes. The
+     Figma's alpha/white/alpha-16 has no token yet (page, Open 2 proposes a
+     static/white-alpha-16 in colors/build.mjs); until then it is made here
+     from static/white. */
+  --compact-button-modifiable-fill: color-mix(in srgb, var(--static-white) 16%, transparent);
+}

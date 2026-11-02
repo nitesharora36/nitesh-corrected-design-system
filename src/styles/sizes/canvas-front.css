@@ -1,0 +1,10 @@
+/* Size tokens for the canvas's front (components/da-dashboards/canvas-front.tsx),
+   28 Oct 2026, after Claude's home screen: the canvas's name and the big
+   composer in the centre, then the "Charts" row and the board, scrolling. */
+
+@theme {
+  --spacing-canvas-front-top: calc(var(--space-48) + var(--space-16)); /* 64, under the bar to the name */
+  --spacing-canvas-front-gap: var(--space-40); /* the name to the composer, as on the chat home */
+  --spacing-canvas-front-foot: var(--space-24); /* under the composer; with the row's own 24, 48 to "Charts" */
+  --container-canvas-board: 90rem; /* 1440, the board's widest (editor-canvas.tsx); narrower, it fills the window */
+}

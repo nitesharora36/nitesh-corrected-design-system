@@ -1,0 +1,26 @@
+/* Size tokens for the login (components/auth/auth-shell.tsx, 26 Oct 2026),
+   after Nitesh's green reference: the cover in a rounded panel on the left,
+   inset from the page's edges, and a clean form centred on the right. */
+@theme {
+  --spacing-login-inset: var(--space-8); /* the cover from the page's edges, tighter to the left (26 Oct 2026) */
+  --spacing-login-inset-loose: var(--space-16); /* a fixed version's cover from the page's top and bottom (version 13, 27 Oct 2026: "if it is 8px now, then make it 16px") */
+  --spacing-login-inset-left: var(--space-12); /* and from its left (28 Oct 2026: "from the left side we increase the padding from 8-16. can we make it 12px?") */
+  --radius-login-cover: var(--corner-0); /* square, as the green reference (26 Oct 2026: "fully square sharp edges") */
+  --spacing-login-cover: 42%; /* the cover's share of the page's width: the login has the bigger part (26 Oct 2026) */
+  --spacing-login-cover-wider: 45%; /* a wider version's share (version 6, 27 Oct 2026: "make it 45%"; 65%, 50% and 40% came first) */
+  --spacing-login-cover-fixed: 29.4375rem; /* 471, a fixed version's width whatever the window: 42% of his window's on 27 Oct 2026 (version 13: "keep it this size only... even if the screen increases") */
+  --spacing-login-cover-fixed-wide: 31.25rem; /* 500, a little wider (version 14, 28 Oct 2026: "just increase the width of it a bit") */
+  --spacing-login-cover-fixed-wider: 32.5rem; /* 520, a touch wider again (version 13, 28 Oct 2026: "slightly increase the width too") */
+  --spacing-login-cover-fixed-widest: min(40.75rem, calc(100vw * 652 / 1512)); /* 652, the default version on his MacBook 14 in Chrome, a window 1512 wide (28 Oct 2026: "Keep it 652 px"); a narrower window keeps the same share, 43%, so the Claude pane shows it as Chrome does ("you need to adapt to that difference here as well"); a wider one keeps 652 */
+  --spacing-login-cover-pad: var(--space-32); /* the words on the cover from its edges */
+  --spacing-login-cover-gap: var(--space-24); /* between the cover's lines of words */
+  --spacing-login-cover-words: 30rem; /* 480, the statement's measure */
+  --spacing-login-cover-words-top: 30%; /* the statement, down from the cover's top, as on the deck */
+  --spacing-login-form: 25rem; /* 400, the form's column */
+  --spacing-login-form-pad: var(--space-24); /* around the form on a narrow window */
+  --spacing-login-head-gap: var(--space-8); /* title to subtitle */
+  --spacing-login-stack: var(--space-24); /* between the form's groups */
+  --spacing-login-fields: var(--space-16); /* between two fields */
+  --spacing-login-logo: 1.5rem; /* 24, the 8bit.ai logo's height on the cover */
+  --spacing-login-picker: 16rem; /* 256, the design copy's picker for the cover's versions */
+}

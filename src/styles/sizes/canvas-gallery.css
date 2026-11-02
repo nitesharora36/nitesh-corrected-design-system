@@ -1,0 +1,12 @@
+/* The canvases page in the "canvas in the chat" version
+   (components/da-dashboards/canvas-gallery.tsx, 28 Oct 2026): the page's own
+   layout (the name in the centre, the chat bar, the lists, three cards and
+   "See all"), its cards after Claude's Artifacts page: about 290 wide, the
+   cover 19 to 10, the name and a line under it. */
+@theme {
+  --spacing-canvas-gallery-column: 57.5rem; /* 920: three cards of 290 and two gaps of 24; the chat bar's width too */
+  --spacing-canvas-gallery-gap: var(--space-24); /* between cards, both ways */
+  --spacing-canvas-gallery-tools-gap: var(--space-12); /* between Search, Sort and the view */
+  --radius-canvas-gallery-card: var(--corner-12);
+  --aspect-canvas-gallery-cover: 19 / 10;
+}

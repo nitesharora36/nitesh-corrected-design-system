@@ -1,0 +1,41 @@
+/* Size tokens for Button Group (design-system/components/button-group.md).
+ *
+ * Three sizes: Small 36, X-Small 32, 2X-Small 24 (the Button's 2X-Small is
+ * 28; the Figma names them the same). Items sit side by side with no gap.
+ * The sides of an item: word only, or a word with one or two icons (the
+ * agreed fix: two icons sit the same as one). Icon only is a square as tall
+ * as the group. The top and bottom padding (8, 6, 4) is what the height
+ * leaves around the 20 or 16 line, as on the Button.
+ */
+@theme {
+  /* Small */
+  --spacing-button-group-sm: 2.25rem; /* 36 tall; the icon-only square */
+  --spacing-button-group-sm-x: var(--space-16); /* sides, word only */
+  --spacing-button-group-sm-x-icon: var(--space-14); /* sides, word and one or two icons */
+  --spacing-button-group-sm-gap: var(--space-8);
+  --spacing-button-group-sm-icon: 1.25rem; /* 20 */
+  --radius-button-group-sm: var(--corner-8);
+
+  /* X-Small */
+  --spacing-button-group-xs: 2rem; /* 32 */
+  --spacing-button-group-xs-x: var(--space-14);
+  --spacing-button-group-xs-x-icon: var(--space-12);
+  --spacing-button-group-xs-gap: var(--space-6);
+  --spacing-button-group-xs-icon: 1.25rem; /* 20 */
+  --radius-button-group-xs: var(--corner-8);
+
+  /* 2X-Small */
+  --spacing-button-group-2xs: 1.5rem; /* 24 */
+  --spacing-button-group-2xs-x: var(--space-12);
+  --spacing-button-group-2xs-x-icon: var(--space-10);
+  --spacing-button-group-2xs-gap: var(--space-4);
+  --spacing-button-group-2xs-icon: 1rem; /* 16 */
+  --radius-button-group-2xs: var(--corner-6);
+}
+
+:root {
+  /* The line between two items: 1px inside the left side of every item but
+     the first, so it takes no room (the Figma centres each item's edge on its
+     border, so two edges read as one line). The same in both themes. */
+  --shadow-button-group-divider: inset 1px 0 0 0 var(--stroke-soft-200);
+}

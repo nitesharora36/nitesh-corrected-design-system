@@ -1,0 +1,21 @@
+/* Size tokens for Accordion (design-system/components/accordion.md, Figma
+   "Accordion [1.1]", node 210:4022). Read by components/ds/accordion.tsx.
+   Closed it is 48 tall: the padding, 14, either side of the 20 line; open
+   it grows with the description. */
+
+@theme {
+  --spacing-accordion-pad: var(--space-14); /* every side */
+  --spacing-accordion-gap: var(--space-10); /* the icons to the words */
+  --radius-accordion: var(--corner-10);
+  --spacing-accordion-icon: var(--space-20); /* the left icon, and the plus or minus */
+  --spacing-accordion-words-gap: var(--space-6); /* title to description */
+  --spacing-accordion-list-gap: var(--space-10); /* accordions in a list */
+
+  /* The description sits under the title, between the icons: on a side
+     with an icon it starts past the padding, the icon and the gap (44). */
+  --spacing-accordion-indent: calc(var(--spacing-accordion-pad) + var(--spacing-accordion-icon) + var(--spacing-accordion-gap));
+
+  /* It takes its container's width; the Figma draws it 440. Only the
+     Components page uses this, to show it at the Figma's width. */
+  --spacing-accordion-figma: 27.5rem; /* 440 */
+}

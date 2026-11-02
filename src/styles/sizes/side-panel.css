@@ -1,0 +1,161 @@
+/* Size tokens for the chat's side panel (components/chat-flow/side-panel.tsx,
+   24 Oct 2026): the chat keeps a reading column on the left, the canvas or
+   the workflow takes the rest. */
+@theme {
+  --spacing-side-panel-chat: clamp(22.5rem, 38%, 35rem); /* 360 to 560, the chat beside the panel */
+  --spacing-side-panel-bar: 2.75rem; /* 44, the panel's top bar */
+  --spacing-side-panel-bar-x: var(--space-12);
+  --spacing-side-panel-bar-gap: var(--space-8);
+  --spacing-side-panel-pad: var(--space-16); /* around the canvas */
+  /* The workflow's window, over the chat page: 8 from the page's edges, 16 corners. */
+  --spacing-side-panel-window-gap: var(--space-8);
+  --radius-side-panel-window: var(--corner-16);
+  /* A built page's card in the chat (artifact-cards.tsx, PageCard): its preview's height and the page's width inside it. */
+  --spacing-page-card-preview: 12.5rem; /* 200 */
+}
+:root {
+  --page-card-render: 1100px; /* the page is drawn this wide, then scaled down to the card */
+}
+
+/* The bar's end: its side padding, or more where a control floats over the
+   page's top-right corner (the playground's Versions, chat-sidebar-shell.tsx). */
+:root {
+  --side-panel-bar-end: var(--spacing-side-panel-bar-x);
+  /* The chat's width beside a canvas: the token's, until its seam is dragged (side-panel.tsx, ChatSeam). */
+  --side-panel-chat-w: var(--spacing-side-panel-chat);
+}
+
+/* ── The chat becoming a workflow (Nitesh, 24 Oct 2026) ──
+   components/chat-flow/panel-motion.ts runs one view transition per change
+   and marks <html data-panel-motion> while it runs; only then do the parts
+   below carry their names. Opening: the home's words drift left and go
+   (neutrino-home), the chat bar glides down into its place on the left
+   (neutrino-composer, the home's and the workflow chat's, one into the
+   other), the chat's thread rises in (neutrino-thread) and the window opens
+   from the right (neutrino-window). The Neutrino field is not named: it
+   stays where it is. Closing runs it backwards. Speeds from the Figma's
+   Motion page (design-system/motion/motion.md): the far moves Extra Slow
+   (500), the fades Normal (300), ease out. */
+:root {
+  --side-panel-move: 500ms;
+  --side-panel-fade: 300ms;
+  --side-panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --side-panel-travel: var(--space-48);
+}
+
+:root[data-panel-motion] .vt-home {
+  view-transition-name: neutrino-home;
+}
+:root[data-panel-motion] .vt-composer {
+  view-transition-name: neutrino-composer;
+}
+:root[data-panel-motion] .vt-thread {
+  view-transition-name: neutrino-thread;
+}
+:root[data-panel-motion] .vt-window {
+  view-transition-name: neutrino-window;
+}
+
+:root[data-panel-motion]::view-transition-group(*) {
+  animation-duration: var(--side-panel-move);
+  animation-timing-function: var(--side-panel-ease);
+}
+:root[data-panel-motion]::view-transition-group(root) {
+  animation-duration: var(--side-panel-fade);
+}
+
+/* The window clips what it shows while it grows or shrinks (the chat hidden
+   or shown beside it), so the canvas is revealed, never stretched. */
+:root[data-panel-motion]::view-transition-group(neutrino-window) {
+  overflow: clip;
+  border-radius: var(--radius-side-panel-window);
+}
+:root[data-panel-motion]::view-transition-old(neutrino-window),
+:root[data-panel-motion]::view-transition-new(neutrino-window) {
+  height: 100%;
+  object-fit: none;
+  object-position: right top;
+}
+
+/* The chat bar keeps its words at their size while it travels: each picture
+   is drawn at its own height from the left, and the bar narrows by clipping
+   (scaled to the width, the home's 880 bar made the small one's words twice
+   their size on the way). The home's bar gives way to the chat's early on. */
+:root[data-panel-motion]::view-transition-group(neutrino-composer) {
+  overflow: clip;
+  border-radius: var(--radius-build-chat-composer);
+}
+:root[data-panel-motion]::view-transition-old(neutrino-composer),
+:root[data-panel-motion]::view-transition-new(neutrino-composer) {
+  inline-size: auto;
+  block-size: 100%;
+}
+:root[data-panel-motion]::view-transition-old(neutrino-composer) {
+  animation: side-panel-fade-out calc(var(--side-panel-move) * 0.4) var(--side-panel-ease) both;
+}
+:root[data-panel-motion]::view-transition-new(neutrino-composer) {
+  animation: side-panel-fade-in calc(var(--side-panel-move) * 0.5) var(--side-panel-ease) calc(var(--side-panel-move) * 0.1) both;
+}
+
+/* Arriving and leaving: a part with nothing to become comes in or goes out. */
+:root[data-panel-motion]::view-transition-new(neutrino-window):only-child {
+  /* A beat after the tap, so the home's words are out of its way first. */
+  animation: side-panel-window-in var(--side-panel-move) var(--side-panel-ease) 80ms both;
+}
+:root[data-panel-motion]::view-transition-old(neutrino-window):only-child {
+  animation: side-panel-window-out var(--side-panel-fade) var(--side-panel-ease) both;
+}
+:root[data-panel-motion]::view-transition-old(neutrino-home):only-child {
+  /* Quick (Fast, 200), so they are gone before the window arrives over them. */
+  animation: side-panel-drift-out calc(var(--side-panel-fade) * 0.66) var(--side-panel-ease) both;
+}
+:root[data-panel-motion]::view-transition-new(neutrino-home):only-child {
+  animation: side-panel-drift-in var(--side-panel-move) var(--side-panel-ease) 100ms both;
+}
+:root[data-panel-motion]::view-transition-new(neutrino-thread):only-child {
+  animation: side-panel-rise-in var(--side-panel-fade) var(--side-panel-ease) 150ms both;
+}
+:root[data-panel-motion]::view-transition-old(neutrino-thread):only-child {
+  animation: side-panel-fade-out var(--side-panel-fade) var(--side-panel-ease) both;
+}
+
+@keyframes side-panel-window-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--side-panel-travel)) scale(0.98);
+  }
+}
+@keyframes side-panel-window-out {
+  to {
+    opacity: 0;
+    transform: translateX(var(--side-panel-travel)) scale(0.98);
+  }
+}
+@keyframes side-panel-drift-out {
+  to {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--side-panel-travel)));
+  }
+}
+@keyframes side-panel-drift-in {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-1 * var(--side-panel-travel)));
+  }
+}
+@keyframes side-panel-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-8));
+  }
+}
+@keyframes side-panel-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes side-panel-fade-in {
+  from {
+    opacity: 0;
+  }
+}

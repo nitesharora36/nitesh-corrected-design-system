@@ -1,0 +1,63 @@
+/* Size tokens for Modal (design-system/components/modal.md, Figma Modal
+   page 466:4630: "Modal Header [1.1]" 466:4778, "Modal Footer [1.1]"
+   472:566, "Status Modals [1.1]" 480:1372, "Modal Overlay [1.1]"
+   480:2474). Read by components/ds/modal.tsx. The close button keeps the
+   Compact Button's sizes, the footer buttons the Button's (Small, 36). */
+
+@theme {
+  /* ---- The box: three widths (page, Open), Small the default ---- */
+  --spacing-modal-sm: 25rem; /* 400 */
+  --spacing-modal-md: 27.5rem; /* 440, the Status Modals and the parts on their own */
+  --spacing-modal-lg: 30rem; /* 480 */
+  --radius-modal: var(--corner-20);
+  /* Small screens: room each side of the box, and above and below it (page, Open). */
+  --spacing-modal-gutter: var(--space-16);
+
+  /* ---- Header ---- */
+  --spacing-modal-header-md: 4.5rem; /* Medium, 72 tall */
+  --spacing-modal-header-sm: 3.5rem; /* Small, 56 tall */
+  --spacing-modal-header-y: var(--space-16); /* top and bottom */
+  --spacing-modal-header-right: var(--space-16);
+  --spacing-modal-header-left: var(--space-20);
+  /* After the icon; also the words to the close button, now in the row (page, Open). */
+  --spacing-modal-header-md-gap: var(--space-14);
+  --spacing-modal-header-sm-gap: var(--space-12);
+  --spacing-modal-header-words-gap: var(--space-4); /* title to description */
+  --spacing-modal-header-sm-icon: var(--space-24); /* Small's bare icon; Medium's is the Key Icon, Medium (40) */
+
+  /* ---- Body ---- */
+  --spacing-modal-body-pad: var(--space-20);
+  --spacing-modal-body-gap: var(--space-20);
+
+  /* ---- Footer ---- */
+  --spacing-modal-footer: 4.25rem; /* 68 tall */
+  --spacing-modal-footer-y: var(--space-16);
+  --spacing-modal-footer-x: var(--space-20);
+  --spacing-modal-footer-gap: var(--space-12); /* the left part to the buttons, and between the buttons */
+  --spacing-modal-footer-icon: var(--space-20); /* Information's icon */
+  --spacing-modal-footer-info-gap: var(--space-6); /* Information's icon to its words */
+
+  /* ---- Status Modal ---- */
+  --spacing-modal-status-pad: var(--space-20);
+  --spacing-modal-status-gap: var(--space-16); /* icon to words */
+  --spacing-modal-status-icon-box: var(--space-40);
+  --spacing-modal-status-icon-pad: var(--space-8);
+  --spacing-modal-status-icon: var(--space-24);
+  --radius-modal-status-icon: var(--corner-10);
+  --spacing-modal-status-words-gap: var(--space-4); /* title to description */
+}
+
+/* The box's shadow, the Figma's regular-shadow/medium: 0 16 32 -12, its
+   near-black at 10% (as --palette-black at the same strength, shadows.md). On
+   dark a shadow keeps only its 1px ring layer; this one has none, so it
+   goes. The box's edge is a separate part (edge-stroke-soft-200). */
+:root {
+  --shadow-modal-box: 0 16px 32px -12px color-mix(in srgb, var(--palette-black) 10%, transparent);
+  /* The Header's line along its bottom and the Footer's along its top: 1px
+     stroke/soft-200, inside. Lines, so they stay on dark. */
+  --shadow-modal-header-line: inset 0 -1px 0 0 var(--stroke-soft-200);
+  --shadow-modal-footer-line: inset 0 1px 0 0 var(--stroke-soft-200);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  --shadow-modal-box: 0 0 0 0 transparent;
+}

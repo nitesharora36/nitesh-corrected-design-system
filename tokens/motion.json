@@ -1,0 +1,17 @@
+{
+  "$description": "Speeds in code today. The Figma has five (see 1-core-elements/5-motions-and-animations).",
+  "duration": {
+    "fast": {
+      "$type": "duration",
+      "$value": "120ms"
+    },
+    "base": {
+      "$type": "duration",
+      "$value": "200ms"
+    },
+    "slow": {
+      "$type": "duration",
+      "$value": "400ms"
+    }
+  }
+}

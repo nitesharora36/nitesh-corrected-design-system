@@ -1,0 +1,44 @@
+/* Size tokens for Slider (design-system/components/slider.md, the Figma's
+ * "Slider [1.1]" 2617:1169 and "Range Slider [1.1]" 2617:1588). Read by
+ * components/ds/slider.tsx. The Color Picker's sliders share the dot's
+ * shadow (color-picker.md). */
+
+@theme {
+  /* It takes its container's width; the Figma draws it 320 wide (the
+     Components page shows it at that width). */
+  --spacing-slider-figma: 20rem; /* 320 */
+
+  /* The label row and the slider, 4 apart: 36 tall with the row, 16 without */
+  --spacing-slider-stack: var(--space-4);
+
+  /* ---- The label row ---- */
+  --spacing-slider-label: var(--space-16); /* 16 tall */
+  --spacing-slider-label-gap: var(--space-2);
+
+  /* ---- The slider ---- */
+  --spacing-slider-row: var(--space-16); /* the dot's height */
+  --spacing-slider-track: var(--space-6); /* the track and the filled part */
+  --radius-slider-track: var(--corner-full);
+  --spacing-slider-dot: var(--space-16);
+  --spacing-slider-dot-centre: var(--space-6);
+  --radius-slider-dot: var(--corner-full);
+  /* The dot hangs half its width past each end: its centre is the value. */
+  --spacing-slider-dot-half: calc(var(--spacing-slider-dot) / 2);
+
+  /* The value tooltip (Tooltip 2X-Small): its tail 4 above the dot, so its
+     box sits the tail's height higher again, measured from the dot's centre. */
+  --spacing-slider-tooltip-bottom: calc(var(--spacing-slider-dot-half) + var(--space-4) + var(--spacing-tooltip-2xs-tail-h));
+}
+
+:root {
+  /* The dot's two layers, the Figma's "components/toggle/switch" (shadows.md:
+     --shadow-toggle): 0 down 2 blur 4 at 3%, 0 down 6 blur 10 at 6%, its
+     typed-in near-black as --palette-black at the same strength. */
+  --shadow-slider-dot:
+    0 2px 4px 0 color-mix(in srgb, var(--palette-black) 3%, transparent),
+    0 6px 10px 0 color-mix(in srgb, var(--palette-black) 6%, transparent);
+}
+:root:where([data-theme="ink"], [data-theme="dark"]) {
+  /* On dark a shadow keeps only its 1px ring layer; this one has none. */
+  --shadow-slider-dot: 0 0 0 0 transparent;
+}

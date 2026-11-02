@@ -1,0 +1,73 @@
+/* Shared parts for the design system's components (components/ds/).
+ *
+ * States: ds-hover, ds-focus and ds-active apply on the real state AND when
+ * the element carries data-force="hover" (or focus, active), so the
+ * playground's Components page can show every state side by side.
+ *
+ * Edges, lifts and rings: one box-shadow made of three parts, so a component
+ * can have an inside edge, a shadow and a focus ring at once, each set by its
+ * own utility:
+ *   ds-shadow                 turns the three parts on
+ *   edge-<colour token>       a 1px edge inside, e.g. edge-stroke-soft-200
+ *   lift-card                 the card shadow (regular-shadow/x-small)
+ *   ring-focus-neutral / -primary / -error   the Button's focus rings
+ *   (edge-none, lift-none, ring-none clear one part)
+ * Imported by every Tailwind root after size-tokens.css.
+ */
+
+@custom-variant ds-hover (&:hover:not(:disabled, [aria-disabled="true"]), &[data-force="hover"]);
+/* The focus state shows for keyboard navigation only: not after a click hands
+   focus back to a button (components/input-modality.tsx marks data-input on
+   <html>). Tailwind's own focus-visible follows the same rule. */
+@custom-variant ds-focus (&:focus-visible:not([data-input="pointer"] *), &[data-force="focus"]);
+@custom-variant focus-visible (&:focus-visible:not([data-input="pointer"] *));
+@custom-variant ds-active (&:active:not(:disabled, [aria-disabled="true"]), &[data-force="active"]);
+
+/* The three parts belong to the element that sets them: without this a
+   component inside another (a Badge in a card, a tab in its bar) would draw
+   its parent's edge and shadow too. */
+@property --ds-edge {
+  syntax: "*";
+  inherits: false;
+}
+@property --ds-lift {
+  syntax: "*";
+  inherits: false;
+}
+@property --ds-ring {
+  syntax: "*";
+  inherits: false;
+}
+
+@utility ds-shadow {
+  box-shadow: var(--ds-edge, 0 0 0 0 transparent), var(--ds-lift, 0 0 0 0 transparent), var(--ds-ring, 0 0 0 0 transparent);
+}
+
+@utility edge-* {
+  --ds-edge: inset 0 0 0 1px --value(--color-*);
+}
+@utility edge-none {
+  --ds-edge: 0 0 0 0 transparent;
+}
+
+@utility lift-card {
+  --ds-lift: var(--shadow-card);
+}
+@utility lift-none {
+  --ds-lift: 0 0 0 0 transparent;
+}
+
+/* The Figma's components/buttons/*-focus: a 2px gap in bg/white-0, then
+   2px of colour, 4px in all, no blur. */
+@utility ring-focus-neutral {
+  --ds-ring: 0 0 0 2px var(--bg-white-0), 0 0 0 4px var(--state-faded-light);
+}
+@utility ring-focus-primary {
+  --ds-ring: 0 0 0 2px var(--bg-white-0), 0 0 0 4px var(--primary-alpha-10);
+}
+@utility ring-focus-error {
+  --ds-ring: 0 0 0 2px var(--bg-white-0), 0 0 0 4px var(--state-error-lighter);
+}
+@utility ring-none {
+  --ds-ring: 0 0 0 0 transparent;
+}

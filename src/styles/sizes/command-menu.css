@@ -1,0 +1,84 @@
+/* Size tokens for Command Menu (design-system/components/command-menu.md,
+ * Figma "Command Menu Search Input [1.1]" 4187:559, "Command Menu Items
+ * [1.1]" 4171:15653 and "Command Menu Footer [1.1]" 4172:16590). Read by
+ * components/ds/command-menu.tsx. */
+
+@theme {
+  /* ---- The menu ---- */
+  --spacing-command-menu-w: 37.5rem; /* 600 */
+  --radius-command-menu: var(--corner-16);
+
+  /* ---- Search field ---- */
+  --spacing-command-menu-search: var(--space-48); /* 48 tall */
+  --spacing-command-menu-search-y: var(--space-14);
+  --spacing-command-menu-search-x: var(--space-20);
+  --spacing-command-menu-search-gap: var(--space-8);
+  --spacing-command-menu-icon: var(--space-20); /* the search and info icons */
+  /* The shortcut key's box (search field and rows) */
+  --spacing-command-menu-key-y: var(--space-2);
+  --spacing-command-menu-key-x: var(--space-6);
+  --radius-command-menu-key: var(--corner-4);
+
+  /* ---- Filter tags ---- */
+  --spacing-command-menu-filters-y: var(--space-16);
+  --spacing-command-menu-filters-x: var(--space-20);
+  --spacing-command-menu-filters-gap: var(--space-12); /* the heading, then the tags */
+  --spacing-command-menu-tags-gap: var(--space-8);
+
+  /* ---- A group ---- */
+  --spacing-command-menu-group-top: var(--space-16);
+  --spacing-command-menu-group-x: var(--space-8);
+  --spacing-command-menu-group-bottom: var(--space-12);
+  --spacing-command-menu-group-heading-gap: var(--space-8); /* the heading, then the rows */
+  --spacing-command-menu-heading-x: var(--space-12); /* the heading row's sides */
+  /* The heading's Link Button sits at the heading row's right end */
+  --spacing-command-menu-group-action-right: calc(var(--spacing-command-menu-group-x) + var(--spacing-command-menu-heading-x));
+
+  /* ---- Rows, Small 40 ---- */
+  --spacing-command-menu-sm: var(--space-40); /* 40 tall */
+  --spacing-command-menu-sm-y: var(--space-10);
+  --spacing-command-menu-sm-x: var(--space-12);
+  --spacing-command-menu-sm-gap: var(--space-12);
+  --radius-command-menu-sm: var(--corner-10);
+  --spacing-command-menu-sm-picture: var(--space-20);
+
+  /* ---- Rows, Medium 64 ---- */
+  --spacing-command-menu-md: 4rem; /* 64 */
+  --spacing-command-menu-md-pad: var(--space-12);
+  --spacing-command-menu-md-gap: var(--space-12);
+  --radius-command-menu-md: var(--corner-10);
+  /* The 40 picture: an Avatar on its own, anything else in a white circle */
+  --spacing-command-menu-md-picture: var(--space-40);
+  --radius-command-menu-picture: var(--corner-full);
+  --spacing-command-menu-md-icon-pad: var(--space-10); /* an icon, 20 inside */
+  --spacing-command-menu-md-logo-pad: var(--space-8); /* a logo or a flag, 24 inside */
+
+  /* The words */
+  --spacing-command-menu-sublabel-gap: var(--space-4);
+  --spacing-command-menu-description-gap: var(--space-4);
+
+  /* ---- Footer ---- */
+  --spacing-command-menu-footer: var(--space-48); /* 48 tall */
+  --spacing-command-menu-footer-y: var(--space-14);
+  --spacing-command-menu-footer-x: var(--space-20);
+  --spacing-command-menu-footer-gap: var(--space-12);
+  --spacing-command-menu-hint-gap: var(--space-8); /* keys and their word */
+  --spacing-command-menu-help-gap: var(--space-4); /* the help line and its Link Button */
+  --spacing-command-menu-hint-key: var(--space-20); /* a key, 20 x 20 */
+  --spacing-command-menu-hint-key-pad: var(--space-2);
+  --radius-command-menu-hint-key: var(--corner-4);
+  --spacing-command-menu-hint-icon: var(--space-16);
+
+  /* Pictures in a Disabled row (the page's proposal, as the Dropdown's) */
+  --opacity-command-menu-picture-off: 48%;
+}
+
+/* The menu's shadow is the Dropdown's (--shadow-dropdown-menu), light and
+   dark. The lines between the parts: 1px of stroke/soft-200 drawn inside
+   each part (as the Figma's strokes are), so they never change its height,
+   used as its edge: ds-shadow [--ds-edge:var(--shadow-command-menu-line-bottom)]. */
+:root {
+  --shadow-command-menu: var(--shadow-dropdown-menu);
+  --shadow-command-menu-line-bottom: inset 0 calc(var(--space-1) * -1) 0 0 var(--stroke-soft-200);
+  --shadow-command-menu-line-top: inset 0 var(--space-1) 0 0 var(--stroke-soft-200);
+}

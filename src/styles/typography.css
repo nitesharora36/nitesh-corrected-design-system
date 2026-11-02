@@ -1,0 +1,200 @@
+/* ============================================================
+ * Shared typography — the single source of truth for type in the app.
+ *
+ * Imported by ALL FOUR Tailwind roots (app/globals.css and the (auth),
+ * (dashboard), (teams) group sheets). Each route group compiles its own
+ * bundle, so anything defined only in one of them silently diverges — which
+ * is exactly how Chat and Dashboards ended up looking like different
+ * products. Everything type-related belongs here, not in a group sheet.
+ *
+ * Two rules govern every piece of text:
+ *   1. Raw elements (<h1>, <p>, <li>) → the @layer base block below.
+ *   2. Markdown rendered through ReactMarkdown → the .prose block below.
+ * Both are pinned to the same scale as components/ui/refined/text.tsx, so a
+ * raw <h2>, a <Text variant="h2">, and a `## Heading` in a chat answer are
+ * all the same size. Change the scale in ONE place: text.tsx and this file
+ * together.
+ *
+ * Faces: Inter for UI (styles/typography-tokens.css) (serif titles share the same face),
+ * JetBrains Mono for machine-produced text.
+ * ============================================================ */
+
+/* Tailwind v4 does not auto-load plugins — without this directive every
+   `prose` / `prose-*` class in the codebase compiles to nothing. It had been
+   missing entirely, so chat markdown fell through to the raw base rules
+   below while Dashboards used <Text>. */
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  /* Headings track text.tsx: h1/h2 serif title/section, h3/h4 sans. */
+  h1,
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  h3 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  h4 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  p {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    display: list-item;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  small {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+}
+
+/* ------------------------------------------------------------
+ * Prose, re-scaled to the product type system.
+ *
+ * The plugin ships an EDITORIAL scale (16px body, 2.25em h1) built for
+ * articles. This app is product UI, so we pin its output to the same steps
+ * as <Text>. Selectors use `:is(...)` rather than the plugin's `:where(...)`
+ * so they carry one extra specificity point (0,1,1 vs 0,1,0) and win
+ * deterministically, regardless of layer emission order.
+ *
+ * Consequence, deliberate: the plugin's SIZE modifiers (prose-sm / prose-lg)
+ * no longer change sizes — there is one scale, by design. Per-element
+ * overrides still work, because `prose-p:text-[11px]`-style classes compile
+ * into the utilities layer, which outranks this components layer.
+ * ------------------------------------------------------------ */
+@layer components {
+  /* `.prose.prose` (0,2,0), not `.prose` (0,1,0): the plugin emits its own
+     bare `.prose { font-size: 1rem }` AFTER this block, so at equal
+     specificity it would win on source order and chat body text would render
+     at 16px instead of 14px. Verified in the compiled bundle — do not
+     "simplify" this to a single class. The element rules below don't need it;
+     `:is()` already outranks the plugin's `:where()`. */
+  .prose.prose {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: inherit;
+    max-width: none;
+  }
+
+  .prose :is(h1) {
+    font-family: var(--font-sans);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+  }
+  .prose :is(h2) {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    margin-top: 1.4em;
+    margin-bottom: 0.6em;
+  }
+  .prose :is(h3) {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+  }
+  .prose :is(h4) {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose :is(p),
+  .prose :is(li),
+  .prose :is(blockquote) {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .prose :is(small) {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+
+  /* Code keeps the mono token at 13px / 20px. */
+  .prose :is(code) {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .prose :is(pre) {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .prose :is(pre) :is(code) {
+    font-size: inherit;
+  }
+
+  /* Tables sit at the small step so a markdown table in chat matches a
+     data table on Dashboards. */
+  .prose :is(table) {
+    font-size: 13px;
+    line-height: 1.25rem;
+  }
+  .prose :is(th) {
+    font-size: 13px;
+    font-weight: 500;
+  }
+}

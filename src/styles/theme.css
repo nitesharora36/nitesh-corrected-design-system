@@ -1,0 +1,148 @@
+/* ============================================================
+ * Shared theme tokens — the single source of truth for the faces, the
+ * radius scale and motion.
+ *
+ * Tailwind v4 compiles one bundle per route group, so a token declared in
+ * one root never reaches another: these radius steps and faces were written
+ * out verbatim in every root sheet, and changing the product font meant
+ * five identical edits. Imported by ALL Tailwind roots, the same way
+ * styles/typography.css already is.
+ *
+ * Plain @theme, NOT @theme inline. Raw CSS reads these by name —
+ * styles/typography.css, .ag-theme-alpine-dark and several inline styles all
+ * say var(--font-sans) — so the custom properties have to survive into
+ * :root, which `inline` would stop.
+ * ============================================================ */
+@theme {
+  /* Old (dashboard) radius scale; 2xl/3xl/4xl keep Tailwind defaults. */
+  --radius: 0.625rem;
+  --radius-xs: 0.125rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+
+  /* Faces live in styles/typography-tokens.css (Inter, DM Mono, JetBrains). */
+}
+
+/* Motion sits outside @theme on purpose: Tailwind drops an @theme
+   variable that no utility names. */
+:root {
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 400ms;
+}
+
+.neutrino-code {
+  color: var(--color-code-text);
+}
+
+.neutrino-code code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.neutrino-code .token.comment {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.neutrino-code .token:is(.string, .char, .attr-value) {
+  font-style: italic;
+}
+
+.neutrino-code .token.keyword {
+  font-weight: 600;
+}
+
+/* ============================================================
+ * The status line of an assistant turn (components/new-assistant-message.tsx,
+ * Nitesh, 16 Oct 2026): the thinking mark, nine squares that catch signals
+ * while the turn runs, and the shimmer that runs along the live step's words.
+ * Colours are the theme's (grey waits, the signal blue is caught). Both hold
+ * still under reduced motion.
+ * ============================================================ */
+.thinking-mark {
+  display: grid;
+  grid-template-columns: repeat(3, 3px);
+  gap: 3px;
+  width: 15px;
+  height: 15px;
+}
+.thinking-mark > span {
+  display: block;
+  width: 3px;
+  height: 3px;
+  background-color: var(--color-text-faint);
+  opacity: 0.55;
+}
+.thinking-mark[data-live] > span {
+  animation: thinking-cell 1.8s ease-in-out infinite;
+}
+/* A scattered order, so the wall never reads as a scan. */
+.thinking-mark[data-live] > span:nth-child(1) { animation-delay: 0s; }
+.thinking-mark[data-live] > span:nth-child(2) { animation-delay: 1.1s; }
+.thinking-mark[data-live] > span:nth-child(3) { animation-delay: 0.5s; }
+.thinking-mark[data-live] > span:nth-child(4) { animation-delay: 1.5s; }
+.thinking-mark[data-live] > span:nth-child(5) { animation-delay: 0.25s; }
+.thinking-mark[data-live] > span:nth-child(6) { animation-delay: 0.9s; }
+.thinking-mark[data-live] > span:nth-child(7) { animation-delay: 1.3s; }
+.thinking-mark[data-live] > span:nth-child(8) { animation-delay: 0.7s; }
+.thinking-mark[data-live] > span:nth-child(9) { animation-delay: 0.4s; }
+@keyframes thinking-cell {
+  0%, 100% { background-color: var(--color-text-faint); opacity: 0.55; }
+  6% { background-color: var(--color-tray-icon); opacity: 1; }
+  24% { background-color: var(--color-text-faint); opacity: 0.55; }
+}
+
+/* A highlight running along the words of the step in progress. */
+.status-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-text-tertiary) 0%,
+    var(--color-text-tertiary) 38%,
+    var(--color-text-primary) 50%,
+    var(--color-text-tertiary) 62%,
+    var(--color-text-tertiary) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: status-shimmer 2.2s linear infinite;
+}
+@keyframes status-shimmer {
+  from { background-position: 125% 0; }
+  to { background-position: -125% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thinking-mark[data-live] > span { animation: none; }
+  .status-shimmer { animation: none; background-image: none; color: var(--color-text-secondary); }
+}
+
+/* Presentation screens (Nitesh, 17 Oct 2026). On a 1920 screen seen from
+   across a room the product would sit small in the middle, so every rem
+   grows with the screen: type, spacing, the rail and the columns together,
+   in proportion. Media queries keep measuring in the browser's own 16px rem,
+   so the breakpoints do not move. The playground's Versions menu can turn it
+   off (data-scale="off"). */
+@media (min-width: 120rem) {
+  html:not([data-scale="off"]) {
+    font-size: 112.5%;
+  }
+}
+@media (min-width: 160rem) {
+  html:not([data-scale="off"]) {
+    font-size: 125%;
+  }
+}
+@media (min-width: 200rem) {
+  html:not([data-scale="off"]) {
+    font-size: 150%;
+  }
+}

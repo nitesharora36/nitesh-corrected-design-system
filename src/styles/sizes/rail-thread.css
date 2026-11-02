@@ -1,0 +1,50 @@
+/* The Canvas tab's rail (components/chat-sidebar.tsx), 28 Oct 2026, Nitesh:
+   "on the left side you add a line, so that it makes sense that it's a part
+   of the same thing. Basically, that branching thread thing". A canvas's
+   chats hang from a thread under its name: a line drops from under the
+   name's first letter and turns into each chat with a soft elbow, the last
+   chat's elbow ending it, in stroke/sub-300, a step stronger than the
+   hairlines so the branch reads. Between canvases, the Content Divider's
+   Line (stroke/soft-200). */
+
+@theme {
+  --spacing-rail-group-gap: var(--space-2); /* above and below the divider between canvases; 8 until 28 Oct 2026 ("keep it as short as the first one") */
+  --spacing-rail-thread-x: var(--space-12); /* the thread, under the canvas name's first letter */
+  --spacing-rail-thread-elbow: var(--space-6); /* the elbow's run into a chat */
+  --spacing-rail-thread-indent: 1.125rem; /* 18: a chat's row starts where its elbow ends */
+  --spacing-rail-thread-lift: var(--space-4); /* the first elbow reaches up toward the name */
+  --radius-rail-thread: var(--corner-6); /* the elbow's turn */
+}
+
+/* On the list of a canvas's chats: every row is a branch off the thread. */
+@utility rail-thread {
+  & > * {
+    position: relative;
+    padding-inline-start: var(--spacing-rail-thread-indent);
+  }
+  & > *::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: var(--spacing-rail-thread-x);
+    top: 0;
+    height: 50%;
+    width: var(--spacing-rail-thread-elbow);
+    border-inline-start: 1px solid var(--stroke-sub-300);
+    border-bottom: 1px solid var(--stroke-sub-300);
+    border-end-start-radius: var(--radius-rail-thread);
+    pointer-events: none;
+  }
+  & > *:first-child::before {
+    top: calc(var(--spacing-rail-thread-lift) * -1);
+    height: calc(50% + var(--spacing-rail-thread-lift));
+  }
+  & > *:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: var(--spacing-rail-thread-x);
+    top: 50%;
+    bottom: 0;
+    border-inline-start: 1px solid var(--stroke-sub-300);
+    pointer-events: none;
+  }
+}
