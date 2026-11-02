@@ -2,6 +2,8 @@
 
 # Corner Radius
 
+> **Merlin is square** (Nitesh, 3 Nov 2026). Every step of the scale below is 0 in Merlin's code (`--corner-2` to `--corner-28`), so every corner is square. Only the parts that are round by nature keep `--corner-full`: radio, switch, avatars and the picture slots that hold them, dots, slider and colour-picker knobs, donut and gauge charts. The values written below are the Figma's original scale; the pictures show Merlin's, all square.
+
 | | |
 |---|---|
 | Figma | [Corner Radius](https://www.figma.com/design/Ao3YVgFYdQIF0znq2ToqVl?node-id=553-14961) page |

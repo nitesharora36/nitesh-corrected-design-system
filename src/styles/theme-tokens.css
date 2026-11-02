@@ -577,8 +577,8 @@
   --color-segment-fg: var(--text-soft-400);
   --color-segment-fg-active: var(--text-strong-950);
   --shadow-segment: 0 2px 4px rgba(14, 18, 27, 0.03), 0 6px 10px rgba(14, 18, 27, 0.06);
-  --radius-segment: 0.5rem; /* 8px track (Figma radius-10 at 36 tall, scaled to 28) */
-  --radius-segment-item: 0.375rem; /* 6px segment, radius-6 */
+  --radius-segment: 0rem; /* Merlin is square; was 8 */
+  --radius-segment-item: 0rem; /* Merlin is square; was 6 */
 
   /* Top bar search, measured from Nitesh's Alpaca reference at 1x: 280 x 28,
      8 corners, no fill of its own, a hairline barely darker than the bar.
@@ -641,7 +641,7 @@
   --color-card-hover: var(--bg-weak-50);
   --container-home: 55rem; /* 880px: composer, chips and four cards (4 x 208 + 3 x 16) */
   --spacing-home-card: 13rem; /* 208px: a home card under the composer, Alpaca's width (420 of his 2000px screenshot, about 205 at 1x) */
-  --radius-panel: 0.75rem; /* 12px top left corner of the content panel */
+  --radius-panel: 0rem; /* Merlin is square; was 12, the content panel's top left corner */
   --spacing-search-width: 17.5rem; /* 280px */
 
   /* Screen sizes (Nitesh, 17 Oct 2026: phone, tablet, desktop, presentation
@@ -668,7 +668,7 @@
      each chat row starting 10 past it. */
   --spacing-nav-guide: 1.25rem; /* 20px: the hairline, under the 16px icon's centre (12 in + 8) */
   --spacing-nav-nest: 1.875rem; /* 30px: a nested row's left edge, 10 past the hairline */
-  --radius-nav: 0.5rem; /* 8px row and pill corners */
+  --radius-nav: 0rem; /* Merlin is square; was 8, row and pill corners */
   /* Rail type (--text-nav, --text-nav-label) lives in typography-tokens.css. */
 
   /* Collapsed rail and its hover peek, measured in Nitesh's Linear

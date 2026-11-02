@@ -92,18 +92,22 @@
   --space-40: 2.5rem;
   --space-48: 3rem;
 
-  /* Corners, the Figma's 04-Radius */
+  /* Corners. Merlin is square (Nitesh, 3 Nov 2026): every step of the
+     Figma's 04-Radius is 0 here, so every corner that points at the scale is
+     square. Only the parts that are round by nature (radio, switch, avatars
+     and their picture slots, dots, knobs) keep --corner-full. The Figma's
+     steps were 2, 4, 6, 8, 10, 12, 16, 20, 24 and 28. */
   --corner-0: 0rem;
-  --corner-2: 0.125rem;
-  --corner-4: 0.25rem;
-  --corner-6: 0.375rem;
-  --corner-8: 0.5rem;
-  --corner-10: 0.625rem;
-  --corner-12: 0.75rem;
-  --corner-16: 1rem;
-  --corner-20: 1.25rem;
-  --corner-24: 1.5rem;
-  --corner-28: 1.75rem;
+  --corner-2: 0rem;
+  --corner-4: 0rem;
+  --corner-6: 0rem;
+  --corner-8: 0rem;
+  --corner-10: 0rem;
+  --corner-12: 0rem;
+  --corner-16: 0rem;
+  --corner-20: 0rem;
+  --corner-24: 0rem;
+  --corner-28: 0rem;
   --corner-full: 62.4375rem; /* 999 */
 }
 

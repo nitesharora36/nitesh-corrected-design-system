@@ -67,7 +67,7 @@
   --spacing-time-picker-scrollbar-x: var(--space-6);
   --spacing-time-picker-thumb-w: var(--space-4);
   --spacing-time-picker-thumb-h: var(--space-48);
-  --radius-time-picker-thumb: var(--corner-full);
+  --radius-time-picker-thumb: var(--corner-0); /* Merlin is square */
 
   /* Footer: the Date Picker's (16, gap 16, buttons half the width each) */
   --spacing-time-picker-footer-pad: var(--spacing-date-picker-footer-pad, var(--space-16));

@@ -11,7 +11,7 @@
   --spacing-pagination-cell: 2rem; /* 32 x 32 */
   --spacing-pagination-cell-pad: var(--space-6);
   --radius-pagination-cell: var(--corner-8); /* Basic */
-  --radius-pagination-cell-round: var(--corner-full); /* Full Radius */
+  --radius-pagination-cell-round: var(--corner-0); /* Full Radius: square too, Merlin is square */
 
   /* Group type: one bar, its cells joined */
   --radius-pagination-group: var(--corner-8);

@@ -778,43 +778,43 @@ export const CORNERS: { name: string; value: string }[] = [
   },
   {
     "name": "corner-2",
-    "value": "2px"
+    "value": "0px"
   },
   {
     "name": "corner-4",
-    "value": "4px"
+    "value": "0px"
   },
   {
     "name": "corner-6",
-    "value": "6px"
+    "value": "0px"
   },
   {
     "name": "corner-8",
-    "value": "8px"
+    "value": "0px"
   },
   {
     "name": "corner-10",
-    "value": "10px"
+    "value": "0px"
   },
   {
     "name": "corner-12",
-    "value": "12px"
+    "value": "0px"
   },
   {
     "name": "corner-16",
-    "value": "16px"
+    "value": "0px"
   },
   {
     "name": "corner-20",
-    "value": "20px"
+    "value": "0px"
   },
   {
     "name": "corner-24",
-    "value": "24px"
+    "value": "0px"
   },
   {
     "name": "corner-28",
-    "value": "28px"
+    "value": "0px"
   },
   {
     "name": "corner-full",

@@ -64,6 +64,8 @@ The packages the components need are in [`package.json`](package.json): React 19
 4. Icons are Hugeicons, Stroke Rounded, only through `icons.tsx`.
 5. Inter for the product. No 600 or 700 weights on words.
 6. Every decision goes into [DECISIONS.md](DECISIONS.md) with its date.
+7. Merlin is square: every corner is 0. Round stays round only where the shape is the part: radio, switch, avatars and the picture slots that hold them, dots, slider and colour-picker knobs, donut and gauge charts.
+8. The look is exact: in any app, what is built looks exactly like these components. Behaviour may come from elsewhere.
 
 ## This copy
 

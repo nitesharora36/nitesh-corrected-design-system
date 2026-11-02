@@ -11,7 +11,7 @@
 
   /* ---- The thumb ---- */
   --spacing-scroll-thumb: var(--space-4); /* 4 wide; its length follows how much is in view */
-  --radius-scroll-thumb: var(--corner-full);
+  --radius-scroll-thumb: var(--corner-0); /* Merlin is square */
   --spacing-scroll-md-side: calc((var(--spacing-scroll-md) - var(--spacing-scroll-thumb)) / 2); /* 8 */
   --spacing-scroll-sm-side: calc((var(--spacing-scroll-sm) - var(--spacing-scroll-thumb)) / 2); /* 6 */
   --spacing-scroll-xs-side: calc((var(--spacing-scroll-xs) - var(--spacing-scroll-thumb)) / 2); /* 4 */

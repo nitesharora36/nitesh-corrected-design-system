@@ -1,5 +1,5 @@
 {
-  "$description": "The Figma's 04-Radius scale. CSS --corner-N, Tailwind rounded-corner-N.",
+  "$description": "Merlin's corners: square. Every step of the Figma's 04-Radius scale is 0px here; only corner-full stays round. CSS --corner-N, Tailwind rounded-corner-N.",
   "corner": {
     "0": {
       "$type": "dimension",
@@ -7,43 +7,43 @@
     },
     "2": {
       "$type": "dimension",
-      "$value": "2px"
+      "$value": "0px"
     },
     "4": {
       "$type": "dimension",
-      "$value": "4px"
+      "$value": "0px"
     },
     "6": {
       "$type": "dimension",
-      "$value": "6px"
+      "$value": "0px"
     },
     "8": {
       "$type": "dimension",
-      "$value": "8px"
+      "$value": "0px"
     },
     "10": {
       "$type": "dimension",
-      "$value": "10px"
+      "$value": "0px"
     },
     "12": {
       "$type": "dimension",
-      "$value": "12px"
+      "$value": "0px"
     },
     "16": {
       "$type": "dimension",
-      "$value": "16px"
+      "$value": "0px"
     },
     "20": {
       "$type": "dimension",
-      "$value": "20px"
+      "$value": "0px"
     },
     "24": {
       "$type": "dimension",
-      "$value": "24px"
+      "$value": "0px"
     },
     "28": {
       "$type": "dimension",
-      "$value": "28px"
+      "$value": "0px"
     },
     "full": {
       "$type": "dimension",

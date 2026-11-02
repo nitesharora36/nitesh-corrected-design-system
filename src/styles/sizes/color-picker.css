@@ -24,7 +24,7 @@
   /* ---- Color Sliders: 16 tall, an 8 track ---- */
   --spacing-color-picker-slider: var(--space-16);
   --spacing-color-picker-track: var(--space-8);
-  --radius-color-picker-track: var(--corner-full);
+  --radius-color-picker-track: var(--corner-0); /* Merlin is square */
   /* The opacity track's checkerboard: the page gives no square size; 4. */
   --spacing-color-picker-checker: var(--space-4);
 

@@ -7,10 +7,12 @@ Nitesh's design system in Merlin's colours: every component, token and rule, the
 1. **Never make a component of your own.** Every button, field, menu, card, table and panel comes from `src/components/ds/` (the table below). If nothing there fits the job, stop and ask Nitesh. No new component, variant, size or colour gets invented.
 2. **Spacing, sizing and padding come from the components.** Each component's heights, paddings, gaps, corners and icon sizes are tokens in `src/styles/sizes/<file>.css` (the button's are in `src/styles/size-tokens.css`). Take them from there; never guess a number.
 3. **Never type a value by hand.** Colours only through colour tokens, sizes only through size tokens, words only through type styles. No hex, no rgb(), no Tailwind palette class (`bg-blue-500`), no `text-[13px]`, no `p-[7px]`.
-4. **Light and dark.** Everything works in both: `data-theme="paper"` is light, `data-theme="ink"` is dark (next-themes, on `<html>`).
-5. **Type.** Inter for words, DM Mono (`font-data`) for machine data in capitals. Weights 400 and 500 only, never 600 or 700.
-6. **Icons.** Hugeicons, Stroke Rounded, only through `src/components/ui/icons.tsx`.
-7. **No em dashes or en dashes** in any words a person reads.
+4. **Merlin is square.** Every corner is 0: buttons (the Full Radius variants too), fields, badges, tags, cards, menus, modals, drawers, tables, tracks, bars and scroll thumbs. Round stays round only where the shape is the part: radio, switch, avatars and the picture slots that hold them (people, companies, flags), dots, slider and colour-picker knobs, donut and gauge charts. Never add a rounded corner.
+5. **The look is exact.** Whatever you build looks exactly like this design system's component: its sizes, padding, gaps, square corners, edges, shadows, type, colours and every state. Behaviour may come from elsewhere (a project's own component, Radix, a library); the look may not.
+6. **Light and dark.** Everything works in both: `data-theme="paper"` is light, `data-theme="ink"` is dark (next-themes, on `<html>`).
+7. **Type.** Inter for words, DM Mono (`font-data`) for machine data in capitals. Weights 400 and 500 only, never 600 or 700.
+8. **Icons.** Hugeicons, Stroke Rounded, only through `src/components/ui/icons.tsx`.
+9. **No em dashes or en dashes** in any words a person reads.
 
 ## Before you build anything
 
@@ -93,7 +95,7 @@ Each file in `src/components/ds/` and what it exports.
 
 **Spacing** (`--space-*`, px): 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 32, 40, 48. In a layout: `gap-space-16`, `p-space-12`, `px-space-32`. Inside a component, use that component's own token (`px-button-md-x`), so one component can change later on its own.
 
-**Corners** (`--corner-*`, px): 0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, full. Class: `rounded-corner-8`.
+**Corners** (`--corner-*`): square. Every step (0 to 28) is 0 in Merlin, so `rounded-corner-8` draws a square corner; the Figma's steps are kept as names only. `rounded-corner-full` is only for the parts that are round by nature (rule 4).
 
 **Edges, shadows, focus and states** (`src/styles/ds.css`): put `ds-shadow` on the element, then `edge-<colour>` for a 1px inside edge (`edge-stroke-soft-200`), `lift-card` for the card shadow, and `ring-focus-primary`, `ring-focus-neutral` or `ring-focus-error` for the focus ring. States: `ds-hover:`, `ds-focus:`, `ds-active:`, `disabled:`.
 
@@ -101,8 +103,8 @@ Each file in `src/components/ds/` and what it exports.
 
 | | Height | Side padding | Gap | Corner |
 |---|---|---|---|---|
-| Button md, sm, xs, 2xs | 40, 36, 32, 28 | 10, 8, 6, 6 | 4, 4, 2, 2 | 10, 8, 8, 8 |
-| Text input md, sm, xs | 40, 36, 32 | 12 left 10 right, 10 and 8, 8 and 6 | 8, 8, 6 | 10, 8, 8 |
+| Button md, sm, xs, 2xs | 40, 36, 32, 28 | 10, 8, 6, 6 | 4, 4, 2, 2 | 0 (square) |
+| Text input md, sm, xs | 40, 36, 32 | 12 left 10 right, 10 and 8, 8 and 6 | 8, 8, 6 | 0 (square) |
 
 Every other size is in the component's sizes file.
 
@@ -110,7 +112,7 @@ Every other size is in the component's sizes file.
 
 **Same stack** (React 19, Next 15, Tailwind 4): copy `src/components/ds`, `src/components/ui/icons.tsx`, `src/components/input-modality.tsx`, `src/lib` and `src/styles`; import the styles in the order `src/app/globals.css` does; add the packages from `package.json`. Then `import { Button } from "@/components/ds/button";`.
 
-**Another stack** (for example ether-web-v1: React 18, Tailwind 3, a 14px root, its own `@/shared/components/ui`): that project's CLAUDE.md still says which component to import; this design system says how it looks. Build every piece to match the design system's component: height, padding, gap and corner from its sizes file; size, line height, weight and letter spacing from its type style; its colour tokens; every state. Write sizes in px there: the rem values here assume a 16px root (2.5rem is 40px), and a 14px root shrinks them.
+**Another stack** (for example ether-web-v1: React 18, Tailwind 3, a 14px root, its own `@/shared/components/ui`): behaviour can stay that project's (its components, its Radix, its imports, as its own CLAUDE.md says); the look must be exactly this design system's. Restyle what you use until it matches the design system's component: height, padding and gap from its sizes file; square corners; size, line height, weight and letter spacing from its type style; its colour tokens, edges and shadows; every state. Write sizes in px there: the rem values here assume a 16px root (2.5rem is 40px), and a 14px root shrinks them.
 
 ## Where things are
 

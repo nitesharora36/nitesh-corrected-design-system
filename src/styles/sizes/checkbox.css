@@ -11,7 +11,7 @@
   --spacing-checkbox-sm-inset: var(--space-1);
   --spacing-checkbox-sm-face: 0.6875rem; /* 11 */
   --radius-checkbox-box: var(--corner-4);
-  --radius-checkbox-face: 0.1625rem; /* 2.6, the raised face when Off */
+  --radius-checkbox-face: 0rem; /* the raised face when Off; Merlin is square, was 2.6 */
 
   /* The tick and the dash, both sizes */
   --spacing-checkbox-tick-w: 0.56875rem; /* 9.1 */

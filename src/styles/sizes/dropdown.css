@@ -51,7 +51,7 @@
   --spacing-dropdown-search-pad: var(--space-8);
   --spacing-dropdown-search-gap: var(--space-8);
   --spacing-dropdown-search-icon: var(--space-20); /* the search and clear icons */
-  --radius-dropdown-clear: var(--corner-full); /* the clear icon's focus ring */
+  --radius-dropdown-clear: var(--corner-0); /* the clear icon's focus ring; Merlin is square */
   --spacing-dropdown-button-row: var(--space-48); /* 48 */
   --spacing-dropdown-button-row-pad: var(--space-8);
   --spacing-dropdown-caption: 2.25rem; /* 36 */

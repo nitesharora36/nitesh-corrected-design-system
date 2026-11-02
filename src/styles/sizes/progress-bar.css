@@ -6,7 +6,7 @@
 @theme {
   /* ---- The bar: the track and the filled part ---- */
   --spacing-progress-bar-track: var(--space-6); /* 6 tall */
-  --radius-progress-bar-track: var(--corner-full);
+  --radius-progress-bar-track: var(--corner-0); /* Merlin is square */
 
   /* ---- Progress Bar Label ---- */
   /* On Top: a column, the title row, the bar, the optional bottom line (32, or 54) */

@@ -15,7 +15,7 @@
   --spacing-compact-button-md-icon: 1.125rem; /* 18 */
 
   --radius-compact-button: var(--corner-6); /* Full Radius Off */
-  --radius-compact-button-full: var(--corner-full); /* Full Radius On */
+  --radius-compact-button-full: var(--corner-0); /* Full Radius On: square too, Merlin is square */
 }
 
 :root {

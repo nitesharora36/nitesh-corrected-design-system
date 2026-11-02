@@ -34,7 +34,7 @@
   --spacing-step-card-tree: 15rem; /* 240 */
   --spacing-edge-pill: var(--space-20); /* its height */
   --spacing-edge-pill-x: var(--space-8);
-  --radius-edge-pill: var(--corner-full);
+  --radius-edge-pill: var(--corner-0); /* Merlin is square */
 
   /* ---- The Fit view (23 Oct 2026): every card one width (FIT.cardW in
      canvas-layout.ts) ---- */

@@ -18,7 +18,7 @@
   --spacing-badge-sm-dot-x: var(--space-0); /* left side with a dot, Small */
   --spacing-badge-md-dot-x: var(--space-2); /* left side with a dot, Medium */
   --spacing-badge-number-pad: var(--space-2); /* Number: 16 x 16 or 20 x 20 */
-  --radius-badge: var(--corner-full);
+  --radius-badge: var(--corner-0); /* Merlin is square */
   --radius-badge-dot: var(--corner-full);
 
   /* ---- Status Badge ---- */

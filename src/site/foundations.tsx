@@ -11,7 +11,7 @@ const SECTIONS = [
   { id: "colors", name: "Colours", note: "Every colour token, in the theme picked above. Each one has a light and a dark value." },
   { id: "typography", name: "Typography", note: "The Figma's text styles, each set by its code classes." },
   { id: "spacing", name: "Spacing", note: "The spacing scale. Every padding and gap in a component is a step of it." },
-  { id: "corners", name: "Corners", note: "The corner scale. Every rounded corner is a step of it." },
+  { id: "corners", name: "Corners", note: "Merlin is square: every step of the scale is 0. Only the parts that are round by nature (radio, switch, avatars, dots, knobs) use corner-full." },
   { id: "shadows", name: "Shadows", note: "The shadows many components share. On dark most of them fall away." },
   { id: "icons", name: "Icons", note: "Hugeicons, Stroke Rounded: every icon the product names, at 20." },
   { id: "motion", name: "Motion", note: "The speeds in code. Hover a row to see it." },

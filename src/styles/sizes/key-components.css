@@ -20,7 +20,7 @@
   --spacing-key-icon-sm: var(--space-32);
   --spacing-key-icon-sm-pad: var(--space-6);
   --spacing-key-icon-sm-icon: var(--space-20);
-  --radius-key-icon: var(--corner-full);
+  --radius-key-icon: var(--corner-0); /* Merlin is square */
 
   /* ---- Content Label (node 2945:5539) ---- */
   --spacing-content-label-md: var(--space-40); /* Medium: height and picture */
@@ -42,7 +42,7 @@
   --spacing-password-strength-gap: var(--space-8); /* bars, text, conditions */
   --spacing-password-strength-bar: var(--space-4); /* 4 tall */
   --spacing-password-strength-bar-gap: var(--space-8);
-  --radius-password-strength-bar: 0.075rem; /* 1.2 */
+  --radius-password-strength-bar: 0rem; /* Merlin is square; was 1.2 */
   --spacing-password-strength-icon: var(--space-16);
   --spacing-password-strength-icon-gap: var(--space-4);
 

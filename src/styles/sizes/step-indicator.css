@@ -8,7 +8,7 @@
   --spacing-step-indicator-mark: 1.25rem; /* 20, the circle */
   --spacing-step-indicator-mark-pad: var(--space-2);
   --spacing-step-indicator-tick: 1rem; /* 16, the box inside the padding; the Figma's tick is 10.2 x 7.6 */
-  --radius-step-indicator-mark: var(--corner-full);
+  --radius-step-indicator-mark: var(--corner-0); /* Merlin is square */
 
   /* Horizontal */
   --spacing-step-indicator-h-gap: var(--space-16); /* between steps and chevrons */

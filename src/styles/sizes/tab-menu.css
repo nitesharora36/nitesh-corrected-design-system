@@ -15,7 +15,7 @@
   --spacing-tab-menu-arrow: 1.25rem; /* 20, the circle */
   --spacing-tab-menu-arrow-pad: var(--space-1);
   --spacing-tab-menu-arrow-icon: 1.125rem; /* 18, the chevron */
-  --radius-tab-menu-arrow: var(--corner-full);
+  --radius-tab-menu-arrow: var(--corner-0); /* Merlin is square */
 
   /* Vertical: the container (Card style; the List style has none) */
   --spacing-tab-menu-card-pad: var(--space-10);

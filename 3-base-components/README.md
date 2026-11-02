@@ -6,6 +6,8 @@ The Figma's Base Components, one folder per Figma page, in the Figma's order. Ea
 
 How every component was built, and the rules a new one follows: [how-they-are-built.md](how-they-are-built.md).
 
+**Merlin is square** (3 Nov 2026): the corners these pages give (radius 8, 10, 16 and so on) are 0 in Merlin's code. Only the parts that are round by nature stay round: radio, switch, avatars and the picture slots that hold them, dots, slider and colour-picker knobs, donut and gauge charts. The pictures were retaken the same day, so they show Merlin's square corners; where a page's words still give a radius, the code is the truth.
+
 | Figma page | In code | Status |
 |---|---|---|
 | [Alert, Notification & Toast](alert-notification-toast) | Alert, Toast and Notification | Written 18 Oct 2026; coded 19 Oct 2026 |

@@ -18,7 +18,7 @@
   /* ---- The slider ---- */
   --spacing-slider-row: var(--space-16); /* the dot's height */
   --spacing-slider-track: var(--space-6); /* the track and the filled part */
-  --radius-slider-track: var(--corner-full);
+  --radius-slider-track: var(--corner-0); /* Merlin is square */
   --spacing-slider-dot: var(--space-16);
   --spacing-slider-dot-centre: var(--space-6);
   --radius-slider-dot: var(--corner-full);

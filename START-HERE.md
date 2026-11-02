@@ -37,7 +37,7 @@ Every component reads its colours, sizes and type from tokens, so one change in 
 1. **Colours.** In `src/styles/theme-tokens.css`, the top block holds the palette: `--palette-gray-*`, `--palette-blue-*` and the rest, each a hex value. Change the hex values; every token points at them. The brand colour is the blue scale (`--primary-base` uses `--palette-blue-500` on light and `-400` on dark). Ignore the note there saying "do not edit by hand": that was for Neutrino's own generator, which is not in this copy. Edit here.
 2. **Light and dark.** The light tokens sit under `:root`, the dark ones under the dark theme block in the same file. Change both.
 3. **Font.** Put the new font file in `src/app/fonts/`, load it in `src/app/layout.tsx`, and point `--font-sans` and `--font-display` at it in `src/styles/typography-tokens.css`. Sizes and line heights are in the same file.
-4. **Corners and spacing.** `--corner-*` and `--space-*` in `src/styles/size-tokens.css`. Rounder or squarer everywhere from one place.
+4. **Corners and spacing.** `--corner-*` and `--space-*` in `src/styles/size-tokens.css`. Rounder or squarer everywhere from one place. Merlin is square: every `--corner-*` step is 0, and only the parts that are round by nature use `--corner-full`.
 5. **Shadows.** The `--shadow-*` lines in `src/styles/theme-tokens.css` and the component size files.
 6. **Logo and pictures.** `2-assets/` and `public/`.
 
