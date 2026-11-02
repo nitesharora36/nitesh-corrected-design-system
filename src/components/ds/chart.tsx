@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * The design system's charts, built from design-system/components/chart.md:
- * every chart drawn on the Neutrino cells (components/ds/neutrino-cells.tsx),
- * the detector wall where grey cells wait and the data's cells are caught,
- * coloured along the light's ramp, igniting on arrival, breathing, warming
- * under the cursor.
+ * The design system's charts, built from design-system/components/chart.md.
+ * Merlin's charts are plain (Nitesh, 3 Nov 2026): solid bars, lines, rings
+ * and squares in the chart's colours, square corners, light value lines; no
+ * Neutrino cells and nothing moving on its own. The colours still come from
+ * the light's ramp (components/ds/neutrino-cells.tsx reads it).
  *
  *   <ChartCard title="Power draw" subtitle="MW, last 12 months">
  *     <BarChart data={rows} xKey="month" series={[{ key: "mw", label: "Power" }]} aria-label="Power draw by month" />
@@ -13,50 +13,34 @@
  *
  * BarChart        columns (or horizontal bars for a ranking), one to three
  *                 series, value labels at the tips; compact for a KPI card;
- *                 form="cube" draws each column as a box (two faces, a top)
- * LineChart       a track of cells with the field under it, one to three
- *                 series, the crosshair, the runner; compact (a sparkline)
+ *                 form="cube" draws wider columns
+ * LineChart       a line over a light fill, one to three series, the
+ *                 crosshair; compact (a sparkline)
  * DonutChart      a ring (or a pie) of slices, five at most, with its legend
- * Gauge           a ring lit to its value, the value in the middle
- * Heatmap         one larger cell per value on the ramp's sequential range
- * BreakdownBar    one band of cells cut into its parts, with its legend
+ * Gauge           a ring filled to its value, the value in the middle
+ * Heatmap         one solid square per value on the ramp's sequential range
+ * BreakdownBar    one band cut into its parts, with its legend
  * ChartCard       the card a chart sits in: title, subtitle, legend, actions
- * ChartLegend     the series' keys (cells in each series' colour and pattern)
+ * ChartLegend     the series' keys (a square in each series' colour)
  * ChartHues       the hue of the charts inside it (blue, green, red, amber),
  *                 or one per series; ChartCard's hue sets it
  *
  * Data comes as rows (data, xKey, series), as the agent writes it. Every
  * chart is a focusable group: the arrow keys move between data with the
  * same tooltip as the pointer, and a table of its data sits in the page for
- * screen readers. Words never sit on the cells, and never wear the series'
+ * screen readers. Words never sit on the marks, and never wear the series'
  * colour. Sizes are the tokens in styles/sizes/chart.css.
  */
 import * as React from "react";
 
 import {
-  CellCanvas,
-  CellSwatch,
   ChartHueContext,
-  PATTERNS,
-  colAt,
-  fillColumn,
-  fillCube,
-  fillFoot,
-  fillRing,
-  fillRow,
-  light,
   nearestIndex,
   penAt,
   rampAt,
-  tickRow,
   useCellTheme,
-  yOnLine,
-  type CellOverlay,
-  type CellPattern,
   type ChartHue,
   type CellTheme,
-  type Lattice,
-  type Picture,
   type Point,
   type RampPlace,
 } from "@/components/ds/neutrino-cells";
@@ -80,33 +64,28 @@ export const formatNumber: ChartFormat = (v) => fullNumber.format(v);
 
 const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : 0);
 
-/** A series' place on the ramp and its pattern (chart.md, Colour and identity). */
+/** A series' place on the ramp (chart.md, Colour and identity). */
 export const seriesT = (si: number) => (th: CellTheme) => th.series[si] ?? th.series[th.series.length - 1];
-export const seriesPattern = (si: number): CellPattern => PATTERNS[si] ?? "sparse";
 /** A slice's place: the largest hottest, stepping down to the second series' place. */
 export const sliceT = (k: number, n: number) => (th: CellTheme) => (n <= 1 ? 1 : 1 - ((1 - (th.series[1] ?? 0.5)) * k) / (n - 1));
-export const slicePattern = (k: number): CellPattern => (k % 2 ? "checker" : "solid");
 
 /** Whether series `si` wears its own hue: ChartCard's hue is a list of two
  *  or more, one per series. */
 const ownHue = (si: number, hues: ChartHue[]) => hues.length > 1 && si < hues.length;
 
-/** A series' look: its ramp place, pattern and pen. With a hue of its own
- *  the hue tells the series apart, so each sits at the hot end, in solid
- *  cells; in one hue they step down the ramp and change pattern. */
+/** A series' look: its ramp place and pen. With a hue of its own the hue
+ *  tells the series apart, so each sits at the hot end; in one hue they
+ *  step down the ramp. */
 export function seriesLook(si: number, hues: ChartHue[]) {
-  return ownHue(si, hues)
-    ? { t: seriesT(0), pattern: "solid" as CellPattern, pen: si }
-    : { t: seriesT(si), pattern: seriesPattern(si), pen: 0 };
+  return ownHue(si, hues) ? { t: seriesT(0), pen: si } : { t: seriesT(si), pen: 0 };
 }
 
-/** A series' stroke and marker colour (lines and their keys). */
+/** A series' colour: its bars, its line and markers, its key. */
 const seriesColour = (th: CellTheme, si: number, hues: ChartHue[]) =>
   ownHue(si, hues) ? penAt(th, si, th.hueLine) : rampAt(th, th.series[si] ?? 0.75);
 
 /** The hue of every chart, legend and key inside it: one, or a list with
- *  one per series (the first is also the chart's own: the wall's warmth,
- *  markers, the runner). */
+ *  one per series (the first is also the chart's own: its fill and gauge). */
 export function ChartHues({ hue, children }: { hue: ChartHue | ChartHue[]; children: React.ReactNode }) {
   const key = Array.isArray(hue) ? hue.join(",") : hue;
   // key stands for hue, which may be a new array each render.
@@ -134,10 +113,10 @@ type Px = {
 };
 const PX_FALLBACK: Px = { cell: 3, pitch: 5, cellSm: 2, pitchSm: 4, heatCell: 12, heatPitch: 15, barMax: 24, cubeMax: 48, donutRing: 28, gaugeRing: 14, gaugeRingSm: 8, line: 2, lineSm: 1.5 };
 
-/** How much larger a chart draws its cells, lines and bars than the tokens
+/** How much larger a chart draws its lines, bars and rings than the tokens
  *  say: 1 everywhere, more where the chart is shown scaled down (a canvas's
- *  cover on the canvases page, canvas-live-cover.tsx), so its Neutrino cells
- *  stay visible once shrunk (28 Oct 2026). */
+ *  cover on the canvases page, canvas-live-cover.tsx), so they stay visible
+ *  once shrunk (28 Oct 2026). */
 export const ChartPxBoost = React.createContext(1);
 
 function useChartPx(): Px {
@@ -247,8 +226,64 @@ function labelEvery(names: string[], w: number, least: number) {
 const PLOT = "absolute rounded-chart-plot outline-none ds-shadow ds-focus:ring-focus-primary";
 const AXIS_TEXT = "text-paragraph-xs text-text-muted tabular-nums whitespace-nowrap";
 
-/** A row of the tooltip; `line` (a series index) keys it with a line instead of cells. */
-type TipRow = { key: string; t: RampPlace; pattern: CellPattern; pen?: number; value: string; label: string; line?: number };
+/** A row of the tooltip; `line` (a series index) keys it with a line instead of a square. */
+type TipRow = { key: string; t: RampPlace; pen?: number; value: string; label: string; line?: number };
+
+/** A series' key for legends and tooltips: a small solid square in its
+ *  colour; `pen` picks the series' hue when each series has its own. */
+export function Swatch({ t, pen = 0, className }: { t: RampPlace; pen?: number; className?: string }) {
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const theme = useCellTheme(ref);
+  const colour = theme ? penAt(theme, pen, typeof t === "function" ? t(theme) : t) : undefined;
+  return <span ref={ref} aria-hidden className={cn("size-chart-swatch shrink-0", className)} style={{ background: colour }} />;
+}
+
+/** A chart's marks, drawn plain on a canvas: drawn again when the data, the
+ *  size, hover or the theme change (`drawKey` says when); nothing moves on
+ *  its own. Faded while the data is on its way. */
+function ChartCanvas({
+  w,
+  h,
+  draw,
+  drawKey,
+  loading = false,
+}: {
+  w: number;
+  h: number;
+  draw: (ctx: CanvasRenderingContext2D, th: CellTheme) => void;
+  drawKey: string;
+  loading?: boolean;
+}) {
+  const ref = React.useRef<HTMLCanvasElement>(null);
+  const theme = useCellTheme(ref);
+  React.useEffect(() => {
+    const canvas = ref.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx || !theme || w < 4 || h < 4) return;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    draw(ctx, theme);
+    // draw is a new closure every render; drawKey says when its output changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme, w, h, drawKey]);
+  return (
+    <canvas
+      ref={ref}
+      aria-hidden
+      className={cn("pointer-events-none absolute left-0 top-0", loading && "opacity-45")}
+      style={{ width: w, height: h }}
+    />
+  );
+}
+
+/** The value lines across the plot, one per tick (the last at the foot). */
+function drawGrid(ctx: CanvasRenderingContext2D, th: CellTheme, ys: number[], w: number, h: number) {
+  ctx.fillStyle = th.grid;
+  for (const y of ys) ctx.fillRect(0, Math.min(Math.max(Math.round(y), 1), h) - 1, w, 1);
+}
 
 /** Where the tooltip goes, so it never hides the mark it describes: above
  *  the mark when there is room, else beside it (`side` is half the mark's
@@ -272,7 +307,7 @@ function ChartTip({ x, y, w, side, title, rows }: { x: number; y: number; w: num
       {title != null && <span className="text-paragraph-xs text-text-sub-600">{title}</span>}
       {rows.map((r) => (
         <span key={r.key} className="flex items-center gap-chart-tip-row">
-          {r.line != null ? <LineKey series={r.line} /> : <CellSwatch t={r.t} pattern={r.pattern} pen={r.pen} />}
+          {r.line != null ? <LineKey series={r.line} /> : <Swatch t={r.t} pen={r.pen} />}
           <span className="text-label-sm text-text-strong-950 tabular-nums">{r.value}</span>
           <span className="text-paragraph-xs text-text-sub-600">{r.label}</span>
         </span>
@@ -323,12 +358,6 @@ function Live({ text }: { text: string }) {
   );
 }
 
-/** No data: the faint wall with one lit row along its foot (the brand's
- *  product empty state). */
-function paintEmpty(l: Lattice, p: Picture) {
-  for (let i = 0; i < l.cols; i++) light(l, p, i, l.rows - 1, 0.7, 0.45 + (0.35 * i) / Math.max(1, l.cols - 1), -1, i / l.cols);
-}
-
 /* ── The card and the legend ── */
 
 export type ChartCardProps = Omit<React.ComponentProps<"section">, "title"> & {
@@ -364,15 +393,15 @@ export function ChartCard({ title, subtitle, actions, legend, hue, className, ch
 
 /** Each series' key, for two or more series (one series needs none: the
  *  title says it). `kind="line"` keys a line chart's series with a stroke,
- *  as its marks are lines; bars keep their cells. */
-export function ChartLegend({ series, kind = "cells", className }: { series: ChartSeries[]; kind?: "cells" | "line"; className?: string }) {
+ *  as its marks are lines; the rest with a square. */
+export function ChartLegend({ series, kind = "swatch", className }: { series: ChartSeries[]; kind?: "swatch" | "line"; className?: string }) {
   const hues = React.useContext(ChartHueContext);
   if (series.length < 2) return null;
   return (
     <div className={cn("flex flex-wrap items-center gap-x-chart-legend-gap gap-y-space-4", className)}>
       {series.map((s, i) => (
         <span key={s.key} className="inline-flex items-center gap-chart-legend-key-gap text-label-xs text-text-sub-600">
-          {kind === "line" ? <LineKey series={i} /> : <CellSwatch {...seriesLook(i, hues)} />}
+          {kind === "line" ? <LineKey series={i} /> : <Swatch {...seriesLook(i, hues)} />}
           {s.label}
         </span>
       ))}
@@ -426,11 +455,10 @@ export type BarChartProps = {
   /** Values at the bars' tips (vertical; horizontal always shows them). */
   valueLabels?: boolean;
   format?: ChartFormat;
-  /** No axes and small cells, the last bar the strongest: the KPI card's picture. */
+  /** No axes, the last bar the strongest: the KPI card's picture. */
   compact?: boolean;
-  /** flat: columns of cells. cube: each column a box turned to its front
-   *  edge, a lighter left face, a stronger right face and a hot top (the
-   *  Figma's BarLineChart, 198309:63497). Columns only. */
+  /** flat: columns. cube: wider columns, up to their own token (the
+   *  Figma's BarLineChart boxes, drawn flat like the rest). Columns only. */
   form?: "flat" | "cube";
   loading?: boolean;
   /** The sentence under an empty chart. */
@@ -463,55 +491,46 @@ export function BarChart({
   const max = Math.max(0, ...data.flatMap((d) => series.map((s) => num(d[s.key]))));
   const ticks = niceTicks(max);
   const top = horizontal || compact ? max || 1 : ticks[ticks.length - 1];
-  const cell = compact ? px.cellSm : px.cell;
-  const pitch = compact ? px.pitchSm : px.pitch;
   const S = Math.max(1, Math.min(3, series.length));
   const shown = series.slice(0, S);
   const isEmpty = !loading && n === 0;
   const { w, h } = box;
 
-  /** A bar's span in cells: at most the token's px, about 62% of its band
-   *  (a cube up to its own token, 80% of the band). */
-  const cellsFor = (span: number) => Math.max(1, Math.floor((span - cell) / pitch) + 1);
-
   const yOf = (v: number) => h * (1 - v / top);
   const xOf = (v: number) => w * (v / top);
   const band = (horizontal ? h : w) / Math.max(1, n);
-  const barCells = cube ? cellsFor(Math.min(px.cubeMax, (band * 0.8) / S)) : cellsFor(Math.min(px.barMax, (band * 0.62) / S));
-  const groupCells = S * barCells + (S - 1);
+  /** A bar's thickness: at most the token's px, about 62% of its band
+   *  shared by the series (a cube up to its own token, 80% of the band). */
+  const bar = Math.max(2, Math.min(cube ? px.cubeMax : px.barMax, (band * (cube ? 0.8 : 0.62)) / S));
+  const gap = S > 1 ? 2 : 0;
+  const group = S * bar + (S - 1) * gap;
 
-  const paint = (l: Lattice, p: Picture, th: CellTheme) => {
-    if (isEmpty) return paintEmpty(l, p);
-    if (!horizontal && !compact) for (const v of ticks) tickRow(l, p, yOf(v));
+  // Solid, square-cornered bars in each series' colour; the hovered
+  // category's band shaded behind them.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
+    if (isEmpty) return;
+    if (!horizontal && !compact) drawGrid(ctx, th, ticks.map(yOf), w, h);
+    if (!compact && hover >= 0 && hover < n) {
+      ctx.fillStyle = th.grid;
+      ctx.globalAlpha = 0.6;
+      if (horizontal) ctx.fillRect(0, band * hover, w, band);
+      else ctx.fillRect(band * hover, 0, band, h);
+      ctx.globalAlpha = 1;
+    }
     data.forEach((d, b) => {
-      const centre = band * (b + 0.5);
+      const first = band * (b + 0.5) - group / 2;
+      // The KPI picture: the current period strongest, the rest quieter.
+      ctx.globalAlpha = compact && b !== n - 1 ? 0.45 : 1;
       shown.forEach((s, si) => {
         const v = num(d[s.key]);
         if (v <= 0) return;
-        const look = seriesLook(si, hues);
-        p.ink = look.pen;
-        let tHi = look.t(th);
-        let tLo = S === 1 || hues.length > 1 ? tHi - 0.4 : tHi - 0.12;
-        // The KPI picture: the current period strongest, the rest quieter.
-        if (compact) [tLo, tHi] = b === n - 1 ? [0.75, 1] : [0.45, 0.62];
-        const pattern = look.pattern;
-        if (horizontal) {
-          const firstRow = Math.round((centre - l.oy - ((groupCells - 1) * l.pitch + l.size) / 2) / l.pitch);
-          const r0 = firstRow + si * (barCells + 1);
-          const y0 = l.oy + r0 * l.pitch - 0.5;
-          const y1 = l.oy + (r0 + barCells - 1) * l.pitch + l.size + 0.5;
-          fillRow(l, p, y0, y1, 0, xOf(v), tLo, tHi, b, (b / Math.max(1, n)) * 0.45, 0.55, pattern);
-        } else {
-          const firstCol = Math.round((centre - l.ox - ((groupCells - 1) * l.pitch + l.size) / 2) / l.pitch);
-          const c0 = firstCol + si * (barCells + 1);
-          const x0 = l.ox + c0 * l.pitch - 0.5;
-          const x1 = l.ox + (c0 + barCells - 1) * l.pitch + l.size + 0.5;
-          if (cube) fillCube(l, p, x0, x1, yOf(v), l.h, tHi, b, (b / Math.max(1, n)) * 0.45, 0.55, pattern);
-          else fillColumn(l, p, x0, x1, yOf(v), l.h, tLo, tHi, b, (b / Math.max(1, n)) * 0.45, 0.55, pattern);
-        }
+        const at = first + si * (bar + gap);
+        ctx.fillStyle = seriesColour(th, si, hues);
+        if (horizontal) ctx.fillRect(0, at, xOf(v), bar);
+        else ctx.fillRect(at, yOf(v), bar, h - yOf(v));
       });
     });
-    p.ink = 0;
+    ctx.globalAlpha = 1;
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -535,7 +554,7 @@ export function BarChart({
         x={horizontal ? xOf(peak) : centre}
         y={horizontal ? centre : yOf(peak)}
         w={w}
-        side={horizontal ? 48 : (groupCells * pitch) / 2}
+        side={horizontal ? 48 : group / 2}
         title={String(d[xKey] ?? "")}
         rows={shown.map((s, si) => ({ key: s.key, ...seriesLook(si, hues), value: formatNumber(num(d[s.key])), label: s.label }))}
       />
@@ -544,17 +563,12 @@ export function BarChart({
 
   const every = labelEvery(data.map((d) => String(d[xKey] ?? "")), w, 44);
   const canvas = (
-    <CellCanvas
+    <ChartCanvas
       w={w}
       h={h}
-      cell={cell}
-      pitch={pitch}
-      paint={paint}
-      paintKey={`${JSON.stringify(data)}|${shown.map((s) => s.key)}|${orientation}|${form}|${hues.join()}|${compact}|${isEmpty}|${top}`}
-      hover={hover}
+      draw={draw}
+      drawKey={`${JSON.stringify(data)}|${shown.map((s) => s.key)}|${orientation}|${form}|${hues.join()}|${compact}|${isEmpty}|${top}|${bar}|${hover}`}
       loading={loading}
-      warm={!compact}
-      arrive
     />
   );
 
@@ -665,22 +679,16 @@ export type LineChartProps = {
   xKey: string;
   /** One to three. */
   series: ChartSeries[];
-  /** The field at the line's foot (on by default). */
+  /** The light fill under the line (on by default). */
   area?: boolean;
   format?: ChartFormat;
-  /** A sparkline: no axes, small cells, the runner only while hovered. */
+  /** A sparkline: no axes. */
   compact?: boolean;
   loading?: boolean;
   empty?: string;
   className?: string;
   "aria-label": string;
 };
-
-// The runner (chart.md, Motion): one square every 8 s, crossing in 2.4 s
-// along the line, with a short trail of fading cells.
-const RUN_EVERY = 8000;
-const RUN_FOR = 2400;
-const RUN_TRAIL = 4;
 
 export function LineChart({
   data,
@@ -698,7 +706,6 @@ export function LineChart({
   const [plotRef, box] = useBox();
   const n = data.length;
   const { hover, setHover, keys } = useDatumFocus(n);
-  const [inside, setInside] = React.useState(false);
   const hues = React.useContext(ChartHueContext);
   const S = Math.max(1, Math.min(3, series.length));
   const shown = series.slice(0, S);
@@ -722,37 +729,32 @@ export function LineChart({
     [data, shown.map((s) => s.key).join(), w, h, top, compact],
   );
 
-  const paint = (l: Lattice, p: Picture, th: CellTheme) => {
-    if (isEmpty) return paintEmpty(l, p);
-    if (!compact) for (const v of ticks) tickRow(l, p, yOf(v));
-    // The cells carry the field at the foot, under the highest line; the
-    // lines themselves are drawn sharp in the overlay (Nitesh, 19 Oct 2026).
-    if (glow && lines[0]?.length) {
-      const envelope = lines[0].map((q, k) => ({ x: q.x, y: Math.min(...lines.map((pts) => pts[k].y)) }));
-      fillFoot(l, p, envelope, th.series[0] ?? 1, compact ? 0.42 : 0.5);
-    }
-  };
-
-  const runPhase = React.useMemo(() => Math.floor(Math.random() * RUN_EVERY), []);
   const lineW = compact ? px.lineSm : px.line;
-  const overlay: CellOverlay = (ctx, l, th, ms, progress) => {
-    if (!n || !lines[0]?.length) return false;
-    let moving = false;
-    const first = lines[0][0].x, last = lines[0][n - 1].x;
-    // The crosshair: the column of cells at the hovered point, under the lines.
-    if (hover >= 0 && hover < n) {
-      const i = colAt(l, lines[0][hover].x);
-      ctx.fillStyle = rampAt(th, 0.5);
-      ctx.globalAlpha = 0.3;
-      for (let j = 0; j < l.rows; j++) ctx.fillRect(l.ox + i * l.pitch, l.oy + j * l.pitch, l.size, l.size);
+  // The value lines, a light fill under the highest line, a thin rule at
+  // the hovered point, the lines (the weaker first, so the strongest sits on
+  // top) and a square on each series' hovered point.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
+    if (isEmpty || !n || !lines[0]?.length) return;
+    if (!compact) drawGrid(ctx, th, ticks.map(yOf), w, h);
+    if (glow) {
+      const peak = lines[0].map((q, k) => ({ x: q.x, y: Math.min(...lines.map((pts) => pts[k].y)) }));
+      ctx.fillStyle = seriesColour(th, 0, hues);
+      ctx.globalAlpha = 0.1;
+      ctx.beginPath();
+      ctx.moveTo(peak[0].x, h);
+      peak.forEach((q) => ctx.lineTo(q.x, q.y));
+      ctx.lineTo(peak[n - 1].x, h);
+      ctx.closePath();
+      ctx.fill();
       ctx.globalAlpha = 1;
     }
-    // The lines: sharp and round, drawn left to right as the chart arrives,
-    // the weaker first so the strongest sits on top.
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, first + (last - first) * progress + lineW, l.h);
-    ctx.clip();
+    const hovered = hover >= 0 && hover < n;
+    if (hovered) {
+      ctx.fillStyle = rampAt(th, 0.5);
+      ctx.globalAlpha = 0.5;
+      ctx.fillRect(Math.round(lines[0][hover].x) - 0.5, 0, 1, h);
+      ctx.globalAlpha = 1;
+    }
     ctx.lineWidth = lineW;
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
@@ -763,10 +765,9 @@ export function LineChart({
       lines[si].forEach((q, k) => (k ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)));
       ctx.stroke();
     }
-    ctx.restore();
-    // A larger square on each series' hovered point, ringed in the card's colour.
-    if (hover >= 0 && hover < n) {
-      const s = l.size + 4;
+    ctx.setLineDash([]);
+    if (hovered) {
+      const s = lineW * 2 + 3;
       lines.forEach((pts, si) => {
         const q = pts[hover];
         ctx.fillStyle = th.surface;
@@ -775,29 +776,6 @@ export function LineChart({
         ctx.fillRect(q.x - s / 2, q.y - s / 2, s, s);
       });
     }
-    // The runner: one square along the first line, its trail fading behind it.
-    if (ms !== null && n > 1 && progress >= 1 && (!compact || inside)) {
-      const u = ((ms + runPhase) % RUN_EVERY) / RUN_FOR;
-      if (u <= 1) {
-        moving = true;
-        const head = first + (last - first) * u;
-        ctx.fillStyle = rampAt(th, 1);
-        for (let k = RUN_TRAIL; k >= 1; k--) {
-          const x = head - k * l.pitch;
-          if (x < first) continue;
-          ctx.globalAlpha = 0.55 * (1 - k / (RUN_TRAIL + 1));
-          ctx.fillRect(x - l.size / 2, yOnLine(lines[0], x) - l.size / 2, l.size, l.size);
-        }
-        const s = l.size + 2;
-        const y = yOnLine(lines[0], head);
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = th.surface;
-        ctx.fillRect(head - s / 2 - 1, y - s / 2 - 1, s + 2, s + 2);
-        ctx.fillStyle = rampAt(th, 1);
-        ctx.fillRect(head - s / 2, y - s / 2, s, s);
-      }
-    }
-    return moving;
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -832,22 +810,13 @@ export function LineChart({
       className={cn(PLOT, compact ? "inset-0" : cn("bottom-chart-axis-x left-chart-axis-y top-chart-plot-top", S === 1 ? "right-chart-end" : "right-0"))}
       {...keys}
       onPointerMove={onPointerMove}
-      onPointerEnter={() => setInside(true)}
-      onPointerLeave={() => {
-        setInside(false);
-        setHover(-1);
-      }}
     >
-      <CellCanvas
+      <ChartCanvas
         w={w}
         h={h}
-        cell={cell}
-        pitch={pitch}
-        paint={paint}
-        paintKey={`${JSON.stringify(data)}|${shown.map((s) => s.key)}|${glow}|${compact}|${isEmpty}|${top}`}
+        draw={draw}
+        drawKey={`${JSON.stringify(data)}|${shown.map((s) => s.key)}|${glow}|${compact}|${isEmpty}|${top}|${hues.join()}|${hover}`}
         loading={loading}
-        overlay={overlay}
-        warm={!compact}
       />
       {/* The last value at the line's end (one series). */}
       {!compact && S === 1 && last && w > 0 && (
@@ -947,11 +916,32 @@ export function DonutChart({ data, pie = false, format = formatNumber, centre, l
   }, [slices, total, TAU]);
   const share = (v: number) => `${Math.round((v / total) * 100)}%`;
 
-  const paint = (l: Lattice, p: Picture, th: CellTheme) => {
+  // Solid slices, the hovered one full and the rest faded, cut apart by a
+  // thin line in the card's colour. Angles run clockwise from twelve
+  // o'clock; the canvas counts from three.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
+    if (!N || r1 <= 0) return;
+    const turn = (a: number) => a - Math.PI / 2;
     slices.forEach((_, k) => {
-      const t = sliceT(k, N)(th);
-      fillRing(l, p, cx, cy, r0, r1, spans[k][0], spans[k][1], t - 0.08, t, k, slicePattern(k), N > 1 ? 1 : 0);
+      ctx.globalAlpha = hover >= 0 && hover !== k ? 0.4 : 1;
+      ctx.fillStyle = rampAt(th, sliceT(k, N)(th));
+      ctx.beginPath();
+      ctx.arc(cx, cy, r1, turn(spans[k][0]), turn(spans[k][1]));
+      if (r0 > 0) ctx.arc(cx, cy, r0, turn(spans[k][1]), turn(spans[k][0]), true);
+      else ctx.lineTo(cx, cy);
+      ctx.closePath();
+      ctx.fill();
     });
+    ctx.globalAlpha = 1;
+    if (N < 2) return;
+    ctx.strokeStyle = th.surface;
+    ctx.lineWidth = 2;
+    for (const [a] of spans) {
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.sin(a) * r0, cy - Math.cos(a) * r0);
+      ctx.lineTo(cx + Math.sin(a) * (r1 + 1), cy - Math.cos(a) * (r1 + 1));
+      ctx.stroke();
+    }
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -973,7 +963,7 @@ export function DonutChart({ data, pie = false, format = formatNumber, centre, l
         y={Math.max(0, cy - Math.cos(mid) * (r1 + 4) - 20)}
         w={w}
         side={4}
-        rows={[{ key: "v", t: sliceT(hover, N), pattern: slicePattern(hover), value: `${format(slices[hover].value)} (${share(slices[hover].value)})`, label: slices[hover].label }]}
+        rows={[{ key: "v", t: sliceT(hover, N), value: `${format(slices[hover].value)} (${share(slices[hover].value)})`, label: slices[hover].label }]}
       />
     );
   }
@@ -982,17 +972,7 @@ export function DonutChart({ data, pie = false, format = formatNumber, centre, l
     <div role="group" aria-label={label} className={cn("flex flex-wrap items-center gap-chart-donut-gap", className)}>
       <div className="relative size-chart-donut shrink-0">
         <div ref={plotRef} className={cn(PLOT, "inset-0 rounded-full")} onPointerMove={onPointerMove} {...keys}>
-          <CellCanvas
-            w={w}
-            h={h}
-            cell={px.cell}
-            pitch={px.pitch}
-            paint={paint}
-            paintKey={`${JSON.stringify(slices)}|${pie}`}
-            hover={hover}
-            loading={loading}
-            wallShare={0}
-          />
+          <ChartCanvas w={w} h={h} draw={draw} drawKey={`${JSON.stringify(slices)}|${pie}|${r1}|${r0}|${hover}`} loading={loading} />
           {tip}
         </div>
         {centre && !pie && (
@@ -1011,7 +991,7 @@ export function DonutChart({ data, pie = false, format = formatNumber, centre, l
               onPointerEnter={() => setHover(k)}
               onPointerLeave={() => setHover(-1)}
             >
-              <CellSwatch t={sliceT(k, N)} pattern={slicePattern(k)} />
+              <Swatch t={sliceT(k, N)} />
               <span className="min-w-0 flex-1 truncate text-text-sub-600">{d.label}</span>
               <span className="text-label-sm text-text-strong-950 tabular-nums">{format(d.value)}</span>
               <span className="text-paragraph-xs text-text-muted tabular-nums">{share(d.value)}</span>
@@ -1044,19 +1024,31 @@ export type GaugeProps = {
 export function Gauge({ value, max = 100, size = "md", label, display, loading = false, className, "aria-label": ariaLabel }: GaugeProps) {
   const px = useChartPx();
   const [plotRef, box] = useBox();
-  const { hover, setHover, keys } = useDatumFocus(1);
+  const { keys } = useDatumFocus(1);
   const { w, h } = box;
   const share = Math.max(0, Math.min(1, value / (max || 1)));
   const words = display ? display(value, max) : `${Math.round(share * 100)}%`;
   const ring = size === "sm" ? px.gaugeRingSm : px.gaugeRing;
-  const cell = size === "sm" ? px.cellSm : px.cell;
   const pitch = size === "sm" ? px.pitchSm : px.pitch;
 
-  const paint = (l: Lattice, p: Picture) => {
-    const r1 = Math.min(l.w, l.h) / 2 - pitch / 2;
-    // The lit part first (it claims its cells), then the waiting track.
-    if (share > 0) fillRing(l, p, l.w / 2, l.h / 2, r1 - ring, r1, 0, share * Math.PI * 2, 0.6, 1, 0, "solid", 0);
-    fillRing(l, p, l.w / 2, l.h / 2, r1 - ring, r1, 0, Math.PI * 2, 0.3, 0.3, -1, "solid", 0, 0.22);
+  // The track all round in the soft stroke, then the share filled in the
+  // strongest colour from twelve o'clock, clockwise.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
+    const r1 = Math.min(w, h) / 2 - pitch / 2;
+    const r0 = r1 - ring;
+    if (r0 <= 0) return;
+    const arc = (to: number) => {
+      ctx.beginPath();
+      ctx.arc(w / 2, h / 2, r1, -Math.PI / 2, -Math.PI / 2 + to);
+      ctx.arc(w / 2, h / 2, r0, -Math.PI / 2 + to, -Math.PI / 2, true);
+      ctx.closePath();
+      ctx.fill();
+    };
+    ctx.fillStyle = th.grid;
+    arc(Math.PI * 2);
+    if (share <= 0) return;
+    ctx.fillStyle = rampAt(th, 1);
+    arc(share * Math.PI * 2);
   };
 
   // Only the value sits inside the ring; its label goes under it, so no
@@ -1064,8 +1056,8 @@ export function Gauge({ value, max = 100, size = "md", label, display, loading =
   return (
     <div role="group" aria-label={ariaLabel} className={cn("flex shrink-0 flex-col items-center gap-space-8", className)}>
       <div className={cn("relative", size === "sm" ? "size-kpi-card-gauge" : "size-chart-gauge")}>
-        <div ref={plotRef} className={cn(PLOT, "inset-0 rounded-full")} onPointerEnter={() => setHover(0)} {...keys}>
-          <CellCanvas w={w} h={h} cell={cell} pitch={pitch} paint={paint} paintKey={`${share}|${size}`} hover={hover} loading={loading} wallShare={0} warm={size === "md"} />
+        <div ref={plotRef} className={cn(PLOT, "inset-0 rounded-full")} {...keys}>
+          <ChartCanvas w={w} h={h} draw={draw} drawKey={`${share}|${size}|${ring}|${pitch}`} loading={loading} />
         </div>
         <span
           aria-hidden
@@ -1127,13 +1119,20 @@ export function Heatmap({ rows, cols, values, format = formatNumber, colEvery, f
   const every = colEvery ?? (fit ? labelEvery(cols, w, 0) : 3);
   const tOf = (th: CellTheme, v: number) => th.seq[0] + (th.seq[1] - th.seq[0]) * (v / max);
 
-  const paint = (l: Lattice, p: Picture, th: CellTheme) => {
+  // One solid square per value (an empty one in the soft stroke); the
+  // hovered square outlined in the strongest colour.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
     for (let r = 0; r < R; r++) {
       for (let c = 0; c < C; c++) {
         const v = num(values[r]?.[c]);
-        if (v > 0) light(l, p, c, r, 1, tOf(th, v), r * C + c, (c + r * 0.6) / (C + R * 0.6));
+        ctx.fillStyle = v > 0 ? rampAt(th, tOf(th, v)) : th.grid;
+        ctx.fillRect(c * pitch, r * pitch, cellPx, cellPx);
       }
     }
+    if (hover < 0) return;
+    ctx.strokeStyle = rampAt(th, 1);
+    ctx.lineWidth = 2;
+    ctx.strokeRect((hover % C) * pitch + 1, Math.floor(hover / C) * pitch + 1, cellPx - 2, cellPx - 2);
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -1152,7 +1151,7 @@ export function Heatmap({ rows, cols, values, format = formatNumber, colEvery, f
         y={r * pitch}
         w={w}
         title={`${rows[r]}, ${cols[c]}`}
-        rows={[{ key: "v", t: (th) => tOf(th, num(values[r]?.[c])), pattern: "solid", value: format(num(values[r]?.[c])), label: "" }]}
+        rows={[{ key: "v", t: (th) => tOf(th, num(values[r]?.[c])), value: format(num(values[r]?.[c])), label: "" }]}
       />
     );
   }
@@ -1175,17 +1174,7 @@ export function Heatmap({ rows, cols, values, format = formatNumber, colEvery, f
         </div>
         <div ref={colRef} className={cn("flex flex-col gap-space-6", fit ? "min-w-0 flex-1" : "shrink-0")}>
           <div ref={plotRef} className={cn(PLOT, "relative")} style={{ width: w, height: h }} onPointerMove={onPointerMove} {...keys}>
-            <CellCanvas
-              w={w}
-              h={h}
-              cell={cellPx}
-              pitch={pitch}
-              paint={paint}
-              paintKey={`${JSON.stringify(values)}|${pitch}`}
-              hover={hover}
-              loading={loading}
-              wallShare={1}
-            />
+            <ChartCanvas w={w} h={h} draw={draw} drawKey={`${JSON.stringify(values)}|${pitch}|${hover}`} loading={loading} />
             {tip}
           </div>
           <div aria-hidden className="relative h-chart-axis-x" style={{ width: w }}>
@@ -1213,13 +1202,13 @@ export function Heatmap({ rows, cols, values, format = formatNumber, colEvery, f
   );
 }
 
-/** "Less" to "More": five cells across the heatmap's range. */
+/** "Less" to "More": five squares across the heatmap's range. */
 function HeatKey() {
   return (
     <div aria-hidden className="flex items-center gap-space-6 text-paragraph-xs text-text-muted">
       Less
       {[0.08, 0.3, 0.55, 0.8, 1].map((u) => (
-        <CellSwatch key={u} t={(th) => th.seq[0] + (th.seq[1] - th.seq[0]) * u} />
+        <Swatch key={u} t={(th) => th.seq[0] + (th.seq[1] - th.seq[0]) * u} />
       ))}
       More
     </div>
@@ -1239,7 +1228,6 @@ export type BreakdownBarProps = {
 };
 
 export function BreakdownBar({ items, format = formatNumber, legend = true, loading = false, className, "aria-label": label }: BreakdownBarProps) {
-  const px = useChartPx();
   const [plotRef, box] = useBox();
   const N = items.length;
   const { hover, setHover, keys } = useDatumFocus(N);
@@ -1255,13 +1243,18 @@ export function BreakdownBar({ items, format = formatNumber, legend = true, load
   }, [items, total, w]);
   const share = (v: number) => `${Math.round((v / total) * 100)}%`;
 
-  const paint = (l: Lattice, p: Picture, th: CellTheme) => {
-    // Colour follows each part, in the order given; each part cut dark again.
+  // Colour follows each part, in the order given; a 2px gap between parts,
+  // the hovered one full and the rest faded.
+  const draw = (ctx: CanvasRenderingContext2D, th: CellTheme) => {
     items.forEach((_, k) => {
-      const t = sliceT(k, N)(th);
       const [x0, x1] = edges[k];
-      fillRow(l, p, 0, l.h, x0 + (k > 0 ? l.pitch : 0), x1, t - 0.08, t, k, x0 / Math.max(1, l.w), 0.2, slicePattern(k));
+      const from = x0 + (k > 0 ? 2 : 0);
+      if (x1 <= from) return;
+      ctx.globalAlpha = hover >= 0 && hover !== k ? 0.4 : 1;
+      ctx.fillStyle = rampAt(th, sliceT(k, N)(th));
+      ctx.fillRect(from, 0, x1 - from, h);
     });
+    ctx.globalAlpha = 1;
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -1273,13 +1266,13 @@ export function BreakdownBar({ items, format = formatNumber, legend = true, load
     <div role="group" aria-label={label} className={cn("flex w-full flex-col gap-space-12", className)}>
       <div className="relative h-chart-breakdown w-full">
         <div ref={plotRef} className={cn(PLOT, "inset-0")} onPointerMove={onPointerMove} {...keys}>
-          <CellCanvas w={w} h={h} cell={px.cell} pitch={px.pitch} paint={paint} paintKey={`${JSON.stringify(items)}|${w}`} hover={hover} loading={loading} wallShare={0} />
+          <ChartCanvas w={w} h={h} draw={draw} drawKey={`${JSON.stringify(items)}|${w}|${hover}`} loading={loading} />
           {hover >= 0 && hover < N && w > 0 && (
             <ChartTip
               x={(edges[hover][0] + edges[hover][1]) / 2}
               y={0}
               w={w}
-              rows={[{ key: "v", t: sliceT(hover, N), pattern: slicePattern(hover), value: `${format(items[hover].value)} (${share(items[hover].value)})`, label: items[hover].label }]}
+              rows={[{ key: "v", t: sliceT(hover, N), value: `${format(items[hover].value)} (${share(items[hover].value)})`, label: items[hover].label }]}
             />
           )}
         </div>
@@ -1288,7 +1281,7 @@ export function BreakdownBar({ items, format = formatNumber, legend = true, load
         <div className="flex flex-wrap items-center gap-x-chart-legend-gap gap-y-space-4">
           {items.map((d, k) => (
             <span key={d.label} className="inline-flex items-center gap-chart-legend-key-gap text-label-xs text-text-sub-600">
-              <CellSwatch t={sliceT(k, N)} pattern={slicePattern(k)} />
+              <Swatch t={sliceT(k, N)} />
               {d.label}
               <span className="text-paragraph-xs text-text-muted tabular-nums">{share(d.value)}</span>
             </span>

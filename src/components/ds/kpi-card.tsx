@@ -2,9 +2,8 @@
 
 /**
  * The design system's KPI Card, built from design-system/components/kpi-card.md:
- * one number that matters, how it moved, and a small picture of how it got
- * there in the Neutrino cells (the charts of components/ds/chart.tsx). The
- * card itself never glows; only the picture's cells carry the light.
+ * one number that matters, how it moved, and a small plain picture of how it
+ * got there (the charts of components/ds/chart.tsx).
  *
  *   <KpiCard label="Power draw" value="4.2 MW" change={{ value: 8.4, good: "down" }}
  *     period="vs last month" trend={{ type: "line", data: [...], labels: [...] }} />
@@ -17,7 +16,7 @@
  * period            what the change compares with ("vs last month")
  * trend             line (a sparkline), bars (mini bars, the last period
  *                   strongest), gauge (a 64 ring beside the number), or
- *                   breakdown (a band of cells with its legend)
+ *                   breakdown (a band cut into its parts, with its legend)
  * loading           a grey bar for the value, the picture's wall wiping
  * Sizes are the tokens in styles/sizes/kpi-card.css.
  */

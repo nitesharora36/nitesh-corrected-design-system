@@ -8,11 +8,12 @@ Nitesh's design system in Merlin's colours: every component, token and rule, the
 2. **Spacing, sizing and padding come from the components.** Each component's heights, paddings, gaps, corners and icon sizes are tokens in `src/styles/sizes/<file>.css` (the button's are in `src/styles/size-tokens.css`). Take them from there; never guess a number.
 3. **Never type a value by hand.** Colours only through colour tokens, sizes only through size tokens, words only through type styles. No hex, no rgb(), no Tailwind palette class (`bg-blue-500`), no `text-[13px]`, no `p-[7px]`.
 4. **Merlin is square.** Every corner is 0: buttons (the Full Radius variants too), fields, badges, tags, cards, menus, modals, drawers, tables, tracks, bars and scroll thumbs. Round stays round only where the shape is the part: radio, switch, avatars and the picture slots that hold them (people, companies, flags), dots, slider and colour-picker knobs, donut and gauge charts. Never add a rounded corner.
-5. **The look is exact.** Whatever you build looks exactly like this design system's component: its sizes, padding, gaps, square corners, edges, shadows, type, colours and every state. Behaviour may come from elsewhere (a project's own component, Radix, a library); the look may not.
-6. **Light and dark.** Everything works in both: `data-theme="paper"` is light, `data-theme="ink"` is dark (next-themes, on `<html>`).
-7. **Type.** Inter for words, DM Mono (`font-data`) for machine data in capitals. Weights 400 and 500 only, never 600 or 700.
-8. **Icons.** Hugeicons, Stroke Rounded, only through `src/components/ui/icons.tsx`.
-9. **No em dashes or en dashes** in any words a person reads.
+5. **Charts are plain.** Solid bars, lines, rings and squares in the chart's colours, square corners, light value lines, square keys. No Neutrino cells (the dotted effect), no patterns, nothing moving on its own. Use `chart.tsx`; never draw a chart of your own.
+6. **The look is exact.** Whatever you build looks exactly like this design system's component: its sizes, padding, gaps, square corners, edges, shadows, type, colours and every state. Behaviour may come from elsewhere (a project's own component, Radix, a library); the look may not.
+7. **Light and dark.** Everything works in both: `data-theme="paper"` is light, `data-theme="ink"` is dark (next-themes, on `<html>`).
+8. **Type.** Inter for words, DM Mono (`font-data`) for machine data in capitals. Weights 400 and 500 only, never 600 or 700.
+9. **Icons.** Hugeicons, Stroke Rounded, only through `src/components/ui/icons.tsx`.
+10. **No em dashes or en dashes** in any words a person reads.
 
 ## Before you build anything
 
@@ -67,9 +68,9 @@ Each file in `src/components/ds/` and what it exports.
 | | `accordion.tsx` | `Accordion`, `AccordionItem` |
 | | `scroll.tsx` | `ScrollArea` |
 | Data | `table.tsx` | `Table`, `TableHeader`, `TableHeaderCell`, `TableBody`, `TableRow`, `TableCell`, `TableTextCell`, `TableNumberCell`, `TableFooter`, `TableBulkBar`, `useTablePicks` |
-| | `chart.tsx` | `ChartCard`, `BarChart`, `LineChart`, `DonutChart`, `Gauge`, `Heatmap`, `BreakdownBar`, `ChartLegend` |
+| | `chart.tsx` | `ChartCard`, `BarChart`, `LineChart`, `DonutChart`, `Gauge`, `Heatmap`, `BreakdownBar`, `ChartLegend`, `Swatch`: all plain (rule 5) |
 | | `kpi-card.tsx` | `KpiCard` |
-| | `neutrino-cells.tsx` | The dotted cells every chart draws with (`CellCanvas`, `CellsStill`) |
+| | `neutrino-cells.tsx` | The charts' colours from the light's ramp (`useCellTheme`, `rampAt`, `penAt`). Its dotted cells (`CellCanvas`) are not used by any chart: never draw a chart with them |
 
 ## Foundations
 

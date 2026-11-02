@@ -119,10 +119,9 @@ export function ChartSection() {
   return (
     <div className="flex flex-col gap-space-40">
       <p className="m-0 max-w-3xl text-paragraph-sm text-text-sub-600">
-        Every chart sits on the detector wall: grey cells wait, the data&apos;s cells are caught in the light&apos;s blue. Move over a chart and
-        the wall warms under the pointer; click it and a pulse runs through the cells; the arrow keys move between the data. Charts ignite as they
-        scroll into view, and the line&apos;s one square runs every 8 seconds. A chart can also wear green, red or amber: one hue for the chart, or one
-        per series.
+        Merlin&apos;s charts are plain: solid bars, lines, rings and squares in the brand&apos;s colour, square corners, light value lines.
+        Move over a chart or use the arrow keys to move between the data. A chart can also wear green, red or amber: one hue for the chart, or
+        one per series.
       </p>
 
       <Group label="Cube form, three series, a hue each (after the Figma's BarLineChart)">
@@ -173,7 +172,7 @@ export function ChartSection() {
         </div>
       </Group>
 
-      <Group label="Columns, one series: try it (hover, click the wall, arrow keys)">
+      <Group label="Columns, one series: try it (hover, arrow keys)">
         <ChartCard title="Power draw" subtitle="MW per month, Hyderabad DC2">
           <BarChart data={POWER} xKey="month" series={[{ key: "mw", label: "Power" }]} format={mw} aria-label="Power draw by month" />
         </ChartCard>
@@ -193,7 +192,7 @@ export function ChartSection() {
       </div>
 
       <div className="grid grid-cols-1 gap-space-16 lg:grid-cols-2">
-        <Group label="Line, one series: sharp, with the field at its foot (the runner crosses every 8 s)">
+        <Group label="Line, one series, with a light fill at its foot">
           <ChartCard title="Agent runs per day" subtitle="Last 14 days">
             <LineChart data={RUNS} xKey="day" series={[{ key: "runs", label: "Runs" }]} aria-label="Agent runs per day, last 14 days" />
           </ChartCard>
@@ -229,7 +228,7 @@ export function ChartSection() {
         </div>
       </Group>
 
-      <Group label="Heatmap: one larger cell per value, the light's sequential range">
+      <Group label="Heatmap: one solid square per value, the light's sequential range">
         <ChartCard title="Alerts by hour" subtitle="Last week, every site">
           <Heatmap rows={DAYS} cols={HOURS} values={ALERTS} colEvery={3} aria-label="Alerts by hour and day, last week" />
         </ChartCard>
@@ -241,9 +240,9 @@ export function ChartSection() {
         </ChartCard>
       </Group>
 
-      <Group label="States: loading, refreshing (the chart held, dimmed, with the wipe), empty">
+      <Group label="States: loading, refreshing (the chart held and dimmed), empty">
         <div className="grid grid-cols-1 gap-space-16 lg:grid-cols-3">
-          <ChartCard title="Loading" subtitle="No data yet: the wall and its wipe">
+          <ChartCard title="Loading" subtitle="No data yet: an empty plot">
             <BarChart data={[]} xKey="month" series={[{ key: "mw", label: "Power" }]} loading aria-label="Power draw, loading" />
           </ChartCard>
           <ChartCard

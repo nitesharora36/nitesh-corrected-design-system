@@ -2,6 +2,8 @@
 
 # Charts
 
+> **Merlin's charts are plain** (Nitesh, 3 Nov 2026): solid bars, lines, rings and squares in the chart's colours, square corners, light value lines, square keys. No Neutrino cells, no patterns, nothing moving on its own. Where this page describes cells, the wall, the runner or the arrival, the code no longer does it; the sizes, colours, data and keyboard below still hold.
+
 | | |
 |---|---|
 | Figma | None: designed in code (see the spec below) |

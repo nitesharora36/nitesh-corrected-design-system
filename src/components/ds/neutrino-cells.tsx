@@ -97,6 +97,8 @@ export type CellTheme = {
   seq: [number, number];
   /** The card's colour, for the ring around a marker. */
   surface: string;
+  /** The value lines and empty squares of a plain chart (stroke/soft-200). */
+  grid: string;
 };
 
 export function readCellTheme(el: Element): CellTheme | null {
@@ -138,6 +140,7 @@ export function readCellTheme(el: Element): CellTheme | null {
     series: series.length ? series : [1, 0.5, 0.75],
     seq: seq.length === 2 ? [seq[0], seq[1]] : [0.4, 1],
     surface: cs.getPropertyValue("--bg-white-0").trim() || "transparent",
+    grid: cs.getPropertyValue("--stroke-soft-200").trim() || "rgba(0, 0, 0, 0.08)",
   };
 }
 
